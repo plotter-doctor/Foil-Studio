@@ -7,6 +7,7 @@ Initial Android release — publication pending.
 - Review mat, material, pressure, speed, and tool passes before cutting.
 - Connect to compatible plotters using Bluetooth Classic SPP, USB CDC serial, or TCP.
 - Follow guided mat-alignment and tool-change prompts.
+- Practice the workflow using a clearly labeled, hardware-free demo mode (forthcoming demo-enabled build).
 
 A compatible plotter is required for physical cutting. Supported commands depend on the controller firmware. TCP is intended for trusted local networks only.
 

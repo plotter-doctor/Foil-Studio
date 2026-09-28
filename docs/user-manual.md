@@ -14,6 +14,8 @@ Keep hands clear of moving parts. Verify blade exposure, material attachment, an
 
 ## 2. Your first project
 
+**Try without hardware:** in the forthcoming demo-enabled build, open **Prepare → Connection setup → Start demo mode**. The DEMO banner stays visible while the virtual plotter is active. You can practice load/unload, job progress, pause/resume, and tool changes without connecting or moving a machine. Demo does not validate physical settings or cut quality. Stop or finish the demo job, then choose **Exit demo mode** before connecting real hardware. No demo position or alignment confirmation transfers to the real connection.
+
 1. In **Design**, use **Add** to create a shape, text, clipart, or freehand drawing.
 2. Position the artwork inside the cutting mat. Start with a small, simple test design.
 3. Save the project from **Project** to a location you can find again.

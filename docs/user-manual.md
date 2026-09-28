@@ -133,4 +133,6 @@ Local recovery is not a substitute for exported backups. Clearing application da
 
 ## 8. Help
 
+For support or privacy questions, email [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com). Do not send passwords or payment-card details.
+
 Report reproducible problems in [GitHub Issues](https://github.com/plotter-doctor/Foil-Studio/issues). Include app version, phone/Android version, controller and firmware, connection type, steps to reproduce, and the exact error. Do not post personal projects, passwords, purchase details, private network addresses, or other sensitive information publicly. Use a small non-sensitive sample where possible.

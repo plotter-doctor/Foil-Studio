@@ -8,6 +8,7 @@ Foil Studio brings artwork editing, material and tool settings, and plotter cont
 - [Screenshots](screenshots/README.md)
 - [Privacy policy — draft pending publisher confirmation](PRIVACY.md)
 - [Report an issue](https://github.com/plotter-doctor/Foil-Studio/issues)
+- [Support and privacy contact](mailto:pratanczuk@gmail.com)
 
 ![Foil Studio design workspace](screenshots/01-design.png)
 

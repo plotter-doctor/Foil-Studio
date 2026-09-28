@@ -1,6 +1,6 @@
 # Foil Studio privacy policy — DRAFT
 
-Prepared 28 September 2026. **Not yet the effective release policy.** Publisher identity, a private privacy-contact channel, support retention terms, and the final distributed application must be confirmed before this policy is submitted to Google Play.
+Prepared 28 September 2026. **Not yet the effective release policy.** Publisher identity, support retention terms, and the final distributed application must be confirmed before this policy is submitted to Google Play.
 
 ## Scope
 
@@ -30,7 +30,9 @@ Local settings and recovery/project data remain until replaced or deleted, or un
 
 ## Support and contact
 
-Public technical questions may be submitted through [the repository's issue tracker](https://github.com/plotter-doctor/Foil-Studio/issues). GitHub issues are public; do not include personal or sensitive information. A private privacy-contact address and the publisher's handling/retention of support correspondence must be added before this draft becomes effective.
+For support or privacy questions, contact [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com). Use this email rather than a public issue for privacy requests. Do not send passwords or payment-card details.
+
+Public technical questions may also be submitted through [the repository's issue tracker](https://github.com/plotter-doctor/Foil-Studio/issues). GitHub issues are public; do not include personal or sensitive information. The publisher's handling and retention of support correspondence must be confirmed before this draft becomes effective.
 
 ## Changes
 

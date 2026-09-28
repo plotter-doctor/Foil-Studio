@@ -1,12 +1,12 @@
-# Foil Studio privacy policy — DRAFT
+# Foil Studio privacy policy
 
-Prepared 28 September 2026. **Not yet the effective release policy.** The final distributed application must be checked against this policy before it is submitted to Google Play.
+Effective 28 September 2026. Applies to the Android 0.1.0 release.
 
 Publisher: **PAWEŁ RATAŃCZUK INTEGRATEIT**. Support and privacy contact: [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com).
 
 ## Scope
 
-This draft describes the Android Foil Studio application, package `com.foilstudio.independent.foil_mobile`. It does not describe GitHub, Google Play, a document-provider service, or the connected plotter's own independent practices.
+This policy describes the Android Foil Studio application, package `com.foilstudio.independent.foil_mobile`. It does not describe GitHub, Google Play, a document-provider service, or the connected plotter's own independent practices.
 
 ## Artwork and local settings
 
@@ -16,7 +16,9 @@ Opening or saving a document uses the Android document picker. The app receives 
 
 ## Plotter connections
 
-The app accesses device names/identifiers and connection endpoints as needed to list, select, and communicate with supported Bluetooth or USB devices and TCP controllers. It sends toolpaths and machine-control commands to the controller you choose and receives status and error responses. These operations are not transfers to an application-operated analytics service.
+The app accesses device names/identifiers and connection endpoints as needed to list, select, and communicate with supported Bluetooth or USB devices and TCP controllers. When you start a job or issue a machine command, it sends toolpaths derived from your artwork and machine-control commands to the controller you choose and receives status and error responses. Your chosen controller may process or retain these commands according to its firmware. These operations are not transfers to an application-operated analytics service.
+
+Demo mode uses only an in-memory virtual plotter; it does not connect to a device or transmit job commands over a network.
 
 Bluetooth access may require Android's Nearby devices permission. USB access requires permission for the selected device. Network permission enables TCP connections. Permission can be managed in Android settings, though disabling it may prevent the corresponding feature from working.
 
@@ -40,6 +42,4 @@ Public technical questions may also be submitted through [the repository's issue
 
 ## Changes
 
-An effective release policy will carry an effective date. Material changes in app data handling must be reflected here and in the app's disclosures.
-
-Publisher review must verify this draft against the final release bundle and Play services applied to it. The Google Play Data safety form remains a separate declaration; this draft is not a completed declaration or a legal compliance certification. See [Google Play's User Data policy](https://support.google.com/googleplay/android-developer/answer/10144311?hl=en).
+Updates to this policy will appear at this address with a revised effective date. Material changes in app data handling will also be reflected in the app's disclosures.

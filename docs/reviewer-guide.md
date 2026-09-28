@@ -16,7 +16,7 @@ The Android app does not require an app account or login credentials. A Google P
 
 Demo mode demonstrates the workflow, not physical cutting, cut quality, machine accuracy, timing, firmware compatibility, or arbitrary G-code correctness. It does not mark presets physically validated. Bluetooth/USB hardware permissions and real connections remain hardware-dependent. Demo is not automatically enabled on launch and is disconnected when the Android app is hidden.
 
-These instructions apply to the forthcoming demo-enabled build; publication remains pending.
+These instructions apply to Android 0.1.0, version code 3, prepared for Google Play review. Publication remains pending.
 
 ## Hardware-dependent functionality
 

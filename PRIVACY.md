@@ -1,6 +1,8 @@
 # Foil Studio privacy policy — DRAFT
 
-Prepared 28 September 2026. **Not yet the effective release policy.** Publisher identity, support retention terms, and the final distributed application must be confirmed before this policy is submitted to Google Play.
+Prepared 28 September 2026. **Not yet the effective release policy.** Support retention terms and the final distributed application must be confirmed before this policy is submitted to Google Play.
+
+Publisher: **PAWEŁ RATAŃCZUK INTEGRATEIT**. Support and privacy contact: [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com).
 
 ## Scope
 

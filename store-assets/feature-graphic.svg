@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+  <title>Foil Studio — From idea to cut</title>
+  <desc>Teal Foil Studio graphic with a leaf-shaped vector cutting path and the workflow Design, Prepare, Cut.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#103B38"/><stop offset="1" stop-color="#246A60"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#70DBC4"/><stop offset="1" stop-color="#C2F4C3"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#C4F4E0" stroke-opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="1024" height="500" fill="url(#bg)"/>
+  <path d="M560 0H1024V500H560Z" fill="url(#grid)"/>
+  <circle cx="815" cy="248" r="194" fill="none" stroke="#91DBBE" stroke-opacity=".1"/>
+  <circle cx="815" cy="248" r="152" fill="none" stroke="#91DBBE" stroke-opacity=".14"/>
+  <g font-family="DejaVu Sans,sans-serif">
+    <text x="76" y="150" fill="#E6F8ED" font-size="25" letter-spacing="1.2">Foil Studio</text>
+    <text x="72" y="223" fill="#FFFFFF" font-size="48" font-weight="bold">From idea</text>
+    <text x="72" y="282" fill="#B8EFCD" font-size="48" font-weight="bold">to cut.</text>
+    <text x="76" y="353" fill="#D0E9DF" font-size="20">Design</text>
+    <path d="M161 346H192M185 340L192 346L185 352" fill="none" stroke="#8BC4B0" stroke-width="1.8"/>
+    <text x="209" y="353" fill="#D0E9DF" font-size="20">Prepare</text>
+    <path d="M304 346H335M328 340L335 346L328 352" fill="none" stroke="#8BC4B0" stroke-width="1.8"/>
+    <text x="352" y="353" fill="#D0E9DF" font-size="20">Cut</text>
+  </g>
+  <path d="M678 341C623 210 718 137 888 135C884 273 823 367 678 341Z" fill="url(#leaf)"/>
+  <path d="M660 373C733 287 797 232 862 160" fill="none" stroke="#1F6256" stroke-width="5" stroke-linecap="round"/>
+  <path d="M727 297L708 226M775 250L834 255" fill="none" stroke="#1F6256" stroke-width="4" stroke-linecap="round"/>
+  <path d="M665 350C600 207 714 120 903 120C902 283 831 385 665 350Z" fill="none" stroke="#D5F5D6" stroke-width="1.5" stroke-dasharray="7 6"/>
+  <g fill="#173F38" stroke="#D5F5D6" stroke-width="2">
+    <rect x="659" y="344" width="12" height="12"/>
+    <rect x="897" y="114" width="12" height="12"/>
+  </g>
+</svg>

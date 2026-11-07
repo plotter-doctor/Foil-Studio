@@ -1,10 +1,25 @@
-# Downloadable user manual
+# Foil Studio manuals
 
-English manual for current development, reviewed 7 November 2026. The Cut job selector is unreleased; check your installed app version against the [version guide](../release-notes.md).
+Reviewed 7 November 2026 for **0.1.127 (148)**, a release candidate prepared for Google Play; submission and availability are pending. Google Play production currently uses 0.1.116 (137). Check your installed version against the [version guide](../release-notes.md).
 
-- [PDF manual](FoilStudio-User-Manual.pdf)
-- [Editable Word manual](FoilStudio-User-Manual.docx)
-- [Web manual](../user-manual.md)
-- [Quick start in English Polish German and Spanish](../quick-start.md)
+## Complete manuals in four languages
 
-Both downloads are generated from the web manual. Every page is rendered and visually inspected before publication. The historical 0.1.63 downloads retain their original version context.
+| Language | PDF | Word | Markdown text |
+| --- | --- | --- | --- |
+| English | [PDF](FoilStudio-Manual-en.pdf) | [Word](FoilStudio-Manual-en.docx) | [Text](FoilStudio-Manual-en.md) |
+| Polski | [PDF](FoilStudio-Manual-pl.pdf) | [Word](FoilStudio-Manual-pl.docx) | [Tekst](FoilStudio-Manual-pl.md) |
+| Deutsch | [PDF](FoilStudio-Manual-de.pdf) | [Word](FoilStudio-Manual-de.docx) | [Text](FoilStudio-Manual-de.md) |
+| Español | [PDF](FoilStudio-Manual-es.pdf) | [Word](FoilStudio-Manual-es.docx) | [Texto](FoilStudio-Manual-es.md) |
+
+[Download all four languages as ZIP](FoilStudio-Manual-All-Languages.zip).
+
+These complete manuals cover the current shared help and examples. Their language editions are maintained together. They explain layer-only material assignment, production-job review, active-project recovery, calibration and model-specific workflows.
+
+## Concise English workflow guide
+
+- [Web guide](../user-manual.md)
+- [PDF guide](FoilStudio-User-Manual.pdf)
+- [Editable Word guide](FoilStudio-User-Manual.docx)
+- [Four-language quick start](../quick-start.md)
+
+The concise downloads are generated from the web guide. Downloaded pages are rendered and visually checked before publication. Historical downloads retain their original version context.

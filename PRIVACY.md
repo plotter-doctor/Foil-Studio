@@ -1,6 +1,6 @@
 # Foil Studio privacy policy
 
-Effective 28 September 2026. Reviewed 7 November 2026 for the Android application and its Free, Basic and Pro access model. The established publisher/contact and support-retention terms below are unchanged.
+Effective 28 September 2026. Reviewed 7 November 2026 for Android version 0.1.127 and its Free, Basic and Pro access model. Release status is recorded in the [version guide](docs/release-notes.md). The established publisher/contact and support-retention terms below are unchanged.
 
 Publisher: **PAWEŁ RATAŃCZUK INTEGRATEIT**. Support and privacy contact: [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com).
 
@@ -10,9 +10,9 @@ This policy describes the Android Foil Studio application, package `com.foilstud
 
 ## Artwork and local settings
 
-Foil Studio processes artwork, project files, imported images, material/tool/mat presets, and connection settings to provide design and plotter-control features. Projects, recovery data, and settings may be stored in the application's private local workspace. The inspected application does not include an app account, advertising SDK, analytics SDK, or an application-operated cloud upload service.
+Foil Studio processes artwork, project files, imported images, material/tool/mat presets, and connection settings to provide design and plotter-control features. Projects, the active-project checkpoint, recovery data and settings may be stored in the application's private local workspace. The active checkpoint supports returning from the background and restoring the current artwork after app restart; it is not an application-operated cloud backup. The inspected application does not include an app account, advertising SDK, analytics SDK, or an application-operated cloud upload service.
 
-Opening or saving a document uses the Android document picker. The app receives access to the document you select. If you choose a cloud-backed document provider, that provider may transfer and store the document according to its own policies and your settings. Camera import invokes an installed camera application and receives an image for your chosen design task.
+Named projects and reusable artwork can remain in the app's private local library. Importing from phone storage or exporting a document can use the Android document picker. The app receives access to the document you select. If you choose a cloud-backed document provider, that provider may transfer and store the document according to its own policies and your settings. Camera import invokes an installed camera application and receives an image for your chosen design task.
 
 ## Plotter connections
 
@@ -35,6 +35,8 @@ Local settings and recovery/project data remain until replaced or deleted, or un
 ## Support and contact
 
 For support or privacy questions, contact [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com). Use this email rather than a public issue for privacy requests. Do not send passwords or payment-card details.
+
+Optional support reports are prepared locally for review before you choose an email application and send them.
 
 Support email correspondence is used to respond to your request and is deleted within 12 months after the request is resolved, unless longer retention is legally required. This includes the email address, message contents, and any attachments you choose to send. To request earlier deletion, contact the privacy address above.
 

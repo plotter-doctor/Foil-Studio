@@ -1,27 +1,33 @@
-# Development changes 7 November 2026
+# Changes prepared for 0.1.127 — 7 November 2026
 
-These are current development changes after private phone candidate 0.1.123 (144). This page does not announce Google Play availability. The [manual](user-manual.md) and [four-language quick start](quick-start.md) describe the new workflow.
+**0.1.127 (148) is a release candidate prepared for Google Play; submission and availability are pending.** The cumulative changes below follow production 0.1.116 (137). See the [four-language release record](releases/0.1.127.md), [workflow guide](user-manual.md), [manual downloads](manual/README.md) and [quick start](quick-start.md).
 
-## Layers and production
+## Layer stock and active projects
 
-Layers, Object manager and Object properties share Material assignment using the existing Materials library. Production jobs remain explicit, so equal stock or colour does not merge separate sheets. Prepare jobs uses compact rows with Details and keeps order, placement, copies, assembly marks, weeding and HTV controls.
+Material is assigned only in Layers → Edit layer. Objects inherit their layer's stock and take the destination layer's material when moved. Materials remain stock presets; tools, pressure, speed and passes stay with object/tool settings. New projects initialise Default with the current material. Existing missing or explicitly cleared assignments are not guessed.
 
-Cut now chooses the production job and requires installed-material confirmation. Prepare previews no longer activate a job. Changing a job invalidates the previous review and alignment confirmation. Actual passes appear under Operations and settings; the removed Tool passes dropdown only changed displayed text.
+Review now warns when included cutting artwork lacks material. Prepare stays open and the warning offers Layers; assignment requires another explicit Review. Direct Cut applies the check to the intended job, so an unrelated unassigned job does not block valid selected work.
 
-New editable multicolour imports and Add job take the current material. Existing explicit materials, No material choices, job IDs, unknown saved fields and project data keep their meaning. Assignment labels have visible spacing and long names wrap inside dropdowns.
+A separate local active-project checkpoint retains the current artwork and its library identity after background return or app restart. Background flush covers changes before the normal save delay. An intentional New retains a blank active document. Restart restores artwork rather than prepared plans or physical stock/mat confirmations. Older versions had no last-active pointer: open the intended saved project once after upgrading. Exported backups remain important.
 
-## Imports
+## Prepare, Cut and wide-screen editing
 
-Supported solid colours, named layers, holes and original contours are retained for editable vector inputs. Rendered images remain printable and can be contrast-traced. PSD offers supported separate aligned pixel layers. Separate colors has been removed from raster and rendered-drawing import. Saved coloured contours remain editable.
+Prepare uses compact material, mat and plotter cards. Production preview opens layout and Prepare jobs directly. The short job list and assembly-mark settings are visible first; Details contains longer settings.
 
-## Knife precision and GUI corrections
+Cut keeps a smaller Job selector, material name and large preview. Choosing a job immediately filters its artwork and assembly marks. Review job separately asks for installed-stock and applicable HTV confirmation. Tool/pass edits stay in Object properties; repeated blade and Operations and settings panels are removed. Unique machine options remain under Advanced settings where supported.
 
-Valid near-axis knife paths no longer fail merely because a tiny swivel rounds to the same command coordinate. Invalid numeric geometry is rejected with a normal validation message. Raw plotter output also handles repeated coordinates within a contour without merging separate contours or tool stages. Small settings can still round to identical moves at the machine's coordinate resolution; use the calibration workflow for the fitted blade and stock.
+Wide Design views use a layer/object tree with properties, Add layer, explicit moves and drag/drop. GUI corrections cover floating labels, long dropdown values, expanded sections, small windows and keyboard focus in English, Polish, German and Spanish.
 
-The UI review corrected floating-label collisions, long dropdown values, short-window clipart and tool editors, expanded-section insets and Craft field focus. The complete Cut screen now scrolls within its actual available space, with its start control included in scrolling when needed. Stored object tools are distinguishable from edited same-name library tools, and help explains how to assign the updated record.
+## Imports and knife calibration
+
+Supported solid colours, source layers, holes and original contours are retained for editable SVG/DXF and eligible PDF/EPS/AI/CDR inputs. Unsupported appearance uses the reported print-rendering fallback rather than partial invented paths. PSD supports eligible aligned pixel layers. Printable insertion and contrast tracing remain available; Separate colors is removed.
+
+New knife compensation handles shallow turns instead of skipping their pivot. New calibration sheets provide separate orientation strokes before each contour and pass; saved earlier sheets retain their geometry until regenerated. Calibration uses actual selected/uniform stock and offers a cancellable material choice for mixed or unassigned sources. The choice does not rewrite source layers, the current default or library records.
+
+Device grids, starting blade orientation and actual mechanics still limit results. Use meaningful offset/overcut steps and the smallest effective overcut, testing on the fitted blade and stock. The Smart manual Tool up correction uses a brief left-and-return movement; clear the working area before machine control. Manual pressure remains separate from object process settings.
 
 ## Documentation and validation
 
-Current manuals, reviewer guidance, version notes, privacy version wording and screenshot/store captions have been reviewed. Historical releases remain archived. The release instructions require a complete documentation review for every Google Play release.
+The current documentation inventory covers README, privacy, the English workflow guide, four-language complete manuals and quick start, reviewer/setup guidance, versioned release notes and screenshot/store captions. Historical releases and images retain their version context.
 
-The UI, external simulator, knife geometry and diverse-input audit is described in the [validation summary](validation-2026-11-07.md). It includes 599 streamed simulated jobs, independent geometric checks, real-theme multilingual window reviews and original/native import fixtures. These results do not qualify physical cutting quality or every device/firmware combination.
+The [validation report](validation-2026-11-07.md) distinguishes final application tests, rendered layout checks, actual-phone restoration checks and external simulator results. Passing protocol tests is not physical-machine certification or a uniform cut-accuracy promise.

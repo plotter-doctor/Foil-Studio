@@ -1,21 +1,21 @@
 # Foil Studio user manual
 
-English · Updated 7 November 2026 · Current development workflow
+English · Updated 7 November 2026 · Version 0.1.127 (148)
 
 [Home](../README.md) · [Release notes](release-notes.md) · [Four-language quick start](quick-start.md) · [Download PDF](manual/FoilStudio-User-Manual.pdf) · [Download Word](manual/FoilStudio-User-Manual.docx)
 
 ## Versions covered
 
-This manual describes the current development app, including changes after the private phone candidate 0.1.123 (144). The new Cut job selector and removal of Separate colors are unreleased. Your Google Play installation may show an earlier workflow. Check the version in the app and use the matching release notes. The latest version-specific public note in this repository is 0.1.116; that is not a statement about the version currently delivered by Google Play.
+This manual covers 0.1.127 (148). Check the [version guide](release-notes.md) for Google Play submission, approval and rollout status, and check the version installed on your device. Earlier versioned release records retain their original context.
 
 ## First project
 
-1. In Design, create a small rectangle or open an example from Help and examples.
-2. Position the artwork on the mat and save a copy of the project.
-3. In Prepare, select your material, mat and exact plotter model. Review the tool and its process settings.
+1. In Design, choose Project → New and draw a small rectangle, or open an example from Help and examples. A new project's Default layer starts with the current material; Vinyl is the initial default.
+2. Open Edit → Layers → Edit layer to check or change that layer's material. Objects inherit their layer's stock. Position the artwork on the mat and keep an exported backup of important work.
+3. In Prepare, check Material, Cutting mat and the exact plotter model. Expand a card for its options. Production preview opens layout and Prepare jobs directly.
 4. Open Connection setup. Use demo mode to practise without hardware, or explicitly connect your compatible plotter.
-5. Choose Review job to continue to Cut. For a project with production jobs, select the job and confirm that its material is installed.
-6. Inspect the preview and Operations and settings. Check the physical mat alignment before confirming it.
+5. Choose Review job. Included cutting artwork needs an assigned layer material; otherwise a warning offers Layers and keeps you in Prepare. For a project with production jobs, choose the intended Job in Cut and review it after confirming its installed stock.
+6. Inspect the large job preview. Edit tools and pass counts in Object properties or Tool library. Check the physical mat alignment before confirming it.
 7. Start the job and follow the tool-installation prompts. Supervise the machine until completion.
 
 Use a small test piece when choosing pressure, speed, blade depth or pass count. Pressure units and supported settings depend on the plotter. A material record describes stock and thickness. Choose the tool/process settings explicitly and test them on your actual stock.
@@ -36,19 +36,21 @@ Box and Craft wizards create editable projects with fold/cut operations. Preserv
 
 ## Layers materials and production jobs
 
-Layers organizes artwork and provides Material assignment. A design layer is an editing group. A material is a stock preset from the existing Materials library. A production job is the set of objects produced on one sheet or material placement.
+Layers organize artwork and hold material assignments. Open Edit → Layers → Edit layer → Material. A material is a stock preset from the Materials library; a layer is an artwork group. Objects inherit the material of their layer, and moving an object to another layer gives it the destination layer's material. To use different stock for part of a design, place those objects on a separate layer. Object properties retains tools and process settings, rather than a second material override.
 
-These choices can differ: a job can contain objects from several design layers, and separate jobs can use the same material. Jobs do not merge just because their colours or material names match. Tool stages within one job keep mixed-tool sheets together.
+New projects put the current material on Default. New layers and editable imports use the current material where a new layer is needed. An explicitly cleared material remains unassigned; opening an existing project does not guess its stock. If an older project's layers show No material, assign them through Edit layer before reviewing cutting artwork.
 
-Use Material assignment from Layers, Object manager or Object properties. Keep current assignments when you want to leave the existing setup alone. Select an existing production job to join it, or create a Separate job. Mixed selections show their mixed assignments instead of guessing one value.
+A production job describes the artwork prepared on one sheet or material placement. It can include more than one design layer and more than one tool. Separate jobs do not merge just because their colours or materials match. Review layer stock and job membership together when preparing a multilayer sticker.
 
-New production jobs created by editable multicolour imports or Add job start with the current material. Set a different stock for each job when needed. Existing saved No material choices and explicit material snapshots remain unchanged. Choosing stock does not overwrite independently configured object tool/process settings.
+Material records contain stock identity, thickness and notes. Assigning a material does not replace an object's independently selected tool, pressure, speed or pass count. Stored material snapshots remain distinguishable from edited same-name library records.
 
-Layer inclusion and visibility affect production eligibility. Excluded or hidden artwork does not become a cut simply because it has a job assignment. Review the effective job again after editing membership, tools, geometry or settings.
+Layer inclusion and visibility affect production eligibility. Excluded or print-only artwork does not become a cut merely because it belongs to a job. Review again after changing membership, tools, geometry or settings.
+
+On a tablet or wide screen, the Design inspector shows a layer/object tree. Expand a layer to find its objects. Layer and object menus open their properties; Add layer creates a group, and Move to layer changes membership. Hold an object name and drag it onto the destination layer, or use the explicit move action. Undo and Redo retain the normal editing workflow.
 
 ## Prepare jobs and assembly marks
 
-Open Prepare jobs to edit the short job list, object assignments, material choices, order and placement. Each row has Details for the longer settings. Use Preview jobs to inspect the result, then Save jobs to retain the configuration. A preview does not confirm installed material or start a machine.
+Open Production preview → Prepare jobs to inspect the short job list and assembly-mark settings. Each row has Details for the longer settings, assignments, order and placement. Set the artwork stock in Edit layer. Use Preview jobs to inspect the result, then Save jobs to retain the configuration. A preview does not confirm installed material or start a machine.
 
 Assembly marks are auxiliary cut squares repeated on the material jobs. Use them to align separately cut pieces during assembly. They are distinct from optical or manual Print & Cut registration marks. Leave sufficient sheet clearance for artwork and marks; an outside-sheet warning must be resolved before production.
 
@@ -58,11 +60,13 @@ For heat-transfer vinyl, enable HTV and explicitly confirm the mirrored orientat
 
 ## Choose and run a job in Cut
 
-For a project with production jobs, Cut shows a Production job selector. Choose the intended job, install its material and press Material installed · Review job. HTV also requires the orientation checkbox. The selection prepares and reviews that job's geometry and settings; it does not start tool motion.
+For a project with production jobs, Cut keeps the Job selector, the material name and a large preview visible. Choosing a job immediately filters the preview to its artwork and assembly marks. This preview choice does not confirm that its stock is installed and does not start motion.
 
-Changing jobs clears the previous review and mat-alignment acknowledgement. Opening or editing a project requires fresh preparation. Saving settings or opening a preview does not authorize an old job to run. If an assignment or placement is invalid, use Prepare jobs from Cut, correct it and review again.
+Load the intended stock and choose Review job. Check the material confirmation in the dialog; HTV also requires the orientation confirmation. The app then prepares the selected job. If cutting artwork lacks a layer material, assign it through Layers first; selecting a job alone cannot bypass this check. Another unassigned job does not block a valid selected cutting job.
 
-Operations and settings shows the job's tools and pass counts. Change pass counts in Object properties. Materials hold stock identity, thickness and notes; choose tool/process settings explicitly for the actual machine and stock. The former Tool passes dropdown was a display-only choice and has been removed. It did not select execution scope.
+Changing jobs clears the previous review and mat-alignment acknowledgement. Editing or reopening a project requires fresh preparation. If an assignment or placement is invalid, open Prepare jobs, correct it and review again. Saving job settings or opening a preview does not authorize an old job to run.
+
+Change tools, pressure, speed and pass counts in Object properties or Tool library. The main Cut view does not repeat blade settings or an Operations and settings summary. Device-specific options remain under Advanced settings where supported. The former Tool passes dropdown has been removed; it did not select execution scope.
 
 A physical start requires the supported connection, current review and machine-specific checks. Fit and secure the requested tool before confirming its start prompt. Follow later tool-change prompts only after motion has stopped. Keep access to the machine's physical stop control.
 
@@ -74,9 +78,11 @@ Enable Knife compensation in the knife tool's advanced settings to use its offse
 
 Overcut follows the beginning of a closed contour again to finish its closure seam. It is ignored for open paths. Offset and overcut remain stored when compensation is disabled, and apply when it is enabled again. Review the complete compensated motion bounds, including clearance outside the original artwork.
 
-Use Calibrate knife in Tool library to compare offset samples, fix the best offset and then compare overcut. Check the final square, triangle and circle. Keep the fitted blade, force, speed and stock unchanged during a comparison, and use a fresh uncut area for every trial. Choose the smallest overcut that closes the shape cleanly. Software and simulator checks do not measure physical cut quality.
+Use Calibrate knife in Tool library to compare offset samples, fix the best offset and then compare overcut. A selected job or a design with one material supplies its actual stock. For mixed or unassigned stock, choose a material before creating the trial; Cancel leaves the source project unchanged. That choice does not rewrite the source layer or default material. Check the final square, triangle and circle. Keep the fitted blade, force, speed and stock unchanged during a comparison, and use a fresh uncut area for every trial. Choose the smallest overcut that closes the shape cleanly. Software and simulator checks do not measure physical cut quality.
 
-Offsets and overcuts smaller than the selected machine’s coordinate step may produce identical moves. Choose calibration settings at a meaningful scale for that plotter.
+New calibration sheets include separate orientation strokes before each contour and pass. Leave their fresh trial area clear and review the complete sheet before cutting. New compensated production paths account for every nonzero turn, including shallow corners. Previously saved calibration sheets retain their geometry; regenerate a trial to use the current pattern.
+
+Offsets and overcuts smaller than the selected machine’s coordinate step may produce identical moves. Coarse device grids and uncertain starting blade orientation can limit the result. Choose calibration settings at a meaningful scale and test the fitted blade on the actual stock; no uniform physical accuracy is promised.
 
 ## Import artwork
 
@@ -115,7 +121,7 @@ Bluetooth Classic serial, supported USB serial adapters, bidirectional USB print
 
 TCP endpoints must match the actual controller or transparent bridge. Use a trusted local network; TCP controller connections are not authenticated or encrypted. A local hostname may require a working local resolver. Bluetooth discovery on older Android versions can depend on Android location-related permission settings.
 
-Load and unload actions are model/firmware dependent. Some machines require panel operations or explicit completion confirmation. Check the material position and working origin before alignment confirmation. Do not infer motion completion solely from a connection or command acknowledgement.
+Load and unload actions are model/firmware dependent. Some machines require panel operations or explicit completion confirmation. On VEVOR Smart, manual Tool up includes a short left-and-return carriage movement; clear the area before using it. The manual pressure control uses its displayed range, independently of object cutting settings. Check the material position and working origin before alignment confirmation. Do not infer motion completion solely from a connection or command acknowledgement.
 
 ## Practise without a machine
 
@@ -125,7 +131,11 @@ Demo mode and the external development plotter simulator serve different purpose
 
 ## Projects languages and purchases
 
-Save important work explicitly. Android's document picker can use local storage or a document provider you installed. Recovery data helps restore interrupted work but does not replace exported backups. Clearing app data or uninstalling can remove private settings and recovery files.
+The app checkpoints the active project on this device when you edit, open a project or send the app to the background. Returning normally keeps the current design. If Android restarts the app, it restores the saved active artwork and its local-library identity, including changes checkpointed before the ordinary autosave delay. An explicit New establishes a blank active project. Prepared plans, installed-stock confirmations and mat alignment are not restored: review and confirm them again.
+
+Basic and Pro save named projects in the private local library. Free can recover the active design without creating a named library save. Keep exported backups of important work; app-local recovery is not a cloud backup. Import/export can use Android's document picker and any installed document provider. Clearing app data or uninstalling can remove private projects, settings and recovery files.
+
+The earlier app did not record the last-active project. After updating from it, open the desired saved project once to establish the active document. Existing library content remains available. Artwork restoration is separate from canvas pan/zoom and other transient view state. A corrupt session is preserved with a visible warning; starting a new project explicitly replaces that session slot.
 
 Choose English, Polish, German or Spanish from Language, or follow the device language. Shared help and examples follow the interface language. User text, filenames and serialized project identifiers retain their original content.
 
@@ -138,7 +148,8 @@ Earlier paid-download buyers can contact pratanczuk@gmail.com privately with the
 | Problem | Check |
 | --- | --- |
 | Start is disabled | Connection, controller state, selected job, material confirmation, review, entitlement and alignment |
-| Imported job says No material | Existing null choice is preserved; choose stock explicitly in Material assignment or Prepare jobs |
+| Review warns that material is missing | Open Layers → Edit layer → Material for the included cutting artwork; older or explicitly cleared assignments are not guessed |
+| App returned to an empty workspace | In 0.1.127, open the intended saved project once after upgrading; active-project restoration applies to subsequent sessions. Check any recovery warning before starting New |
 | Job or assembly mark is outside the sheet | Mat dimensions, marks, translation, copies and production layout |
 | Editable import is unavailable | Use supported original content or Render for printing; inspect the reported limitation |
 | Bluetooth or USB device is missing | Exact model, supported transport, permissions and cable/adapter |

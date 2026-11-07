@@ -1,6 +1,6 @@
 # Changes prepared for 0.1.127 — 7 November 2026
 
-**0.1.127 (148) is a release candidate prepared for Google Play; submission and availability are pending.** The cumulative changes below follow production 0.1.116 (137). See the [four-language release record](releases/0.1.127.md), [workflow guide](user-manual.md), [manual downloads](manual/README.md) and [quick start](quick-start.md).
+**0.1.127 (148) is in Google Play review; approval and rollout are pending.** The cumulative changes below follow production 0.1.116 (137). See the [four-language release record](releases/0.1.127.md), [workflow guide](user-manual.md), [manual downloads](manual/README.md) and [quick start](quick-start.md).
 
 ## Layer stock and active projects
 

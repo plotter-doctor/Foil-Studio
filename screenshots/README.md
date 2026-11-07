@@ -1,6 +1,6 @@
 # Android screenshot versions
 
-Reviewed 7 November 2026. **0.1.127 (148) is a release candidate prepared for Google Play; submission and availability are pending.** Google Play production currently uses 0.1.116 (137). See the [version guide](../docs/release-notes.md).
+Reviewed 7 November 2026. **0.1.127 (148) is in Google Play review; approval and rollout are pending.** Google Play production currently uses 0.1.116 (137). See the [version guide](../docs/release-notes.md).
 
 ## Current 0.1.127 samples
 

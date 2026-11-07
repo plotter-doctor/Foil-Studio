@@ -1,6 +1,6 @@
 # Foil Studio quick start
 
-Updated 7 November 2026 for **0.1.127 (148)**, a release candidate prepared for Google Play; submission and availability are pending. Google Play production currently uses 0.1.116 (137). See the [version guide](release-notes.md), [English workflow guide](user-manual.md) and [full manuals in four languages](manual/README.md).
+Updated 7 November 2026 for **0.1.127 (148)**, a release submitted to Google Play and currently in review; approval and rollout are pending. Google Play production currently uses 0.1.116 (137). See the [version guide](release-notes.md), [English workflow guide](user-manual.md) and [full manuals in four languages](manual/README.md).
 
 ## English
 

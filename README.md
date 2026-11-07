@@ -15,7 +15,7 @@ Create artwork, prepare material jobs and send them to a compatible plotter in t
 
 ## Versions
 
-Reviewed 7 November 2026. Google Play production currently uses **0.1.116 (137)**, published 6 November. **0.1.127 (148) is a release candidate prepared for Google Play; submission and availability are pending.** The current guides describe 0.1.127. Check the installed app version and [versioned release notes](docs/releases/0.1.127.md) before following a changed workflow.
+Reviewed 7 November 2026. Google Play production currently uses **0.1.116 (137)**, published 6 November. **0.1.127 (148) is in Google Play review; approval and rollout are pending.** The current guides describe 0.1.127. Check the installed app version and [versioned release notes](docs/releases/0.1.127.md) before following a changed workflow.
 
 ## Artwork, materials and jobs
 

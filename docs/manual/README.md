@@ -1,6 +1,6 @@
 # Foil Studio manuals
 
-Reviewed 7 November 2026 for **0.1.127 (148)**, a release candidate prepared for Google Play; submission and availability are pending. Google Play production currently uses 0.1.116 (137). Check your installed version against the [version guide](../release-notes.md).
+Reviewed 7 November 2026 for **0.1.127 (148)**, a release submitted to Google Play and currently in review; approval and rollout are pending. Google Play production currently uses 0.1.116 (137). Check your installed version against the [version guide](../release-notes.md).
 
 ## Complete manuals in four languages
 

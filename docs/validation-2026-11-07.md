@@ -1,6 +1,6 @@
 # Validation for 0.1.127 — 7 November 2026
 
-This page separates final 0.1.127 (148) checks from the earlier cumulative UI/import/command audit. The version is a release candidate prepared for Google Play; submission and availability are pending. Results do not certify physical machines.
+This page separates final 0.1.127 (148) checks from the earlier cumulative UI/import/command audit. The version is in Google Play review; approval and rollout are pending. Results do not certify physical machines.
 
 ## Final application and phone checks
 

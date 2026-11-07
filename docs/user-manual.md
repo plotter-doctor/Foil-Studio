@@ -1,140 +1,149 @@
 # Foil Studio user manual
 
-Android · English · Prepared 28 September 2026 · App 0.1.0
+English · Updated 7 November 2026 · Current development workflow
 
-[Home](../README.md) · [Screenshots](../screenshots/README.md)
+[Home](../README.md) · [Release notes](release-notes.md) · [Four-language quick start](quick-start.md) · [Download PDF](manual/FoilStudio-User-Manual.pdf) · [Download Word](manual/FoilStudio-User-Manual.docx)
 
-## 1. Before you begin
+## Versions covered
 
-You need a compatible GRBL-based plotter, suitable material, and the correct tool. Connection and loading features depend on your plotter firmware. Do not assume compatibility with a machine simply because it has Bluetooth or USB.
+This manual describes the current development app, including changes after the private phone candidate 0.1.123 (144). The new Cut job selector and removal of Separate colors are unreleased. Your Google Play installation may show an earlier workflow. Check the version in the app and use the matching release notes. The latest version-specific public note in this repository is 0.1.116; that is not a statement about the version currently delivered by Google Play.
 
-Keep hands clear of moving parts. Verify blade exposure, material attachment, and travel clearance. Supervise every job. Use the plotter's physical stop or power control if motion is unsafe; an on-screen control depends on the connection.
+## First project
 
-**Connecting can cause motion:** the app may resume an initial fully held controller once while connecting. Make sure no unwanted interrupted job remains queued before connecting.
+1. In Design, create a small rectangle or open an example from Help and examples.
+2. Position the artwork on the mat and save a copy of the project.
+3. In Prepare, select your material, mat and exact plotter model. Review the tool and its process settings.
+4. Open Connection setup. Use demo mode to practise without hardware, or explicitly connect your compatible plotter.
+5. Choose Review job to continue to Cut. For a project with production jobs, select the job and confirm that its material is installed.
+6. Inspect the preview and Operations and settings. Check the physical mat alignment before confirming it.
+7. Start the job and follow the tool-installation prompts. Supervise the machine until completion.
 
-## 2. Your first project
+Use a small test piece when choosing pressure, speed, blade depth or pass count. Pressure units and supported settings depend on the plotter. A material record describes stock and thickness. Choose the tool/process settings explicitly and test them on your actual stock.
 
-**Try without hardware:** in the forthcoming demo-enabled build, open **Prepare → Connection setup → Start demo mode**. The DEMO banner stays visible while the virtual plotter is active. You can practice load/unload, job progress, pause/resume, and tool changes without connecting or moving a machine. Demo does not validate physical settings or cut quality. Stop or finish the demo job, then choose **Exit demo mode** before connecting real hardware. No demo position or alignment confirmation transfers to the real connection.
+## Design and selection
 
-1. In **Design**, use **Add** to create a shape, text, clipart, or freehand drawing.
-2. Position the artwork inside the cutting mat. Start with a small, simple test design.
-3. Save the project from **Project** to a location you can find again.
-4. In **Prepare**, choose the physical mat, material, and tool. Review current pressure and speed.
-5. Open **Connection setup** and connect to your plotter.
-6. Load and physically align the mat. Use **Load mat** only if your firmware supports it.
-7. Select **Review job**. In **Cut**, inspect the preview and included tool passes.
-8. Confirm local mat alignment only after checking the physical setup.
-9. Start the machine job. Install the requested tool and confirm the tool prompt before motion starts.
-10. Supervise the job. Follow any subsequent tool-change prompts. At completion, follow the unload prompt.
+Tap artwork to select it. Use the selection controls to add or remove objects; drag from unused space for an area selection. Two fingers pan and zoom the view. Undo and Redo let you inspect a change and return to the earlier design.
 
-The defaults are a **210 × 300 mm** mat and **Vinyl**, with pressure **350**, speed **2500 mm/min**, and a **30° drag knife**. Pressure is a controller/PWM value, not a calibrated force in grams. These are starting settings, not a guarantee for every machine or vinyl. Test and adjust on scrap material first.
+Create shapes, outlined text, clipart and freehand paths using the design tools. Numeric dimensions and transforms provide precise placement. Alignment and distribution compare selected objects; layout tools can repeat artwork or fill a sheet. Review their preview before applying it.
 
-## 3. Design
+Object properties hold the tool and process settings that determine production. Tools can include knife, pen, scoring, engraving and Printer, where supported. Printer artwork is for printed output rather than blade motion. Colours identify artwork visually; changing a colour alone does not choose pressure or tool type.
 
-![Design workspace](../screenshots/01-design.png)
+Objects keep the tool snapshot assigned to them. Editing a library record does not rewrite existing objects. To use the edited record, select it again in Object properties; Current object tool identifies a stored snapshot when it shares a name with an updated library record.
 
-### Select, move and view
+Path editing, offsets and Boolean operations require suitable geometry. Closed contours, holes, open strokes and very small details behave differently. Inspect generated contours after union, subtraction, offsets, tracing or simplification. The weeding tools add waste-removal paths, so include them in the preview check.
 
-- Tap an object to select it. Tap empty mat space to clear selection.
-- Drag from an empty area to draw a selection rectangle.
-- Use two fingers to pan or zoom the mat; this changes the view, not the physical mat dimensions.
-- Use the canvas view controls to adjust or fit the view.
-- Use **Undo** and **Redo** to correct edits.
+Box and Craft wizards create editable projects with fold/cut operations. Preserve the wizard's generated object relationships when regenerating. Test fit with your actual material thickness. Pro is required for wizard creation and regeneration; already-open artwork remains subject to the normal editing and output access rules.
 
-### Add artwork
+## Layers materials and production jobs
 
-Use **Add** for text, geometric shapes, **Clipart library**, and **Freehand**. In Freehand mode, lift your finger to finish a stroke; no separate stroke confirmation is needed. Exit drawing mode when you want to select objects again.
+Layers organizes artwork and provides Material assignment. A design layer is an editing group. A material is a stock preset from the existing Materials library. A production job is the set of objects produced on one sheet or material placement.
 
-Use **Import** for supported vector/project inputs, or **Trace** to turn an image into paths. Import support is format-dependent: check the result for missing shapes, scale, duplicate lines, and unwanted contours. A camera or imported image may need simplification before it is suitable for cutting.
+These choices can differ: a job can contain objects from several design layers, and separate jobs can use the same material. Jobs do not merge just because their colours or material names match. Tool stages within one job keep mixed-tool sheets together.
 
-### Edit and prepare shapes
+Use Material assignment from Layers, Object manager or Object properties. Keep current assignments when you want to leave the existing setup alone. Select an existing production job to join it, or create a Separate job. Mixed selections show their mixed assignments instead of guessing one value.
 
-Select the intended objects before opening **Edit**. Available tools include transformations, alignment, path/node editing, and geometric operations. Some commands require closed paths or a particular selection. Read the validation message if an operation cannot be applied.
+New production jobs created by editable multicolour imports or Add job start with the current material. Set a different stock for each job when needed. Existing saved No material choices and explicit material snapshots remain unchanged. Choosing stock does not overwrite independently configured object tool/process settings.
 
-For union or subtraction, start with simple overlapping closed shapes and inspect the result before cutting. Open strokes, self-intersections, or tiny details can give unsuitable output. Undo if the resulting geometry is not what you intended.
+Layer inclusion and visibility affect production eligibility. Excluded or hidden artwork does not become a cut simply because it has a job assignment. Review the effective job again after editing membership, tools, geometry or settings.
 
-Weeding frames and lines divide waste material into manageable sections. Use clearance around delicate artwork, inspect the preview, and ensure relief cuts do not cross parts you want to keep. Contour offsets and layout tools also need a preview check before applying. Do not rely on automatic placement alone to establish safe cutting clearance.
+## Prepare jobs and assembly marks
 
-### Layers and tools
+Open Prepare jobs to edit the short job list, object assignments, material choices, order and placement. Each row has Details for the longer settings. Use Preview jobs to inspect the result, then Save jobs to retain the configuration. A preview does not confirm installed material or start a machine.
 
-Open **Edit → Layers**. Layer colours identify artwork visually; they are not pressure values. Checked layers are included in the job.
+Assembly marks are auxiliary cut squares repeated on the material jobs. Use them to align separately cut pieces during assembly. They are distinct from optical or manual Print & Cut registration marks. Leave sufficient sheet clearance for artwork and marks; an outside-sheet warning must be resolved before production.
 
-To assign objects, select them on the mat, open Layers, and choose **Move selection here** on the destination layer. Use **Edit layer** for its properties and colour, and **Choose tool** for its tool. Expand **Objects in this layer** to inspect its contents. Review the job again after changing layers or tools.
+Assembly order describes how pieces are combined. Cut order controls preparation order. Sheet translation moves a job on the cutting sheet; the saved inverse translation relates it back to the assembly position. Review copies, weeding paths and marks together.
 
-## 4. Prepare
+For heat-transfer vinyl, enable HTV and explicitly confirm the mirrored orientation. Check the intended face and final assembly before cutting. Mirroring is part of production preparation rather than a reason to alter the original artwork permanently.
 
-![Prepare screen](../screenshots/02-prepare.png)
+## Choose and run a job in Cut
 
-**Material:** choose a preset or open **Materials / Tools** to manage your library. **Edit current settings** changes the active job setup; do not assume it updates a saved preset. Review pressure, speed, and tool before each job.
+For a project with production jobs, Cut shows a Production job selector. Choose the intended job, install its material and press Material installed · Review job. HTV also requires the orientation checkbox. The selection prepares and reviews that job's geometry and settings; it does not start tool motion.
 
-**Cutting mat:** choose the mat matching the physical mat. The default is 210 × 300 mm. Use **Mat library** to manage presets. Resizing a virtual mat does not resize or reposition the physical material.
+Changing jobs clears the previous review and mat-alignment acknowledgement. Opening or editing a project requires fresh preparation. Saving settings or opening a preview does not authorize an old job to run. If an assignment or placement is invalid, use Prepare jobs from Cut, correct it and review again.
 
-**Plotter:** open connection setup, check the reported status, and inspect any warning before continuing. Use **Review job** after changing artwork, mat, material, or tool settings.
+Operations and settings shows the job's tools and pass counts. Change pass counts in Object properties. Materials hold stock identity, thickness and notes; choose tool/process settings explicitly for the actual machine and stock. The former Tool passes dropdown was a display-only choice and has been removed. It did not select execution scope.
 
-### Bluetooth
+A physical start requires the supported connection, current review and machine-specific checks. Fit and secure the requested tool before confirming its start prompt. Follow later tool-change prompts only after motion has stopped. Keep access to the machine's physical stop control.
 
-1. Pair the plotter in Android's Bluetooth settings first.
-2. Open the Bluetooth tab in connection setup. The list refreshes when entering the tab.
-3. Allow the requested Nearby devices permission and select the paired plotter.
-4. Connect and wait for a controller status.
+Pause, resume, stop and recovery availability depend on the protocol and machine state. A lost connection or uncertain completion requires inspection and recovery; do not assume that a sent command proves the cut finished. Keep the application foregrounded during production.
 
-The connection requires Bluetooth Classic SPP. A BLE-only device will not work through this connection type.
+## Drag knife compensation and overcut
 
-### USB
+Enable Knife compensation in the knife tool's advanced settings to use its offset and overcut. Offset is the distance between the holder's swivel axis and the blade tip, in millimetres. The blade's physical angle identifies the fitted blade; it does not change this compensation geometry or act as a kerf offset.
 
-1. Connect a supported USB CDC serial controller using a data-capable cable and an appropriate phone adapter.
-2. Open the USB tab; the device list refreshes automatically.
-3. Select the device, allow Android's device permission prompt, and connect.
+Overcut follows the beginning of a closed contour again to finish its closure seam. It is ignored for open paths. Offset and overcut remain stored when compensation is disabled, and apply when it is enabled again. Review the complete compensated motion bounds, including clearance outside the original artwork.
 
-Not every USB-to-serial chipset is supported. A charge-only cable cannot provide a serial connection.
+Use Calibrate knife in Tool library to compare offset samples, fix the best offset and then compare overcut. Check the final square, triangle and circle. Keep the fitted blade, force, speed and stock unchanged during a comparison, and use a fresh uncut area for every trial. Choose the smallest overcut that closes the shape cleanly. Software and simulator checks do not measure physical cut quality.
 
-### TCP / Wi-Fi
+Offsets and overcuts smaller than the selected machine’s coordinate step may produce identical moves. Choose calibration settings at a meaningful scale for that plotter.
 
-Connect the phone and plotter to a trusted reachable local network. Enter the plotter's host name or IP address and its listening port. The defaults are **plotter.local** and **8888**. If local hostname discovery is unavailable, enter the controller's actual IP address.
+## Import artwork
 
-TCP carries controller commands without authentication or encryption. Do not expose the port to the public Internet or use an untrusted network.
+| Input | Available result | What to check |
+| --- | --- | --- |
+| Foil Studio project | Editable project with saved settings and assignments | Version, mat and included objects |
+| SVG | Supported original editable paths, solid colours and named layers, or print rendering | Units, holes, gradients, text and unsupported effects |
+| DXF | Supported editable entities with source layers, RGB colours and an indexed palette | Units, source visibility and unsupported entities |
+| PDF and compatible AI | Eligible original editable paths or rendered page for printing | Page selection, text, clipping and gradients |
+| EPS and PostScript-compatible AI | Eligible original paths or print rendering | Fonts, unsupported operations and page geometry |
+| CDR | Eligible editable curves or print rendering | Supported document content and page selection |
+| PNG JPEG WebP GIF BMP ICO TIFF | Printable image or contrast tracing | Transparency, orientation, resolution and first frame |
+| PSD | Merged printable image or supported aligned pixel layers | Layer effects, masks and compositing support |
 
-### Load and unload the mat
+Use Editable cut paths when the entire selected drawing can be preserved. Unsupported content can make this option unavailable. When the preview can be rendered, Render for printing keeps its appearance as printer artwork. A rendered image does not contain original editable vector contours.
 
-On compatible firmware, **Load mat** sends `$LOAD_MATERIAL=<distance>` and **Unload mat** sends `$UNLOAD_MATERIAL`. The default loading distance in settings is **20 mm**. Adjust it for the actual machine; it is not the same as mat height.
+Insert for printing preserves image colour and transparency. Use Trace instead to create paths from image contrast. Review smoothing, threshold, holes and small details before inserting traced geometry. Separate colors is no longer offered. Existing projects containing coloured paths remain editable.
 
-Loading establishes the working Y origin for the loaded mat. Check the physical position before confirming alignment. If the firmware rejects these commands, stop and verify compatibility rather than assuming ordinary jogging is equivalent.
+Animated GIF and multipage TIFF imports use the first frame or page. PDF/drawing page selection is a separate import option. HEIC and AVIF depend on the Android device codec. If decoding is unavailable, export a supported image format. File extensions alone do not establish supported content.
 
-## 5. Cut
+Placement lets you retain original coordinates or fit artwork to the selected area. Verify scale against a known dimension. A source document never chooses arbitrary machine commands or overrides the selected app tool preset.
 
-![Cut review, with no plotter connected](../screenshots/03-cut.png)
+## Printing stickers and registration
 
-The preview and tool-pass list let you check what will be sent. A disconnected plotter cannot start a job. A preview is not proof that the blade depth, pressure, firmware, or physical alignment is correct.
+Printer objects retain appearance for printing. Cutting contours must be explicitly provided or created; an image's white region does not automatically identify a removable background. Sticker offsets are cutting margins, not white ink.
 
-Confirm alignment, then start the job and confirm the first-tool popup. For multi-tool jobs, wait for the tool-change prompt and for motion to stop before touching the carriage. Fit the requested tool and confirm to continue.
+Prepare the sheet at actual size and verify printer margins. Print the artwork and registration marks at 100 percent scale. Manual Print & Cut uses the supported four-mark workflow for FilmCut, Smart and the included Silhouette/Craft Robo profiles. Optical registration, AutoBlade and available tool stages depend on the exact model.
 
-Before a tool change and after completion, the app turns the tool off and returns **X only to working X=0**. This is not a full machine homing cycle and does not home Y. Completion prompts you to unload the mat.
+Use the app's registration workflow for the current sheet. Changing artwork, job, tool settings or the printed sheet invalidates earlier approvals. Assembly marks used for layered vinyl do not substitute for these registration checks.
 
-Keep the app in the foreground during a job. Leaving the app or losing the connection can interrupt communication. Do not blindly restart a partially completed job: inspect the machine, remaining material, and position first.
+## Plotters and connections
 
-## 6. Projects and local data
+Select the exact vendor and model in Connection. The catalogue includes FilmCut/GRBL, supported Silhouette and VEVOR Smart devices, and named Graphtec, Roland, Summa, Skycut, USCutter, Teneth and HP profiles. The selected profile determines the protocol, connection types, work area and available operations. A catalogue entry or simulator test is not physical qualification of every model and firmware.
 
-Save important work explicitly through the Project menu. Android's document picker lets you choose a local folder or a document provider you have installed. A cloud-backed provider may synchronise files under its own settings.
+Bluetooth Classic serial, supported USB serial adapters, bidirectional USB printer interfaces, BLE and TCP are available only where the selected profile supports them. A BLE device cannot be used as Bluetooth Classic serial. Approve the Android permission for the selected device. Use a data-capable cable and a suitable phone adapter.
 
-Local recovery is not a substitute for exported backups. Clearing application data or uninstalling can remove private workspace data and settings. Files you exported elsewhere must be managed separately.
+TCP endpoints must match the actual controller or transparent bridge. Use a trusted local network; TCP controller connections are not authenticated or encrypted. A local hostname may require a working local resolver. Bluetooth discovery on older Android versions can depend on Android location-related permission settings.
 
-## 7. Troubleshooting
+Load and unload actions are model/firmware dependent. Some machines require panel operations or explicit completion confirmation. Check the material position and working origin before alignment confirmation. Do not infer motion completion solely from a connection or command acknowledgement.
 
-| Symptom | Check |
+## Practise without a machine
+
+Open Prepare, Connection setup and Start demo mode for the supported virtual workflow. The DEMO banner identifies it. Practise review, alignment confirmation, progress and tool prompts using independent sample artwork. Exit demo mode before explicitly connecting real hardware.
+
+Demo mode and the external development plotter simulator serve different purposes. Demo is an in-app learning mode. External simulator tests check generated wire commands and state handling against protocol contracts. Neither measures cutting quality, real force, blade exposure or mechanical accuracy.
+
+## Projects languages and purchases
+
+Save important work explicitly. Android's document picker can use local storage or a document provider you installed. Recovery data helps restore interrupted work but does not replace exported backups. Clearing app data or uninstalling can remove private settings and recovery files.
+
+Choose English, Polish, German or Spanish from Language, or follow the device language. Shared help and examples follow the interface language. User text, filenames and serialized project identifiers retain their original content.
+
+The app is free to install. Free supports design/editing and previews. Basic is a permanent one-time purchase for named saves, export, printing and production. Optional monthly/yearly Pro includes Basic while active and adds Box/Craft wizard creation and regeneration. Restore purchases using the same Google Play account. Prices shown by Google Play depend on your account and region.
+
+Earlier paid-download buyers can contact pratanczuk@gmail.com privately with the original Google Play app-order number to request the documented Basic migration. This is not a repeat purchase after each update. Do not post order details publicly.
+
+## Troubleshooting and support
+
+| Problem | Check |
 | --- | --- |
-| Bluetooth device missing | Pair it in Android, enable Bluetooth, allow Nearby devices, and verify Classic SPP support. |
-| USB device missing | Try a data cable/adapter, approve USB access, and verify CDC support. |
-| TCP cannot connect | Verify the IP/hostname, port, local network, and whether another client already occupies the controller. |
-| Hold remains active | Check the controller and interrupted-job state. Initial connection recovery is not an instruction to resume every later Hold. |
-| Alarm or error | Read the reported cause. Use recovery only after resolving it; resetting or unlocking may require physical realignment. |
-| Load/unload rejected | Verify firmware support for the dedicated material commands and the configured load distance. |
-| Start disabled | Check connection, controller status, current job review, included layers, and alignment confirmation. |
-| Job starts in the wrong place | Stop, check material loading and working origin, then realign and review again. |
-| Preview changed or review invalidated | Artwork or settings changed. Review the job again before starting. |
-| Geometry operation fails | Check selection, closed paths, overlap, and invalid/self-intersecting geometry. |
+| Start is disabled | Connection, controller state, selected job, material confirmation, review, entitlement and alignment |
+| Imported job says No material | Existing null choice is preserved; choose stock explicitly in Material assignment or Prepare jobs |
+| Job or assembly mark is outside the sheet | Mat dimensions, marks, translation, copies and production layout |
+| Editable import is unavailable | Use supported original content or Render for printing; inspect the reported limitation |
+| Bluetooth or USB device is missing | Exact model, supported transport, permissions and cable/adapter |
+| Command was sent but completion is uncertain | Inspect the machine and use its recovery/completion workflow |
+| Review expires | Prepare and review again after changing source, settings, connection or job |
+| Printed artwork does not align | Actual print scale, margins, sheet identity and current registration |
 
-## 8. Help
-
-For support or privacy questions, email [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com). Do not send passwords or payment-card details.
-
-Report reproducible problems in [GitHub Issues](https://github.com/plotter-doctor/Foil-Studio/issues). Include app version, phone/Android version, controller and firmware, connection type, steps to reproduce, and the exact error. Do not post personal projects, passwords, purchase details, private network addresses, or other sensitive information publicly. Use a small non-sensitive sample where possible.
+Contact [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com), or report a reproducible technical issue in [GitHub Issues](https://github.com/plotter-doctor/Foil-Studio/issues). Include app/Android version, plotter model/firmware, connection type and a small non-sensitive example. Public issues should not contain personal projects, purchase details or network credentials.

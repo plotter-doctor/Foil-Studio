@@ -1,16 +1,17 @@
-# Foil Studio 0.1.0
+# Foil Studio release notes
 
-Initial Android release — publication pending.
+## Current development
 
-- Create designs with text, shapes, clipart, and freehand drawing.
-- Organise artwork with layers, colours, and tool assignments.
-- Review mat, material, pressure, speed, and tool passes before cutting.
-- Connect to compatible plotters using Bluetooth Classic SPP, USB CDC serial, or TCP.
-- Follow guided mat-alignment and tool-change prompts.
-- Practice the workflow using a clearly labeled, hardware-free demo mode (forthcoming demo-enabled build).
+[7 November 2026 development changes](development-2026-11-07.md) cover unified material assignments, job selection in Cut, default job materials and import improvements. These changes are not a new Google Play release announcement.
 
-A compatible plotter is required for physical cutting. Supported commands depend on the controller firmware. TCP is intended for trusted local networks only.
+Private phone candidate 0.1.123 (144) contains the assignment-field spacing correction. The following Cut-selection and import-menu changes are later, unreleased development. Check the installed app version before following the new workflow.
 
-## Short Play release note
+## Versioned release records
 
-Create and edit cutting designs, organise layers and tools, and prepare jobs with mat and material presets. Connect to compatible GRBL plotters over Bluetooth Classic, USB CDC serial, or TCP. Includes job previews, alignment confirmation, and guided tool changes.
+- [0.1.116](releases/0.1.116.md): multi-plotter catalogue, supported connections, preparation, Print & Cut and import updates.
+- [0.1.77](releases/0.1.77.md): four interface languages and shared help/examples.
+- [0.1.76](releases/0.1.76.md): Free, Basic and Pro access model.
+- [0.1.76 internal billing notes](releases/0.1.76-internal-billing.md): historical test-track instructions.
+- [Earlier release archive](../releases/0.1.72.md).
+
+Versioned records describe their original builds and are preserved. Their availability statements are historical; Google Play controls current distribution.

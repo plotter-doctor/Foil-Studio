@@ -1,29 +1,30 @@
-# Foil Studio — review guide
+# Foil Studio reviewer guide
 
-The Android app does not require an app account or login credentials. A Google Play purchase may be required to install the paid release.
+Reviewed 7 November 2026. The app uses no application account or login. Installation is free; Basic and Pro are managed by Google Play. Use the entitlement appropriate to the feature being reviewed. This guide covers current development; the new Cut job selector is unreleased, so consult the version guide for an earlier installed build.
 
-## Without a plotter
+## Review without hardware
 
-1. Open the app and select **Design**.
-2. Use **Add** to create a rectangle, text, or clipart. Objects can be selected and edited on the mat.
-3. Open **Edit → Layers** to inspect layer colours and tool assignments.
-4. Open **Prepare** to view or edit mat, material, and current cutting settings.
-5. Open **Prepare → Connection setup → Start demo mode**. No credentials, network, or physical plotter are required. A persistent **DEMO · Virtual plotter · No hardware moves** banner identifies this mode.
-6. Close connection setup. Use **Load mat** and confirm the virtual loading action.
-7. Select **Review job** to open **Cut**. Confirm **Virtual mat alignment confirmed**, then **Start demo job** and the first-tool prompt. Progress, pause/resume, tool-change prompts (for a multi-tool design), X return, and the final unload prompt all operate with the virtual plotter.
-8. Use **Project** to save a sample project through Android's document picker.
-9. After the demo job completes or is stopped, reopen connection setup and choose **Exit demo mode**. The app returns to disconnected; real hardware must be explicitly connected separately.
+1. Open Design and create a small shape or a bundled example from Help and examples.
+2. Inspect Layers, object properties and tool settings. Select a language from English, Polish, German and Spanish.
+3. Open Prepare, choose the mat/material and inspect the Advanced production controls.
+4. Open Connection setup and Start demo mode. Confirm that the DEMO banner is visible.
+5. Load and align the virtual mat using the demo controls. Choose Review job.
+6. For a configured production-job project in the upcoming workflow, choose the Production job in Cut and press Material installed · Review job. In the demo this confirms virtual stock only.
+7. Inspect Operations and settings, confirm virtual alignment, start the demo job and follow the tool prompt. Exercise pause/resume and stop using the virtual controller.
+8. For import review, compare printable image insertion, Trace instead and supported Editable cut paths. Separate colors is removed in current development.
+9. Save/export/print using Basic or Pro. Restore purchases through the same Google Play test account. Box/Craft wizard creation and regeneration require Pro.
+10. Exit demo mode before an explicit real connection. Demo position and alignment do not authorize physical production.
 
-Demo mode demonstrates the workflow, not physical cutting, cut quality, machine accuracy, timing, firmware compatibility, or arbitrary G-code correctness. It does not mark presets physically validated. Bluetooth/USB hardware permissions and real connections remain hardware-dependent. Demo is not automatically enabled on launch and is disconnected when the Android app is hidden.
+Demo and development simulator tests demonstrate workflow/protocol behavior. They do not validate blade depth, physical force, material quality, mechanical accuracy or a particular real plotter.
 
-These instructions apply to Android 0.1.0, version code 3, prepared for Google Play review. Publication remains pending.
+## Review with hardware
 
-## Hardware-dependent functionality
+Select the exact model in Connection. Supported transports and operations depend on that profile. Bluetooth Classic serial, BLE, USB serial/printer interfaces and TCP are not interchangeable. Dedicated loading, optical registration, AutoBlade and completion confirmation vary by model.
 
-Physical cutting requires a compatible GRBL-based plotter. Supported connection types are Bluetooth Classic SPP, USB CDC serial, and TCP. BLE-only devices and proprietary vendor protocols are not supported by these connection types. The default TCP endpoint is `plotter.local:8888`, which must resolve to the reviewer's actual compatible controller; this is not an Internet demo server.
+Use appropriate material/tool setup, check the working origin and keep the machine supervised. Inspect interrupted work before recovery or restarting. Start and tool-change prompts authorize motion, so confirm them only after the physical setup is ready.
 
-Firmware must support `$LOAD_MATERIAL=<distance>` and `$UNLOAD_MATERIAL` for the dedicated mat controls. The default load distance is 20 mm. Controller connection may automatically resume an initial fully held state, so ensure the machine is safe and no unwanted interrupted job is queued before connecting.
+## Useful checks
 
-Do not start a physical job without suitable material, tool setup, alignment, and supervision. The app prompts for the first tool and subsequent tool changes. Its X return uses working X=0, not a full-machine homing cycle.
+Review a small multi-job design with separate stock and mixed tools. Verify that changing jobs requires fresh review/confirmation and that excluded artwork is absent from production. Test long names, landscape and enlarged Android text. Use independent sample projects for any screenshots or issue reports.
 
-Support: [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com).
+[User manual](user-manual.md) · [Version guide](release-notes.md) · [Support](mailto:pratanczuk@gmail.com)

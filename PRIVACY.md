@@ -1,6 +1,6 @@
 # Foil Studio privacy policy
 
-Effective 28 September 2026. Applies to the Android 0.1.0 release.
+Effective 28 September 2026. Reviewed 7 November 2026 for the Android application and its Free, Basic and Pro access model. The established publisher/contact and support-retention terms below are unchanged.
 
 Publisher: **PAWEŁ RATAŃCZUK INTEGRATEIT**. Support and privacy contact: [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com).
 
@@ -26,7 +26,7 @@ TCP connections are not authenticated or encrypted. Use only a trusted local net
 
 ## Purchases and external services
 
-Google Play handles app purchases and its platform services according to [Google's privacy policy](https://policies.google.com/privacy). The app does not request your payment-card details. Installed document providers, camera applications, controller firmware, and GitHub have their own practices outside this application's control.
+Google Play handles optional Basic purchases, Pro subscriptions, purchase restoration and its platform services according to [Google's privacy policy](https://policies.google.com/privacy). The app does not request your payment-card details. Installed document providers, camera applications, controller firmware, and GitHub have their own practices outside this application's control.
 
 ## Retention and deletion
 

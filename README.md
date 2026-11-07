@@ -1,28 +1,33 @@
 # Foil Studio
 
-Design, prepare and send cutting projects to compatible GRBL plotters.
+Create artwork, prepare material jobs and send them to a compatible plotter in the Android Design → Prepare → Cut workflow.
 
-Foil Studio brings artwork editing, material and tool settings, and plotter control into a **Design → Prepare → Cut** workflow on Android.
-
-- [User manual](docs/user-manual.md)
-- [Screenshots](screenshots/README.md)
+- [User manual and downloads](docs/user-manual.md)
+- [Quick start in English Polish German and Spanish](docs/quick-start.md)
+- [Release notes and version guide](docs/release-notes.md)
+- [Reviewer guide and hardware-free demo](docs/reviewer-guide.md)
+- [Screenshot versions](screenshots/README.md)
 - [Store graphics](store-assets/README.md)
-- [Release notes](docs/release-notes.md)
-- [Review guide](docs/reviewer-guide.md)
-- [Privacy policy — draft pending publisher confirmation](PRIVACY.md)
+- [Privacy policy — publisher confirmation pending](PRIVACY.md)
 - [Report an issue](https://github.com/plotter-doctor/Foil-Studio/issues)
-- [Support and privacy contact](mailto:pratanczuk@gmail.com)
+- [Support](mailto:pratanczuk@gmail.com)
 
-![Foil Studio design workspace](screenshots/01-design.png)
+## Versions
 
-## Compatibility
+Documentation was reviewed on 7 November 2026. The manual covers current development, including changes after private phone candidate 0.1.123 (144). The new Cut job selector is unreleased. [Upcoming changes](docs/development-2026-11-07.md) are clearly separated from [versioned release notes](docs/releases/0.1.116.md). Check your installed version and Google Play for actual availability.
 
-Cutting requires a compatible physical plotter and firmware. Supported connection types are Bluetooth Classic serial (SPP), USB serial (CDC), and TCP. Bluetooth LE-only devices and vendor-specific proprietary protocols are not supported by these serial connections. Material loading and unloading require compatible firmware commands.
+## Artwork materials and jobs
 
-TCP is unencrypted and unauthenticated: use a trusted local network. Always supervise the plotter and check the work area before connecting or starting a job.
+Layers organizes artwork and provides material assignment. Production jobs group the objects produced on a sheet. Different jobs can use the same material, and a job can contain several tools. Prepare jobs controls assembly marks, ordering and placement. In the upcoming workflow, choose and confirm the physical job in Cut; Operations and settings shows its actual passes.
 
-## About this repository
+Supported SVG/DXF and eligible PDF/EPS/AI/CDR inputs can preserve original paths and solid colours. Images can be printed or traced from contrast; PSD offers supported aligned pixel layers. Review the import preview and reported limitations.
 
-This public repository contains documentation and publication materials only. It does **not** contain the proprietary application source code, installable app, or signing credentials. Public visibility of these materials does not grant a licence to the application.
+## Compatibility and access
 
-Screens show the current application rendered at phone size with independently created sample artwork. They are not photographs of a connected machine or evidence of hardware compatibility. Google Play availability will be linked here after release.
+Choose the exact plotter profile and supported transport. FilmCut/GRBL, supported Silhouette/VEVOR Smart and named raw-protocol profiles have different capabilities. USB, Bluetooth Classic, BLE and TCP support is model dependent. Simulator results do not establish physical cut quality or qualify every model/firmware. Use a trusted network for TCP and supervise real machines.
+
+The app is free to install. Free supports design/editing and previews; Basic unlocks named saves, export, printing and production. Optional Pro adds Box/Craft wizard creation and regeneration and includes Basic while active. Restore existing purchases with the same Google Play account. See the [manual](docs/user-manual.md#projects-languages-and-purchases).
+
+## This repository
+
+This repository contains public documentation and publication materials. The proprietary application source, signing credentials and customer projects are not published here. Existing screenshots are explicitly versioned examples, not evidence of a connected machine. Application and third-party component rights remain separate.

@@ -1,21 +1,21 @@
 # Android screenshot versions
 
-Reviewed 7 November 2026. **0.1.127 (148) is in Google Play review; approval and rollout are pending.** Google Play production currently uses 0.1.116 (137). See the [version guide](../docs/release-notes.md).
+Reviewed 9 November 2026 for 0.1.129 (150). Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026. See the [version guide](../docs/release-notes.md).
 
-## Current 0.1.127 samples
+## Current 0.1.129 samples
 
-Fresh independent sample artwork is rendered with the actual 0.1.127 application theme at 1080 × 2340 pixels, density ratio 3 and text scale 1.15. These disconnected examples contain three stars on Default and a circle on Copper accent. They show software UI, not a live cut or hardware qualification.
+The [current store set](../store-assets/0.1.129/README.md) contains four 1080 × 1920 phone captures and four 2880 × 1620 tablet captures, all RGB with text scale 1.15. Fresh disconnected renders show independent stars and a circular accent, with no user data or hardware qualification claim.
 
 | Screen | Caption | Image |
 | --- | --- | --- |
-| Design | Artwork and editing controls for the independent layered sample | [Open](../docs/releases/0.1.127/screenshots/01-design.png) |
-| Prepare | Compact material, mat and plotter cards with direct Production preview | [Open](../docs/releases/0.1.127/screenshots/02-prepare.png) |
-| Cut | Job selection and filtered preview before physical confirmation | [Open](../docs/releases/0.1.127/screenshots/03-cut.png) |
-| Layers | Layer materials and Edit layer entry; objects inherit their layer stock | [Open](../docs/releases/0.1.127/screenshots/04-layers.png) |
+| Design | Layered sample artwork and editing controls | [Open](../docs/releases/0.1.129/screenshots/01-design.png) |
+| Prepare | Production preview and separate preparation wand | [Open](../docs/releases/0.1.129/screenshots/02-prepare.png) |
+| Cut | Selected job preview and direct Start cutting workflow | [Open](../docs/releases/0.1.129/screenshots/03-cut.png) |
+| Layers | Material inheritance and Edit layer | [Open](../docs/releases/0.1.129/screenshots/04-layers.png) |
 
-## Prepared Google Play phone and tablet formats
+## Previous 0.1.127 samples
 
-The [0.1.127 store screenshot set](../store-assets/0.1.127/README.md) contains four 1080 × 1920 phone captures and four 2880 × 1620 tablet captures. All are RGB PNGs without transparency and use independent sample artwork. The tablet Design view demonstrates the layer/object tree. They are separately rendered for those viewports, rather than cropped from the tall documentation images above. Availability remains governed by the version guide.
+The [0.1.127 capture set](../store-assets/0.1.127/README.md) and its versioned documentation images remain historical and unchanged. Match captures to the installed version; their older Review action does not describe the current Cut workflow.
 
 ## Earlier 7 November development samples
 

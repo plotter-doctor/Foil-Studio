@@ -1,8 +1,8 @@
 # Foil Studio manual de usuario
 
-Android 0.1.127 (148)  ·  7 de noviembre de 2026
+Android 0.1.129 (150)  ·  9 de noviembre de 2026
 
-Este manual te guía desde un diseño editable hasta el corte, el dibujo con bolígrafo, el grabado pasivo y el hendido. Describe Foil Studio para Android 0.1.127 (148), incluidos los ajustes de objetos, las composiciones de producción, Print & Cut y los procedimientos actuales de conexión de plóteres.
+Este manual te guía desde un diseño editable hasta el corte, el dibujo con bolígrafo, el grabado pasivo y el hendido. Describe Foil Studio para Android 0.1.129 (150), incluidos los ajustes de objetos, las composiciones de producción, Print & Cut y los procedimientos actuales de conexión de plóteres.
 
 ## 01 Tu primer proyecto
 
@@ -10,7 +10,7 @@ Este manual te guía desde un diseño editable hasta el corte, el dibujo con bol
 
 2. En Preparar, comprueba el tapete cargado, los límites del diseño, las herramientas y las copias. El material pertenece a una capa: abre Capas y después Editar capa para asignarlo. Los proyectos nuevos usan el material actual en Default. Revisar trabajo indica si falta una asignación; prueba el material real antes de producir.
 
-3. En Cortar, elige el Trabajo deseado si el proyecto contiene varios trabajos. La vista previa muestra ese trabajo y sus marcas de montaje. Confirma el material instalado cuando se solicite, revisa las etapas, coloca la herramienta indicada e inicia expresamente. Observa el plóter y confirma la finalización solo cuando se haya detenido.
+3. En Cortar, elige el Trabajo deseado. La vista previa muestra su diseño y sus marcas de montaje. Pulsa Iniciar corte y confirma después el material, la herramienta y el tapete cuando se solicite. Observa el plóter y confirma la finalización solo cuando se haya detenido.
 
 4. Guarda el proyecto y conserva una copia de seguridad exportada. La ayuda contiene lecciones interactivas y ejemplos editables. Los nombres de ejemplos de este manual identifican los proyectos correspondientes en la aplicación.
 
@@ -56,7 +56,7 @@ Free incluye edición y vista previa. Basic es una compra única para guardar, e
 
 ### Corte
 
-Asigna una cuchilla a los contornos de corte. Las formas nuevas usan Drag knife 45° de forma predeterminada; elige la cuchilla adecuada para el material. Ajusta la salida de la cuchilla, las pasadas, la fuerza y la velocidad para el plóter elegido. Prueba un contorno pequeño, comprueba las esquinas y el cierre, y después revisa e inicia el trabajo. La calibración permite afinar el desplazamiento y el sobrecorte.
+Asigna una cuchilla a los contornos de corte. Las formas nuevas usan Drag knife 45° de forma predeterminada; elige la cuchilla adecuada para el material. Ajusta la salida de la cuchilla, las pasadas, la fuerza y la velocidad para el plóter elegido. Prueba un contorno pequeño, comprueba las esquinas y el cierre, y después revisa e inicia el trabajo. Compara el desplazamiento y la presión con la cuadrícula de calibración sobre el mismo material. Comprueba la confirmación de guardado antes de volver a asignar la herramienta actualizada a los objetos existentes.
 
 ### Dibujo
 
@@ -102,23 +102,25 @@ Ejemplo en la ayuda: Un capítulo más
 
 ### Calibración de cuchilla
 
-Abre la biblioteca de herramientas y elige Calibrar cuchilla bajo la cuchilla seleccionada. Comprueba primero la exposición, fuerza y velocidad con una muestra. El ancho de punta no se usa en la compensación de cuchilla.
+Cada cuadrado mide 30 × 30 mm. Las columnas comparan el desplazamiento; las filas, la presión. Tras cortar, elige la presión suficiente para el corte previsto y después las esquinas más limpias de esa fila. Comprueba primero la salida de la cuchilla. Compara la hoja con la vista de Cortar.
+
+En perfiles con presión controlada desde el panel, la hoja compara cinco desplazamientos con una presión fija. Ajusta la presión en el plóter; la app no la varía ni la guarda. Los perfiles con presión desde la app comparan cinco columnas de desplazamiento y tres filas de presión.
 
 Activa Compensación de cuchilla para aplicar desplazamiento y sobrecorte. El desplazamiento es la distancia del eje del portacuchillas a la punta; el sobrecorte repite el inicio de un contorno cerrado. No se aplica sobrecorte a rutas abiertas. El ángulo de la cuchilla no cambia esta geometría.
 
 Las nuevas hojas de calibración orientan la cuchilla en zonas de descarte nuevas antes de cada contorno y pasada. Mantén libres estas zonas y usa material nuevo en cada prueba. Las hojas antiguas guardadas conservan su disposición; genera una calibración nueva para añadir trazos de orientación.
 
-Compara las muestras numeradas de offset y elige las esquinas más limpias. Mantén fuerza, velocidad, profundidad y material. Afina la comparación o elige Ninguna está bien para probar otro rango.
+Ajusta los rangos, prepara la hoja en Cortar e iníciala expresamente. Cuando el plotter se detenga, vuelve a la calibración, confirma la revisión y elige la mejor muestra. Revisa ambos valores antes de guardar.
 
-Con el offset fijo, compara las muestras de sobrecorte en la unión marcada. Elige el menor sobrecorte que cierre limpiamente la forma y comprueba el cuadrado, triángulo y círculo finales.
+Guardar actualiza el desplazamiento de la cuchilla en la biblioteca. Con presión desde la app, también guarda la presión elegida para este material y plóter; la presión del panel no se guarda. Los objetos existentes conservan su herramienta asignada.
 
-Envía cada prueba a la pantalla normal de Corte e iníciala explícitamente. Al terminar, vuelve a calibración. Guarda el offset y sobrecorte en la herramienta solo tras comprobar la muestra final. Exporta una prueba para conservar sus ajustes exactos; el proyecto original se conserva.
+Vuelve a elegir la herramienta actualizada de la biblioteca en Propiedades del objeto y activa Compensación de cuchilla. La presión guardada se aplica al mismo material, plotter y configuración al heredar los ajustes de herramienta. Revisa la presión en Cortar antes de empezar.
 
 Cada prueba usa las mismas posiciones. Carga una zona nueva sin cortar o material nuevo antes de cada prueba, incluidos los ajustes finos y reintentos.
 
 Elige el material para calibrar la cuchilla. Se mantendrá igual en todas las pruebas.
 
-La hoja de calibración incluida es una vista previa con objetos de guía. Usa Calibrar cuchilla para generar una prueba de corte para la herramienta y el plóter seleccionados.
+La hoja incluida muestra la cuadrícula de cuadrados de 30 × 30 mm sin cortar. Usa Calibrar cuchilla para el material, la herramienta y el plotter elegidos.
 
 Ejemplo en la ayuda: Calibración de cuchilla
 
@@ -272,7 +274,7 @@ Abre un ejemplo para explorarlo. El original incluido sigue disponible; guarda t
 
 El nombre del proyecto aparece arriba. Una marca de verificación indica que está guardado; un asterisco indica cambios sin guardar.
 
-La aplicación guarda el proyecto activo en este dispositivo para volver desde segundo plano o reiniciar. Tras reiniciar, revisa el trabajo y confirma de nuevo el material colocado y la alineación del tapete.
+La aplicación guarda el proyecto activo en este dispositivo para volver desde segundo plano o tras reiniciarla. Tras reiniciar, elige de nuevo el trabajo y confirma el material colocado y la alineación del tapete antes de cortar.
 
 Al abrir otro proyecto se pregunta por el trabajo sin guardar. Usa Proyecto → Guardar o Guardar como cuando tu plan lo permita.
 
@@ -283,6 +285,14 @@ Ejemplo en la ayuda: Un pequeño agradecimiento
 ## 08 Trazar imágenes y editar curvas
 
 ### Editar curvas y nodos
+
+Prepara rutas de corte más fluidas conservando el diseño original.
+
+En Preparar, pulsa la varita junto a Vista previa de producción. En Diseñar, abre Editar y elige Preparar para el plotter. Elige la selección o el diseño incluido, fija la desviación máxima y compara Antes con Después. Recuperar arcos circulares sustituye contornos circulares densos por arcos. Simplificar tramos rectos elimina puntos redundantes conservando esquinas y extremos.
+
+El límite de desviación compara las rutas preparadas con el diseño original. La aproximación y el redondeo de coordenadas del plotter añaden su propio error. Se protegen detalles cercanos y huecos; los contornos dudosos quedan intactos. Las rutas abiertas siguen abiertas y se conservan los contornos duplicados. Se omiten imágenes, guías y muestras de calibración.
+
+Aplicar guarda la preparación con estos objetos para futuros cortes. Se conservan el diseño original, las herramientas, la presión, la velocidad y las pasadas. Se recalcula tras editar, transformar o reflejar. Usar rutas de corte originales o Deshacer revierte la preparación. Revisa la vista de la ruta de herramienta y prueba un retal antes de producir.
 
 Para trazar fotos, usa luz uniforme, un fondo contrastante y coloca la cámara de frente al dibujo. Empieza con contraste automático, compara la imagen con sus rutas y amplía los detalles. Simplifica si se supera el límite de puntos de corte. La eliminación de motas es opcional y conserva los huecos. Elige Cortar contornos para una cuchilla o Dibujar contornos para un bolígrafo. El trazado sigue contornos, por lo que las líneas gruesas tienen dos bordes.
 
@@ -362,11 +372,11 @@ Los trabajos heredan el material de sus capas. Cambia el material en Editar capa
 
 Preparar muestra controles compactos de material, tapete de corte y plóter. Despliega Material o Tapete de corte para ver más ajustes. Abre directamente Vista previa de producción para la disposición, los trabajos y la preparación guiada.
 
-Guarda los ajustes en Preparar trabajos. En Cortar, elige un trabajo de producción, confirma el material colocado y revisa el trabajo y la alineación del tapete antes de empezar.
+Guarda los ajustes y revisa los trabajos en Preparar. En Cortar, elige un trabajo de producción y pulsa Iniciar corte; después confirma el material, la herramienta y la alineación del tapete.
 
 Cortar muestra el selector Trabajo, el nombre del material y una vista previa grande. Cambia las herramientas y las pasadas en Propiedades del objeto.
 
-Elige un trabajo en Cortar para ver solo sus elementos y marcas de montaje. Confirma por separado el material colocado antes de revisar el trabajo e iniciar el corte.
+Revisa los trabajos en Preparar. Elige un trabajo en Cortar para ver su diseño y marcas de montaje y pulsa Iniciar corte. Confirma el material colocado y comprueba la herramienta y el tapete antes de que empiece el movimiento.
 
 Capas reúne la organización del diseño y las asignaciones de material. Abre Editar capa para asignar material. Preparar trabajos permite configurar las marcas de montaje, el orden de los trabajos y su posición en la hoja.
 
@@ -457,6 +467,10 @@ Materiales incluye películas adhesivas y textiles, soportes para pegatinas, pap
 Elegir un material no ajusta la fuerza, velocidad ni profundidad de cuchilla. Configúralas para el plotter seleccionado en la herramienta, el objeto o el panel del plotter. Usa un corte de prueba para elegir pasadas y profundidad; conserva intacto el soporte en un medio corte. Comprueba el reflejo para vinilo textil.
 
 Los proyectos nuevos usan el material actual en la capa Default. Asigna el material que falte en Editar capa antes de revisar el trabajo.
+
+Revisa los trabajos en Preparar. Elige un trabajo en Cortar para ver su diseño y marcas de montaje y pulsa Iniciar corte. Confirma el material colocado y comprueba la herramienta y el tapete antes de que empiece el movimiento.
+
+Acerca de la aplicación muestra el plan actual Free, Basic o Pro. Se actualiza cuando la aplicación recibe un cambio de compra o suscripción.
 
 En Conexión del plóter, elige fabricante, modelo y conexión; después selecciona un dispositivo y Conectar. Las listas se actualizan automáticamente cuando no hay conexión y la app está visible; Actualizar dispositivos inicia otra búsqueda. Concede acceso a Bluetooth cuando se solicite. Para USB, pulsa Conectar y permite el acceso en Android; la conexión continuará automáticamente. Los ajustes de protocolo y las opciones de conexión de FilmCut están agrupados debajo. Desconecta antes de cambiar de plóter. Conectado confirma el enlace, no el fin del movimiento. La conexión automática está disponible para FilmCut y VEVOR Smart por Bluetooth y nunca reanuda un trabajo.
 
@@ -586,7 +600,7 @@ Conecta una vez para recordar la identidad Bluetooth y el modelo. La conexión a
 
 En Preparar elige la alfombrilla original VEVOR de 12 × 12 o 12 × 24 pulgadas. Los perfiles usan 304,8 × 304,8 mm y 304,8 × 609,7 mm. Las áreas personalizadas menores usan el perfil original más pequeño en el que caben.
 
-Cortar muestra el diseño antes de la revisión y la trayectoria preparada después. Iniciar corte sigue desactivado hasta revisar el trabajo.
+Revisa los trabajos en Preparar. Elige un trabajo en Cortar para ver su diseño y marcas de montaje y pulsa Iniciar corte. Confirma el material colocado y comprueba la herramienta y el tapete antes de que empiece el movimiento.
 
 La presión y las pasadas usan ajustes del objeto o herramienta. VEVOR indica 10–500 gf a la derecha y 50–500 gf a la izquierda. Los valores FS aún requieren una prueba de material.
 

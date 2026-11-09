@@ -1,8 +1,8 @@
 # Foil Studio instrukcja obsługi
 
-Android 0.1.127 (148)  ·  7 listopada 2026
+Android 0.1.129 (150)  ·  9 listopada 2026
 
-Ta instrukcja prowadzi od edytowalnego projektu do cięcia, rysowania pisakiem, grawerowania pasywnego i bigowania. Opisuje Foil Studio dla Androida 0.1.127 (148), w tym ustawienia obiektów, układy produkcyjne, Print & Cut oraz aktualne sposoby łączenia z ploterami.
+Ta instrukcja prowadzi od edytowalnego projektu do cięcia, rysowania pisakiem, grawerowania pasywnego i bigowania. Opisuje Foil Studio dla Androida 0.1.129 (150), w tym ustawienia obiektów, układy produkcyjne, Print & Cut oraz aktualne sposoby łączenia z ploterami.
 
 ## 01 Pierwszy projekt
 
@@ -10,7 +10,7 @@ Ta instrukcja prowadzi od edytowalnego projektu do cięcia, rysowania pisakiem, 
 
 2. W zakładce Przygotowanie sprawdź załadowaną matę, granice projektu, narzędzia i liczbę kopii. Materiał jest przypisany do warstwy: otwórz Warstwy, a następnie Edytuj warstwę, aby go wybrać. Nowe projekty nadają warstwie Default bieżący materiał. Sprawdź zadanie wskazuje brakujące przypisanie; przed produkcją przetestuj rzeczywisty materiał.
 
-3. W zakładce Cięcie wybierz właściwe Zadanie, jeśli projekt zawiera kilka zadań. Podgląd pokazuje to zadanie i jego znaczniki montażowe. Na żądanie potwierdź założony materiał, sprawdź etapy narzędzi, zamontuj wskazane narzędzie i uruchom zadanie świadomie. Obserwuj ploter i potwierdź zakończenie dopiero po zatrzymaniu ruchu.
+3. W zakładce Cięcie wybierz właściwe Zadanie. Podgląd pokazuje jego grafikę i znaczniki montażowe. Naciśnij Rozpocznij cięcie, a następnie na żądanie potwierdź założony materiał, narzędzie i matę. Obserwuj ploter i potwierdź zakończenie dopiero po zatrzymaniu ruchu.
 
 4. Zapisz projekt i zachowaj wyeksportowaną kopię zapasową. W pomocy znajdziesz interaktywne lekcje oraz edytowalne przykłady. Nazwy przykładów w tej instrukcji wskazują odpowiadające im projekty w aplikacji.
 
@@ -56,7 +56,7 @@ Free obejmuje edycję i podgląd. Basic to jednorazowy zakup umożliwiający zap
 
 ### Cięcie
 
-Przypisz nóż do konturów cięcia. Nowe kształty domyślnie używają Drag knife 45°; wybierz ostrze odpowiednie do materiału. Ustaw wysunięcie ostrza, przejścia, siłę i prędkość dla wybranego plotera. Wytnij mały kontur, sprawdź narożniki i zamknięcie, a następnie sprawdź i uruchom zadanie. Kalibracja noża pozwala dopracować offset i nadcięcie.
+Przypisz nóż do konturów cięcia. Nowe kształty domyślnie używają Drag knife 45°; wybierz ostrze odpowiednie do materiału. Ustaw wysunięcie ostrza, przejścia, siłę i prędkość dla wybranego plotera. Wytnij mały kontur, sprawdź narożniki i zamknięcie, a następnie sprawdź i uruchom zadanie. Siatka kwadratów kalibracyjnych pozwala porównać offset i nacisk na tym samym materiale. Sprawdź potwierdzenie zapisu przed ponownym przypisaniem zaktualizowanego narzędzia istniejącym obiektom.
 
 ### Rysowanie
 
@@ -102,23 +102,25 @@ Przykład w pomocy: Jeszcze jeden rozdział
 
 ### Kalibracja noża
 
-Otwórz bibliotekę narzędzi i wybierz Kalibruj nóż pod wybranym nożem. Najpierw sprawdź wysunięcie ostrza, siłę i prędkość na jednej próbce. Szerokość końcówki nie jest używana do kompensacji noża.
+Każdy kwadrat ma 30 × 30 mm. Kolumny porównują offset, a wiersze nacisk. Po cięciu wybierz nacisk wystarczający do zamierzonego cięcia, a następnie najczystsze narożniki w tym wierszu. Najpierw sprawdź wysunięcie ostrza. Dopasuj arkusz do podglądu w zakładce Cięcie.
+
+W profilach z naciskiem sterowanym z panelu arkusz porównuje pięć offsetów przy jednym nacisku. Ustaw nacisk na ploterze; aplikacja go nie zmienia ani nie zapisuje. Profile z naciskiem sterowanym z aplikacji porównują pięć kolumn offsetu i trzy rzędy nacisku.
 
 Włącz Kompensację noża, aby stosować offset i nadcięcie. Offset to odległość od osi uchwytu do końcówki ostrza, a nadcięcie powtarza początek zamkniętego konturu. Otwarte ścieżki nie otrzymują nadcięcia. Kąt ostrza nie zmienia tej geometrii.
 
 Nowe arkusze kalibracji ustawiają kierunek ostrza w świeżych obszarach odpadowych przed każdym konturem i przejściem. Pozostaw te miejsca wolne i używaj świeżego materiału do każdej próby. Starsze zapisane arkusze zachowują swój układ; wygeneruj nową kalibrację, aby dodać odcinki ustawiające ostrze.
 
-Porównaj ponumerowane próbki offsetu i wybierz najczystsze narożniki. Nie zmieniaj siły, prędkości, głębokości ostrza ani materiału. Doprecyzuj porównanie lub wybierz Żadna nie jest dobra, aby sprawdzić inny zakres.
+Ustaw zakresy prób, przygotuj arkusz w zakładce Cięcie i uruchom go. Gdy ploter się zatrzyma, wróć do kalibracji, potwierdź ocenę cięcia i wybierz najlepszą próbkę. Przed zapisem sprawdź obie wartości.
 
-Przy stałym offsecie porównaj próbki nadcięcia przy zaznaczonym miejscu zamknięcia. Wybierz najmniejsze nadcięcie, które czysto zamyka kształt, a następnie sprawdź końcowy kwadrat, trójkąt i koło.
+Zapis aktualizuje offset noża w bibliotece narzędzi. Przy nacisku sterowanym z aplikacji zapisuje też wybrany nacisk dla tego materiału i plotera; nacisk sterowany z panelu nie jest zapisywany. Istniejące obiekty zachowują przypisane narzędzie.
 
-Przenieś każdą próbę do zwykłego ekranu Cięcie i uruchom ją ręcznie. Po zakończeniu wróć do kalibracji. Zapisz wybrany offset i nadcięcie w narzędziu dopiero po sprawdzeniu końcowej próbki. Eksport próby zachowuje dokładne ustawienia; pierwotny projekt pozostaje zachowany.
+Wybierz ponownie zaktualizowane narzędzie z biblioteki we Właściwościach obiektu i włącz Kompensację noża. Zapisany nacisk jest stosowany dla tego samego materiału, plotera i ustawień przy dziedziczeniu ustawień narzędzia. Przed startem sprawdź nacisk w zakładce Cięcie.
 
 Każda próba używa tych samych pozycji. Przed każdą próbą, również doprecyzowaniem i powtórzeniem, załaduj świeży, niewycięty obszar lub nowy materiał.
 
 Wybierz materiał do kalibracji noża. Pozostanie ten sam we wszystkich próbach.
 
-Dołączony arkusz kalibracji jest podglądem z obiektami pomocniczymi. Użyj Kalibruj nóż, aby wygenerować próbę cięcia dla wybranego narzędzia i plotera.
+Dołączony arkusz przedstawia siatkę kwadratów 30 × 30 mm bez cięcia. Użyj Kalibruj nóż dla wybranego materiału, narzędzia i plotera.
 
 Przykład w pomocy: Kalibracja noża
 
@@ -272,7 +274,7 @@ Otwórz przykład, aby go poznać. Dołączony oryginał pozostaje dostępny; za
 
 Nazwa projektu jest widoczna u góry. Znacznik wyboru oznacza zapis, a gwiazdka — niezapisane zmiany.
 
-Aplikacja zapisuje aktywny projekt na tym urządzeniu, aby przywrócić go po powrocie z tła lub ponownym uruchomieniu. Po ponownym uruchomieniu sprawdź zadanie i ponownie potwierdź założony materiał oraz wyrównanie maty.
+Aplikacja zapisuje bieżący projekt na tym urządzeniu, aby wrócić do niego po pracy w tle lub ponownym uruchomieniu. Po ponownym uruchomieniu wybierz zadanie i przed cięciem potwierdź założony materiał oraz ustawienie maty.
 
 Przy otwieraniu innego projektu aplikacja pyta o niezapisaną pracę. Użyj Projekt → Zapisz lub Zapisz jako, jeśli pozwala na to Twój plan.
 
@@ -283,6 +285,14 @@ Przykład w pomocy: Małe podziękowanie
 ## 08 Wektoryzacja obrazów i edycja krzywych
 
 ### Edycja krzywych i węzłów
+
+Przygotuj płynniejsze ścieżki cięcia, zachowując oryginalną grafikę.
+
+W Przygotowaniu dotknij różdżki obok Podglądu produkcji. W Projektowaniu otwórz Edycję i wybierz Przygotuj dla plotera. Wybierz zaznaczenie lub uwzględnioną grafikę, ustaw maksymalne odchylenie i porównaj Przed z Po. Odzyskaj łuki kołowe zastępuje gęste obrysy kołowe łukami. Uprość proste odcinki usuwa zbędne punkty, zachowując narożniki i końce ścieżek.
+
+Granica odchylenia porównuje przygotowane ścieżki z oryginalną grafiką. Przybliżenie ścieżek i zaokrąglanie współrzędnych plotera dodają własny błąd. Bliskie detale i otwory są chronione; niepewne kontury pozostają bez zmian. Otwarte ścieżki pozostają otwarte, a powtórzone kontury są zachowane. Obrazy, prowadnice i próbki kalibracyjne są pomijane.
+
+Zastosuj zapisuje przygotowanie z tymi obiektami dla następnych cięć. Oryginalna grafika, narzędzia, nacisk, prędkość i liczba przejść są zachowane. Przygotowanie jest przeliczane po edycji, przekształceniach i odbiciu lustrzanym. Użyj oryginalnych ścieżek cięcia lub Cofnij odwraca przygotowanie. Sprawdź podgląd ścieżki narzędzia i wykonaj próbę na skrawku przed produkcją.
 
 Przy zdjęciach użyj równomiernego światła i kontrastowego tła, a aparat ustaw na wprost rysunku. Zacznij od automatycznego kontrastu, porównaj obraz ze ścieżkami i powiększ szczegóły palcami. Uprość szczegóły po przekroczeniu limitu punktów cięcia. Opcjonalne usuwanie plamek zachowuje otwory. Wybierz Wytnij obrysy dla noża lub Narysuj obrysy dla pisaka. Wektoryzacja odwzorowuje obrysy, więc grube linie mają dwie krawędzie.
 
@@ -362,11 +372,11 @@ Zadania dziedziczą materiał swoich warstw. Materiał zmienisz w Edytuj warstw�
 
 Przygotowanie pokazuje zwarte ustawienia materiału, maty i plotera. Rozwiń Materiał lub Matę do cięcia, aby zobaczyć więcej ustawień. Otwórz bezpośrednio Podgląd produkcji, aby ustawić układ, zadania lub skorzystać z przewodnika.
 
-Zapisz ustawienia w Przygotuj zadania. W zakładce Cięcie wybierz zadanie produkcyjne, potwierdź założony materiał, sprawdź zadanie i wyrównanie maty przed rozpoczęciem.
+Zapisz ustawienia i sprawdź zadania w Przygotowaniu. W Cięciu wybierz zadanie produkcyjne i naciśnij Rozpocznij cięcie, a następnie potwierdź materiał, narzędzie oraz ustawienie maty.
 
 Cięcie pokazuje wybór Zadania, nazwę materiału i duży podgląd. Narzędzia i liczbę przejść zmienisz we Właściwościach obiektu.
 
-Wybierz zadanie w zakładce Cięcie, aby zobaczyć tylko jego elementy i znaczniki montażowe. Osobno potwierdź założony materiał przed sprawdzeniem zadania i rozpoczęciem cięcia.
+Sprawdź zadania w Przygotowaniu. W Cięciu wybierz zadanie, aby zobaczyć jego grafikę i znaczniki montażowe, a następnie naciśnij Rozpocznij cięcie. Potwierdź założony materiał i sprawdź narzędzie oraz matę przed rozpoczęciem ruchu.
 
 Warstwy łączą organizację projektu z przypisaniami materiałów. Otwórz Edytuj warstwę, aby przypisać materiał. Przygotuj zadania pozwala ustawić znaczniki montażowe, kolejność zadań i położenie na arkuszu.
 
@@ -457,6 +467,10 @@ Materiały obejmują folie samoprzylepne i termotransferowe, materiały na nakle
 Wybór materiału nie ustawia docisku, prędkości ani wysunięcia ostrza. Dobierz je do wybranego plotera w ustawieniach narzędzia lub obiektu albo na panelu plotera. Mała próba cięcia pomoże dobrać liczbę przejść i głębokość; przy nacinaniu folii pozostaw podkład nieprzecięty. Sprawdź odbicie lustrzane dla folii termotransferowej.
 
 Nowe projekty otrzymują bieżący materiał na warstwie Default. Brakujący materiał przypisz w Edytuj warstwę przed sprawdzeniem zadania.
+
+Sprawdź zadania w Przygotowaniu. W Cięciu wybierz zadanie, aby zobaczyć jego grafikę i znaczniki montażowe, a następnie naciśnij Rozpocznij cięcie. Potwierdź założony materiał i sprawdź narzędzie oraz matę przed rozpoczęciem ruchu.
+
+O aplikacji pokazuje bieżący plan Free, Basic lub Pro. Informacja aktualizuje się, gdy aplikacja otrzyma zmianę zakupu lub subskrypcji.
 
 W Połączeniu z ploterem wybierz producenta, model i połączenie, a następnie urządzenie i Połącz. Listy urządzeń odświeżają się automatycznie, gdy ploter jest rozłączony, a aplikacja widoczna; Odśwież urządzenia rozpoczyna nowe wyszukiwanie. Udziel dostępu do Bluetooth, gdy pojawi się prośba. Dla USB wybierz Połącz i zezwól na dostęp w Androidzie; łączenie będzie kontynuowane automatycznie. Ustawienia protokołu i opcje połączenia FilmCut są zgrupowane poniżej. Rozłącz ploter przed jego zmianą. Połączono oznacza nawiązanie łącza, a nie zakończenie ruchu. Automatyczne łączenie działa dla FilmCut i Bluetooth VEVOR Smart; nigdy nie wznawia zadania.
 
@@ -586,7 +600,7 @@ Połącz się raz, aby zapamiętać tożsamość Bluetooth i model. Automatyczne
 
 W Przygotowaniu wybierz oryginalną matę VEVOR 12 × 12 lub 12 × 24 cali. Profile używają 304,8 × 304,8 mm oraz 304,8 × 609,7 mm. Mniejsze własne obszary pracy używają najmniejszego oryginalnego profilu, w którym się mieszczą.
 
-Karta Cięcie pokazuje projekt przed sprawdzeniem, a przygotowaną ścieżkę narzędzia po sprawdzeniu. Rozpocznij cięcie pozostaje niedostępne, dopóki zadanie nie zostanie sprawdzone.
+Sprawdź zadania w Przygotowaniu. W Cięciu wybierz zadanie, aby zobaczyć jego grafikę i znaczniki montażowe, a następnie naciśnij Rozpocznij cięcie. Potwierdź założony materiał i sprawdź narzędzie oraz matę przed rozpoczęciem ruchu.
 
 Nacisk i przejścia pochodzą z ustawień obiektu lub narzędzia. VEVOR podaje 10–500 gf dla prawego uchwytu i 50–500 gf dla lewego. Wartości FS nadal wymagają próby na materiale.
 

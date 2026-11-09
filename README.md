@@ -15,17 +15,23 @@ Create artwork, prepare material jobs and send them to a compatible plotter in t
 
 ## Versions
 
-Reviewed 7 November 2026. Google Play production currently uses **0.1.116 (137)**, published 6 November. **0.1.127 (148) is in Google Play review; approval and rollout are pending.** The current guides describe 0.1.127. Check the installed app version and [versioned release notes](docs/releases/0.1.127.md) before following a changed workflow.
+Reviewed 9 November 2026. The current guides describe **0.1.129 (150)**. Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026. Check the installed version and [versioned release notes](docs/releases/0.1.129.md).
 
 ## Artwork, materials and jobs
 
 Assign stock in **Layers → Edit layer → Material**. Objects inherit their layer's material; moving an object to another layer uses the destination stock. Materials remain reusable stock presets, while Object properties holds tool and process settings. New projects seed Default with the current material. Review warns when included cutting artwork has no material.
 
-Use Production preview in Prepare for layout and Prepare jobs. In Cut, choose Job to preview only its artwork and assembly marks, then confirm installed stock through Review job. The compact controls leave more space for the preview. Wide screens offer a layer/object tree with properties, adding layers and moving objects.
+Use Production preview in Prepare for layout and Prepare jobs. In Cut, choose Job to preview only its artwork and assembly marks, then press Start cutting and complete the installed-stock, tool and mat checks. Review jobs stays in Prepare. The compact controls leave more space for the preview. Wide screens offer a layer/object tree with properties, adding layers and moving objects.
 
 The active project is saved on this device for background return and app restart. After restarting, review and confirm the physical stock and mat again. Export important work as a separate backup. [The guide](docs/user-manual.md#projects-languages-and-purchases) explains migration from versions that did not record the active project.
 
 Supported SVG/DXF and eligible PDF/EPS/AI/CDR inputs preserve supported original paths, solid colours and source layers. Images can be printed or traced from contrast; PSD offers supported aligned pixel layers. Review the import preview and reported limitations. Knife calibration uses the selected stock, asks when a choice is needed, and leaves the source unchanged on cancellation.
+
+## Prepare paths and calibrate the knife
+
+Open Design → Edit → Prepare for plotter, or the wand beside Production preview in Prepare. Compare Before/After, set the geometric tolerance and apply reversible cut preparation while retaining the original artwork. Circular arc recovery and path simplification protect uncertain contours and nearby details.
+
+Knife calibration uses 30 × 30 mm squares: five offset columns and three pressure rows where the application controls pressure. Choose a sample after inspecting the cut, then check the saved-result receipt. Existing objects retain their tool snapshot; reselect the updated library tool to use its saved settings. About shows the current Free, Basic or Pro plan.
 
 ## Compatibility and access
 

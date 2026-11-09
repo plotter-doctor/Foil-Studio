@@ -1,8 +1,8 @@
 # Foil Studio user manual
 
-Android 0.1.127 (148)  ·  7 November 2026
+Android 0.1.129 (150)  ·  9 November 2026
 
-Use this manual to take a project from editable artwork to cutting, pen drawing, passive engraving or scoring. It covers Foil Studio for Android 0.1.127 (148), including object settings, production layouts, Print & Cut and the current plotter connection workflows.
+Use this manual to take a project from editable artwork to cutting, pen drawing, passive engraving or scoring. It covers Foil Studio for Android 0.1.129 (150), including object settings, production layouts, Print & Cut and the current plotter connection workflows.
 
 ## 01 Your first project
 
@@ -10,7 +10,7 @@ Use this manual to take a project from editable artwork to cutting, pen drawing,
 
 2. In Prepare, check the loaded cutting mat, design bounds, tools and copies. Material belongs to a layer: open Layers, then Edit layer to assign it. New projects give Default the current material. Review job explains any missing assignment; test the actual stock before production.
 
-3. In Cut, choose the intended Job when the project has several jobs. The preview shows that job and its assembly marks. Confirm the installed stock when requested, review the tool stages, fit the requested tool and start explicitly. Observe the plotter and confirm completion only when it has stopped.
+3. In Cut, choose the intended Job. The preview shows its artwork and assembly marks. Press Start cutting, then confirm the installed material, tool and mat when requested. Observe the plotter and confirm completion only when it has stopped.
 
 4. Save your project and keep an exported backup. Open Help for interactive lessons and editable examples. The example names shown in this manual identify the matching in-app projects.
 
@@ -56,7 +56,7 @@ Free includes editing and preview. Basic is a one-time purchase for saving, expo
 
 ### Cutting
 
-Assign a knife to the cutting contours. Drag knife 45° is the default for new shapes; choose the blade that suits the material. Set blade exposure, passes, force and speed for the selected plotter. Test a small contour, check its corners and closure, then review and start the job. Use knife calibration to refine offset and overcut.
+Assign a knife to the cutting contours. Drag knife 45° is the default for new shapes; choose the blade that suits the material. Set blade exposure, passes, force and speed for the selected plotter. Test a small contour, check its corners and closure, then review and start the job. Use the calibration square grid to compare offset and pressure on the same material. Check the saved-result receipt before assigning the updated tool to existing objects.
 
 ### Drawing
 
@@ -102,23 +102,25 @@ Example in Help: One more chapter
 
 ### Knife calibration
 
-Open Tool library and choose Calibrate knife below the selected knife. Check blade exposure, force and speed on one sample first. Tip width is not used for knife compensation.
+Each square measures 30 × 30 mm. Columns compare offset; rows compare pressure. After cutting, choose sufficient pressure for the intended cut, then the cleanest corners in that row. Check blade exposure first. Match the sheet to the layout in Cut.
+
+For profiles with panel-controlled pressure, the sheet compares five offsets at one panel pressure. Set pressure on the plotter; the app does not vary or save it. App-controlled profiles compare five offset columns and three pressure rows.
 
 Enable Knife compensation to apply offset and overcut. Offset is the distance from the holder axis to the blade tip; overcut repeats the start of a closed contour. Open paths do not receive overcut. Blade angle does not change this geometry.
 
 New calibration sheets orient the blade in fresh waste areas before every test contour and pass. Keep these areas clear and use fresh material for every trial. Saved older sheets keep their original layout; generate a new calibration to use orientation strokes.
 
-Compare the numbered offset samples and choose the cleanest corners. Keep force, speed, blade depth and material unchanged. Refine the comparison or choose None is good to try another range.
+Adjust the test ranges, prepare the sheet in Cut and start it explicitly. After the plotter stops, return to calibration, confirm inspection and select the best sample. Review both values before saving.
 
-With offset fixed, compare overcut samples at the marked closure seam. Choose the smallest overcut that closes the shape cleanly, then check the final square, triangle and circle.
+Save updates the knife offset in Tool library. For app-controlled pressure, it also stores the chosen pressure for this material and plotter; panel-controlled pressure is not saved. Existing objects keep their assigned tool.
 
-Send each trial to the normal Cut screen and start it explicitly. After it finishes, return to calibration. Save the chosen offset and overcut to the tool only after checking the final sample. Export a trial to keep its exact settings; the original project is preserved.
+Reselect the updated library tool in Object properties with Knife compensation on. The saved pressure applies to the same material, plotter and setup when tool settings are inherited. Review pressure in Cut before starting.
 
 Every trial uses the same positions. Load a fresh, uncut area or new material before each trial, including refinement and retries.
 
 Choose the material for knife calibration. It stays fixed for all trials.
 
-The bundled calibration sheet is a preview with guide objects. Use Calibrate knife to generate a cutting trial for your selected tool and plotter.
+The bundled sheet previews the 30 × 30 mm square grid without cutting. Use Calibrate knife for the selected material, tool and plotter.
 
 Example in Help: Knife calibration
 
@@ -272,7 +274,7 @@ Open an example to explore it. The bundled original stays available; save your e
 
 The project name is shown at the top. A check mark means saved; an asterisk means unsaved changes.
 
-The app saves the active project on this device for returning from the background or restarting. After restarting, review the job and confirm the installed material and mat alignment again.
+The app saves the active project on this device for returning from the background or restarting. After restarting, choose the job again and confirm the installed material and mat alignment before cutting.
 
 Opening another project asks about unsaved work. Use Project → Save or Save as when available for your plan.
 
@@ -283,6 +285,14 @@ Example in Help: A little thank you
 ## 08 Trace images and edit curves
 
 ### Edit curves and nodes
+
+Prepare smoother cutting paths while keeping the original artwork.
+
+In Prepare, tap the wand beside Production preview. In Design, open Edit and choose Prepare for plotter. Choose the selection or included artwork, set the maximum deviation and compare Before with After. Recover circular arcs replaces dense circular outlines with arcs. Simplify straight sections removes redundant points while keeping corners and endpoints.
+
+The deviation bound compares prepared paths with the original artwork. Plotter approximation and coordinate rounding add their own error. Nearby details and holes are protected; uncertain contours stay unchanged. Open paths stay open, and duplicate contours are retained. Images, guides and calibration samples are skipped.
+
+Apply saves preparation with these objects for future cuts. Original artwork, tools, pressure, speed and passes are preserved. Preparation is recalculated after edits, transforms and mirroring. Use original cut paths or Undo reverses the preparation. Check the tool-path preview and test a small scrap before production.
 
 For camera tracing, use even light, a contrasting background and face the design straight on. Start with Auto contrast, compare the image with its paths and pinch to inspect details. Use simpler detail if the cutting point limit is exceeded. Speck removal is optional and keeps holes. Choose Cut outlines for a knife or Draw outlines for a pen. Tracing follows outlines, so thick lines have two edges.
 
@@ -362,11 +372,11 @@ Jobs inherit material from their layers. Change the material in Edit layer.
 
 Prepare uses compact material, cutting mat and plotter controls. Expand Material or Cutting mat for more settings. Open Production preview directly for layout, jobs and guided preparation.
 
-Save job settings in Prepare jobs. In Cut, choose a production job, confirm the installed material, review the job and check mat alignment before starting.
+Save settings and review jobs in Prepare. In Cut, choose a production job and press Start cutting, then confirm the material, tool and mat alignment.
 
 Cut keeps the Job selector, material name and a large preview visible. Change tools and pass counts in Object properties.
 
-Choose a job in Cut to preview only its artwork and assembly marks. Confirm the installed material separately before reviewing and starting the cut.
+Review jobs in Prepare. Choose a job in Cut to preview its artwork and assembly marks, then press Start cutting. Confirm the installed material and complete the tool and mat checks before movement starts.
 
 Layers keeps artwork organization and material assignments together. Open Edit layer for material assignment. Prepare jobs controls assembly marks, job order and sheet placement.
 
@@ -457,6 +467,10 @@ Materials covers adhesive and heat-transfer films, sticker media, paper, board, 
 Selecting a material does not set cutting force, speed or blade depth. Set these for the selected plotter in the tool or object settings, or on the plotter panel. Use a small test cut to choose passes and cut depth; keep the backing intact for a kiss cut. Check mirroring for heat-transfer film.
 
 New projects start with the current material on the Default layer. Assign any missing material in Edit layer before reviewing the job.
+
+Review jobs in Prepare. Choose a job in Cut to preview its artwork and assembly marks, then press Start cutting. Confirm the installed material and complete the tool and mat checks before movement starts.
+
+About application shows the current Free, Basic or Pro plan. This updates when the app receives a purchase or subscription change.
 
 In Plotter connection, choose vendor, model and connection, then select a device and Connect. Device lists refresh automatically while disconnected and the app is visible; Refresh devices starts another search. Grant Bluetooth access when requested. For USB, choose Connect and allow Android access; the connection continues automatically. Protocol settings and FilmCut connection options are grouped below. Disconnect before changing the plotter. Connected confirms the link, not completed movement. Auto-connect is available for FilmCut and VEVOR Smart Bluetooth and never resumes a job.
 
@@ -586,7 +600,7 @@ Connect once to remember the Bluetooth identity and model. Auto-connect works in
 
 Choose the original 12 × 12 or 12 × 24 inch VEVOR mat in Prepare. The profiles use 304.8 × 304.8 mm and 304.8 × 609.7 mm. Smaller custom work areas use the smallest original profile that contains them.
 
-Cut shows the design before review and the prepared tool path after review. Start cutting stays unavailable until the job is reviewed.
+Review jobs in Prepare. Choose a job in Cut to preview its artwork and assembly marks, then press Start cutting. Confirm the installed material and complete the tool and mat checks before movement starts.
 
 Pressure and passes use object or tool settings. VEVOR rates the right holder at 10–500 gf and the left at 50–500 gf. FS values still require a material test.
 

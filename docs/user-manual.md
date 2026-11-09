@@ -1,12 +1,12 @@
 # Foil Studio user manual
 
-English · Updated 7 November 2026 · Version 0.1.127 (148)
+English · Updated 9 November 2026 · Version 0.1.129 (150)
 
 [Home](../README.md) · [Release notes](release-notes.md) · [Four-language quick start](quick-start.md) · [Download PDF](manual/FoilStudio-User-Manual.pdf) · [Download Word](manual/FoilStudio-User-Manual.docx)
 
 ## Versions covered
 
-This manual covers 0.1.127 (148). Check the [version guide](release-notes.md) for Google Play submission, approval and rollout status, and check the version installed on your device. Earlier versioned release records retain their original context.
+This manual covers 0.1.129 (150). Check the [version guide](release-notes.md) for Google Play submission, approval and rollout status, and check the version installed on your device. Earlier versioned release records retain their original context.
 
 ## First project
 
@@ -14,8 +14,8 @@ This manual covers 0.1.127 (148). Check the [version guide](release-notes.md) fo
 2. Open Edit → Layers → Edit layer to check or change that layer's material. Objects inherit their layer's stock. Position the artwork on the mat and keep an exported backup of important work.
 3. In Prepare, check Material, Cutting mat and the exact plotter model. Expand a card for its options. Production preview opens layout and Prepare jobs directly.
 4. Open Connection setup. Use demo mode to practise without hardware, or explicitly connect your compatible plotter.
-5. Choose Review job. Included cutting artwork needs an assigned layer material; otherwise a warning offers Layers and keeps you in Prepare. For a project with production jobs, choose the intended Job in Cut and review it after confirming its installed stock.
-6. Inspect the large job preview. Edit tools and pass counts in Object properties or Tool library. Check the physical mat alignment before confirming it.
+5. Review jobs in Prepare. Included cutting artwork needs an assigned layer material; otherwise a warning offers Layers and keeps you in Prepare. Choose the intended Job in Cut to preview only its artwork and assembly marks.
+6. Inspect the preview, then press Start cutting. Complete the requested material/HTV, tool and mat checks. Edit tools and pass counts in Object properties or Tool library.
 7. Start the job and follow the tool-installation prompts. Supervise the machine until completion.
 
 Use a small test piece when choosing pressure, speed, blade depth or pass count. Pressure units and supported settings depend on the plotter. A material record describes stock and thickness. Choose the tool/process settings explicitly and test them on your actual stock.
@@ -62,7 +62,7 @@ For heat-transfer vinyl, enable HTV and explicitly confirm the mirrored orientat
 
 For a project with production jobs, Cut keeps the Job selector, the material name and a large preview visible. Choosing a job immediately filters the preview to its artwork and assembly marks. This preview choice does not confirm that its stock is installed and does not start motion.
 
-Load the intended stock and choose Review job. Check the material confirmation in the dialog; HTV also requires the orientation confirmation. The app then prepares the selected job. If cutting artwork lacks a layer material, assign it through Layers first; selecting a job alone cannot bypass this check. Another unassigned job does not block a valid selected cutting job.
+Load the intended stock and press Start cutting. Complete the material confirmation; HTV also requires the orientation confirmation. The app prepares the current selected job and retains its tool, connection and mat checks. Review jobs remains in Prepare. If cutting artwork lacks a layer material, assign it through Layers first; selecting a job alone cannot bypass this check. Another unassigned job does not block a valid selected cutting job.
 
 Changing jobs clears the previous review and mat-alignment acknowledgement. Editing or reopening a project requires fresh preparation. If an assignment or placement is invalid, open Prepare jobs, correct it and review again. Saving job settings or opening a preview does not authorize an old job to run.
 
@@ -78,11 +78,25 @@ Enable Knife compensation in the knife tool's advanced settings to use its offse
 
 Overcut follows the beginning of a closed contour again to finish its closure seam. It is ignored for open paths. Offset and overcut remain stored when compensation is disabled, and apply when it is enabled again. Review the complete compensated motion bounds, including clearance outside the original artwork.
 
-Use Calibrate knife in Tool library to compare offset samples, fix the best offset and then compare overcut. A selected job or a design with one material supplies its actual stock. For mixed or unassigned stock, choose a material before creating the trial; Cancel leaves the source project unchanged. That choice does not rewrite the source layer or default material. Check the final square, triangle and circle. Keep the fitted blade, force, speed and stock unchanged during a comparison, and use a fresh uncut area for every trial. Choose the smallest overcut that closes the shape cleanly. Software and simulator checks do not measure physical cut quality.
+Use Calibrate knife in Tool library. A selected job or a design with one material supplies its actual stock; mixed or unassigned stock requires a material choice. Cancel preserves the source. The main trial sheet contains 30 × 30 mm squares: five columns vary offset and three rows vary pressure where the app controls it. With panel-controlled pressure, compare five offsets at one manually set panel pressure instead. Check blade exposure, the displayed parameter ranges, labels and complete sheet bounds before preparing the trial.
+
+Prepare the sheet in Cut and start it explicitly. Use fresh uncut stock for every trial, including refinement and retries. After the plotter stops, return to calibration, confirm inspection and choose the labelled sample. First choose sufficient pressure for the intended cut, then the cleanest corners in that row. Review both selected values before saving.
+
+The save receipt states the updated Tool library knife offset and the material/plotter scope of the saved pressure. Existing objects keep their tool snapshots. Reselect the updated library tool in Object properties with Knife compensation enabled; pressure applies only to the matching material, plotter and setup when settings are inherited from the tool. An explicit object pressure remains explicit. Check the effective pressure in Cut before starting. Overcut is still a separate tool setting for closed contours; use the smallest effective value on the actual material.
 
 New calibration sheets include separate orientation strokes before each contour and pass. Leave their fresh trial area clear and review the complete sheet before cutting. New compensated production paths account for every nonzero turn, including shallow corners. Previously saved calibration sheets retain their geometry; regenerate a trial to use the current pattern.
 
 Offsets and overcuts smaller than the selected machine’s coordinate step may produce identical moves. Coarse device grids and uncertain starting blade orientation can limit the result. Choose calibration settings at a meaningful scale and test the fitted blade on the actual stock; no uniform physical accuracy is promised.
+
+## Prepare artwork for the plotter
+
+Open Design → Edit → Prepare for plotter, or tap the wand beside Production preview in Prepare. Choose selected objects or all included artwork. Tolerance (mm) defaults to 0.01 mm and accepts 0.001–0.1 mm. Recover circular arcs replaces eligible dense circular contours with arcs; Simplify straight sections removes redundant points while retaining corners and endpoints.
+
+Compare Before and After, the segment counts, error bound and protected/skipped contours. Apply saves preparation intent to the chosen artwork; it does not replace the original drawing. The next compiled cut uses those settings on the current geometry. Undo or Use original cut paths removes the preparation. Save the project to retain the setting across reopening.
+
+Nearby details and holes are protected; uncertain contours stay unchanged. Open paths remain open and duplicate whole contours are retained. Images, guides, assembly marks and calibration samples are skipped. Trace a bitmap first when editable contours are needed. No cloud processing or learned model is used.
+
+The displayed error bound compares prepared geometry with the original artwork. Device coordinate rounding and curve approximation add their own error. Supported native-arc outputs can reduce command counts; other protocols approximate arcs for their device grid. With knife compensation enabled, eligible recovered circular paths use continuous holder motion while real corners keep their swivels. These software bounds do not measure blade exposure, actual force or physical cutting quality.
 
 ## Import artwork
 
@@ -139,7 +153,7 @@ The earlier app did not record the last-active project. After updating from it, 
 
 Choose English, Polish, German or Spanish from Language, or follow the device language. Shared help and examples follow the interface language. User text, filenames and serialized project identifiers retain their original content.
 
-The app is free to install. Free supports design/editing and previews. Basic is a permanent one-time purchase for named saves, export, printing and production. Optional monthly/yearly Pro includes Basic while active and adds Box/Craft wizard creation and regeneration. Restore purchases using the same Google Play account. Prices shown by Google Play depend on your account and region.
+The app is free to install. Free supports design/editing and previews. Basic is a permanent one-time purchase for named saves, export, printing and production. Optional monthly/yearly Pro includes Basic while active and adds Box/Craft wizard creation and regeneration. Restore purchases using the same Google Play account. Prices shown by Google Play depend on your account and region. About application shows Current plan: Free, Basic or Pro for the current access state.
 
 Earlier paid-download buyers can contact pratanczuk@gmail.com privately with the original Google Play app-order number to request the documented Basic migration. This is not a repeat purchase after each update. Do not post order details publicly.
 
@@ -149,7 +163,7 @@ Earlier paid-download buyers can contact pratanczuk@gmail.com privately with the
 | --- | --- |
 | Start is disabled | Connection, controller state, selected job, material confirmation, review, entitlement and alignment |
 | Review warns that material is missing | Open Layers → Edit layer → Material for the included cutting artwork; older or explicitly cleared assignments are not guessed |
-| App returned to an empty workspace | In 0.1.127, open the intended saved project once after upgrading; active-project restoration applies to subsequent sessions. Check any recovery warning before starting New |
+| App returned to an empty workspace | After upgrading from a version without active-project restoration, open the intended saved project once; active-project restoration applies to subsequent sessions. Check any recovery warning before starting New |
 | Job or assembly mark is outside the sheet | Mat dimensions, marks, translation, copies and production layout |
 | Editable import is unavailable | Use supported original content or Render for printing; inspect the reported limitation |
 | Bluetooth or USB device is missing | Exact model, supported transport, permissions and cable/adapter |

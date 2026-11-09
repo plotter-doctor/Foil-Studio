@@ -1,8 +1,8 @@
 # Foil Studio Benutzerhandbuch
 
-Android 0.1.127 (148)  ·  7 November 2026
+Android 0.1.129 (150)  ·  9 November 2026
 
-Dieses Handbuch führt vom bearbeitbaren Entwurf zum Schneiden, Zeichnen mit Stift, passiven Gravieren und Falzen. Es beschreibt Foil Studio für Android 0.1.127 (148), einschließlich Objekteinstellungen, Produktionslayouts, Print & Cut und der aktuellen Verbindungsabläufe für Plotter.
+Dieses Handbuch führt vom bearbeitbaren Entwurf zum Schneiden, Zeichnen mit Stift, passiven Gravieren und Falzen. Es beschreibt Foil Studio für Android 0.1.129 (150), einschließlich Objekteinstellungen, Produktionslayouts, Print & Cut und der aktuellen Verbindungsabläufe für Plotter.
 
 ## 01 Dein erstes Projekt
 
@@ -10,7 +10,7 @@ Dieses Handbuch führt vom bearbeitbaren Entwurf zum Schneiden, Zeichnen mit Sti
 
 2. Prüfe unter Vorbereiten die eingelegte Schneidematte, Entwurfsgrenzen, Werkzeuge und Kopien. Material gehört zu einer Ebene: Öffne Ebenen und dann Ebene bearbeiten, um es zuzuweisen. Neue Projekte übernehmen das aktuelle Material auf Default. Auftrag prüfen erklärt fehlende Zuweisungen; teste das tatsächliche Material vor der Produktion.
 
-3. Wähle unter Schneiden den gewünschten Auftrag, wenn das Projekt mehrere Aufträge enthält. Die Vorschau zeigt diesen Auftrag und seine Montagemarken. Bestätige bei Aufforderung das eingelegte Material, prüfe die Werkzeugstufen, setze das angeforderte Werkzeug ein und starte ausdrücklich. Beobachte den Plotter und bestätige den Abschluss erst nach dem Stillstand.
+3. Wähle unter Schneiden den gewünschten Auftrag. Die Vorschau zeigt seine Grafik und Montagemarken. Drücke Schneiden starten und bestätige danach bei Aufforderung Material, Werkzeug und Matte. Beobachte den Plotter und bestätige den Abschluss erst nach dem Stillstand.
 
 4. Speichere dein Projekt und bewahre eine exportierte Sicherung auf. Die Hilfe enthält interaktive Lektionen und bearbeitbare Beispiele. Die Beispielnamen in diesem Handbuch verweisen auf die zugehörigen Projekte in der App.
 
@@ -56,7 +56,7 @@ Free umfasst Bearbeitung und Vorschau. Basic ist ein einmaliger Kauf für Speich
 
 ### Schneiden
 
-Weise den Schnittkonturen ein Messer zu. Neue Formen verwenden standardmäßig Drag knife 45°; wähle die zum Material passende Klinge. Stelle Klingenaustritt, Durchgänge, Kraft und Geschwindigkeit für den gewählten Plotter ein. Teste eine kleine Kontur, prüfe Ecken und Konturschluss und starte dann den geprüften Auftrag. Mit der Messerkalibrierung verfeinerst du Offset und Überschnitt.
+Weise den Schnittkonturen ein Messer zu. Neue Formen verwenden standardmäßig Drag knife 45°; wähle die zum Material passende Klinge. Stelle Klingenaustritt, Durchgänge, Kraft und Geschwindigkeit für den gewählten Plotter ein. Teste eine kleine Kontur, prüfe Ecken und Konturschluss und starte dann den geprüften Auftrag. Vergleiche Offset und Druck mit dem Kalibrierraster auf demselben Material. Prüfe die Speicherbestätigung, bevor du das aktualisierte Werkzeug vorhandenen Objekten erneut zuweist.
 
 ### Zeichnen
 
@@ -102,23 +102,25 @@ Beispiel in der Hilfe: Noch ein Kapitel
 
 ### Messerkalibrierung
 
-Die Werkzeugbibliothek öffnen und unter dem gewählten Messer Messer kalibrieren wählen. Zuerst Klingenüberstand, Kraft und Geschwindigkeit an einer Probe prüfen. Die Spitzenbreite wird nicht zur Messerkompensation verwendet.
+Jedes Quadrat misst 30 × 30 mm. Spalten vergleichen den Offset, Zeilen den Andruck. Wähle nach dem Schneiden den ausreichenden Andruck für den gewünschten Schnitt und dann die saubersten Ecken dieser Zeile. Prüfe zuerst den Klingenüberstand. Ordne den Bogen der Vorschau unter Schneiden zu.
+
+Bei Profilen mit Drucksteuerung am Plotter vergleicht der Bogen fünf Offsets bei einem eingestellten Druck. Stelle den Druck am Plotter ein; die App variiert oder speichert ihn nicht. Profile mit App-Drucksteuerung vergleichen fünf Offset-Spalten und drei Druckzeilen.
 
 Aktiviere Messerkompensation, um Versatz und Überschnitt anzuwenden. Der Versatz ist der Abstand von der Halterachse zur Messerspitze; der Überschnitt wiederholt den Anfang einer geschlossenen Kontur. Offene Pfade erhalten keinen Überschnitt. Der Klingenwinkel ändert diese Geometrie nicht.
 
 Neue Kalibrierblätter richten die Klinge vor jeder Testkontur und jedem Durchgang in frischen Abfallbereichen aus. Halte diese Bereiche frei und verwende für jeden Versuch frisches Material. Ältere gespeicherte Blätter behalten ihr Layout; erzeuge eine neue Kalibrierung für Ausrichtungsstrecken.
 
-Die nummerierten Offsetproben vergleichen und die saubersten Ecken wählen. Kraft, Geschwindigkeit, Klingentiefe und Material unverändert lassen. Den Vergleich verfeinern oder Keine ist gut wählen, um einen anderen Bereich zu testen.
+Passe die Testbereiche an, bereite den Bogen unter Schneiden vor und starte ihn ausdrücklich. Kehre nach dem Stillstand des Plotters zur Kalibrierung zurück, bestätige die Prüfung und wähle die beste Probe. Prüfe vor dem Speichern beide Werte.
 
-Bei festem Offset die Überschnittproben an der markierten Schließstelle vergleichen. Den kleinsten sauber schließenden Überschnitt wählen, dann das abschließende Quadrat, Dreieck und den Kreis prüfen.
+Speichern aktualisiert den Messer-Offset in der Werkzeugbibliothek. Bei App-Drucksteuerung wird auch der gewählte Druck für dieses Material und diesen Plotter gespeichert; panelgesteuerter Druck wird nicht gespeichert. Vorhandene Objekte behalten ihr zugewiesenes Werkzeug.
 
-Jede Probe im normalen Schneiden-Bildschirm vorbereiten und ausdrücklich starten. Danach zur Kalibrierung zurückkehren. Offset und Überschnitt erst nach Prüfung der letzten Probe im Werkzeug speichern. Ein Probenexport bewahrt die exakten Einstellungen; das ursprüngliche Projekt bleibt erhalten.
+Wähle das aktualisierte Bibliothekswerkzeug unter Objekteigenschaften erneut und aktiviere Messerkompensation. Der gespeicherte Andruck gilt für dasselbe Material, denselben Plotter und dieselbe Einrichtung bei geerbten Werkzeugeinstellungen. Prüfe den Andruck vor dem Start unter Schneiden.
 
 Jede Probe verwendet dieselben Positionen. Vor jeder Probe, auch Verfeinerungen und Wiederholungen, einen frischen ungeschnittenen Bereich oder neues Material einlegen.
 
 Wähle das Material für die Messerkalibrierung. Es bleibt für alle Probeschnitte gleich.
 
-Das mitgelieferte Kalibrierungsblatt ist eine Vorschau mit Hilfsobjekten. Mit Messer kalibrieren eine Schnittprobe für das gewählte Werkzeug und den Plotter erzeugen.
+Der mitgelieferte Bogen zeigt das Raster aus 30 × 30 mm großen Quadraten ohne Schnitt. Verwende Messer kalibrieren für das gewählte Material, Werkzeug und den Plotter.
 
 Beispiel in der Hilfe: Messerkalibrierung
 
@@ -272,7 +274,7 @@ Wähle Bearbeitbare Schnittpfade, um unterstützte Vektoren zu erhalten, oder Zu
 
 Der Projektname steht oben. Ein Häkchen bedeutet gespeichert, ein Sternchen zeigt ungespeicherte Änderungen an.
 
-Die App speichert das aktive Projekt auf diesem Gerät für die Rückkehr aus dem Hintergrund oder einen Neustart. Prüfe nach einem Neustart den Auftrag und bestätige das eingelegte Material und die Mattenausrichtung erneut.
+Die App speichert das aktive Projekt auf diesem Gerät für die Rückkehr aus dem Hintergrund oder nach einem Neustart. Wähle nach dem Neustart den Auftrag erneut und bestätige vor dem Schneiden das eingelegte Material und die Mattenausrichtung.
 
 Beim Öffnen eines anderen Projekts fragt die App nach ungespeicherter Arbeit. Nutze Projekt → Speichern oder Speichern unter, soweit dein Tarif es erlaubt.
 
@@ -283,6 +285,14 @@ Beispiel in der Hilfe: Ein kleines Dankeschön
 ## 08 Bilder nachzeichnen und Kurven bearbeiten
 
 ### Kurven und Knoten bearbeiten
+
+Bereite flüssigere Schnittpfade vor und behalte die Originalgrafik.
+
+Tippe unter Vorbereiten auf den Zauberstab neben Produktionsvorschau. Öffne unter Gestalten Bearbeiten und wähle Für Plotter vorbereiten. Wähle die Auswahl oder die einbezogene Grafik, stelle die maximale Abweichung ein und vergleiche Vorher mit Nachher. Kreisbögen rekonstruieren ersetzt dichte kreisförmige Konturen durch Bögen. Gerade Abschnitte vereinfachen entfernt überflüssige Punkte und erhält Ecken und Endpunkte.
+
+Die Abweichungsgrenze vergleicht vorbereitete Pfade mit der Originalgrafik. Kurvenannäherung und Koordinatenrundung des Plotters verursachen zusätzliche Fehler. Nahe Details und Löcher sind geschützt; unsichere Konturen bleiben unverändert. Offene Pfade bleiben offen, doppelte Konturen bleiben erhalten. Bilder, Hilfslinien und Kalibrierproben werden übersprungen.
+
+Anwenden speichert die Vorbereitung an diesen Objekten für künftige Schnitte. Originalgrafik, Werkzeuge, Druck, Geschwindigkeit und Durchgänge bleiben erhalten. Nach Bearbeitung, Transformationen und Spiegelung wird neu berechnet. Originalschnittpfade verwenden oder Rückgängig hebt die Vorbereitung auf. Prüfe die Werkzeugpfadvorschau und teste vor der Produktion einen Materialrest.
 
 Fotografiere bei gleichmäßigem Licht vor kontrastierendem Hintergrund und richte die Kamera gerade auf das Motiv. Beginne mit automatischem Kontrast, vergleiche Bild und Pfade und vergrößere Details mit zwei Fingern. Wähle einfachere Details, wenn das Schnittpunktlimit überschritten wird. Die optionale Fleckenentfernung erhält Löcher. Wähle Umrisse schneiden für ein Messer oder Umrisse zeichnen für einen Stift. Die Nachzeichnung folgt Umrissen; dicke Linien haben daher zwei Kanten.
 
@@ -362,11 +372,11 @@ Aufträge übernehmen das Material ihrer Ebenen. Ändere das Material unter Eben
 
 Vorbereiten zeigt kompakte Material-, Schneidematten- und Plottereinstellungen. Klappe Material oder Schneidematte für weitere Einstellungen auf. Öffne direkt die Produktionsvorschau für Layout, Aufträge und geführte Vorbereitung.
 
-Speichere die Einstellungen unter Aufträge vorbereiten. Wähle unter Schneiden einen Produktionsauftrag, bestätige das eingelegte Material und prüfe Auftrag und Mattenausrichtung vor dem Start.
+Speichere Einstellungen und prüfe Aufträge unter Vorbereiten. Wähle unter Schneiden einen Produktionsauftrag und drücke Schneiden starten. Bestätige danach Material, Werkzeug und Mattenausrichtung.
 
 Schneiden zeigt die Auftragsauswahl, den Materialnamen und eine große Vorschau. Werkzeuge und Durchgänge änderst du unter Objekteigenschaften.
 
-Wähle unter Schneiden einen Auftrag, um nur dessen Motive und Montagemarkierungen anzuzeigen. Bestätige das eingelegte Material separat, bevor du den Auftrag prüfst und den Schnitt startest.
+Prüfe Aufträge unter Vorbereiten. Wähle unter Schneiden einen Auftrag, um seine Grafik und Montagemarken anzuzeigen, und drücke Schneiden starten. Bestätige das eingelegte Material und prüfe Werkzeug und Matte, bevor die Bewegung beginnt.
 
 Ebenen vereint die Organisation der Gestaltung und Materialzuweisungen. Öffne Ebene bearbeiten, um Material zuzuweisen. Unter Aufträge vorbereiten legst du Montagemarkierungen, Auftragsreihenfolge und Platzierung auf dem Blatt fest.
 
@@ -457,6 +467,10 @@ Materialien umfasst Klebe- und Textiltransferfolien, Aufklebermaterial, Papier, 
 Die Materialauswahl legt weder Schnittkraft noch Geschwindigkeit oder Klingentiefe fest. Stelle diese für den gewählten Plotter am Werkzeug, Objekt oder Plotter ein. Bestimme Durchgänge und Schnitttiefe mit einem kleinen Testschnitt; beim Kiss-Cut bleibt der Träger unversehrt. Prüfe die Spiegelung bei Textiltransferfolie.
 
 Neue Projekte übernehmen das aktuelle Material auf der Ebene Default. Weise fehlendes Material vor der Auftragsprüfung unter Ebene bearbeiten zu.
+
+Prüfe Aufträge unter Vorbereiten. Wähle unter Schneiden einen Auftrag, um seine Grafik und Montagemarken anzuzeigen, und drücke Schneiden starten. Bestätige das eingelegte Material und prüfe Werkzeug und Matte, bevor die Bewegung beginnt.
+
+Über die Anwendung zeigt den aktuellen Plan Free, Basic oder Pro. Die Anzeige wird aktualisiert, wenn die App eine Kauf- oder Abonnementänderung erhält.
 
 Wähle in Plotterverbindung Hersteller, Modell und Verbindung, dann ein Gerät und Verbinden. Gerätelisten werden automatisch aktualisiert, solange keine Verbindung besteht und die App sichtbar ist; Geräte aktualisieren startet eine neue Suche. Erlaube Bluetooth-Zugriff, wenn du dazu aufgefordert wirst. Wähle für USB Verbinden und erlaube den Android-Zugriff; die Verbindung wird automatisch fortgesetzt. Protokolleinstellungen und FilmCut-Verbindungsoptionen sind darunter gruppiert. Trenne die Verbindung, bevor du den Plotter wechselst. Verbunden bestätigt die Verbindung, nicht das Ende der Bewegung. Automatisches Verbinden ist für FilmCut und VEVOR Smart über Bluetooth verfügbar und setzt nie einen Auftrag fort.
 
@@ -586,7 +600,7 @@ Verbinde dich einmal, um Bluetooth-Identität und Modell zu speichern. Automatis
 
 Unter Vorbereiten die originale VEVOR-Matte mit 12 × 12 oder 12 × 24 Zoll wählen. Die Profile verwenden 304,8 × 304,8 mm und 304,8 × 609,7 mm. Kleinere eigene Arbeitsbereiche verwenden das kleinste passende Originalprofil.
 
-Schneiden zeigt vor der Prüfung den Entwurf und danach den vorbereiteten Werkzeugpfad. Schneiden starten bleibt bis zur Auftragsprüfung gesperrt.
+Prüfe Aufträge unter Vorbereiten. Wähle unter Schneiden einen Auftrag, um seine Grafik und Montagemarken anzuzeigen, und drücke Schneiden starten. Bestätige das eingelegte Material und prüfe Werkzeug und Matte, bevor die Bewegung beginnt.
 
 Druck und Durchgänge stammen aus Objekt- oder Werkzeugeinstellungen. VEVOR nennt 10–500 gf rechts und 50–500 gf links. FS-Werte erfordern weiterhin einen Materialtest.
 

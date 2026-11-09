@@ -1,6 +1,6 @@
 # Foil Studio manuals
 
-Reviewed 7 November 2026 for **0.1.127 (148)**, a release submitted to Google Play and currently in review; approval and rollout are pending. Google Play production currently uses 0.1.116 (137). Check your installed version against the [version guide](../release-notes.md).
+Reviewed 9 November 2026 for **0.1.129 (150)**. Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026. Check your installed version against the [version guide](../release-notes.md).
 
 ## Complete manuals in four languages
 
@@ -13,7 +13,7 @@ Reviewed 7 November 2026 for **0.1.127 (148)**, a release submitted to Google Pl
 
 [Download all four languages as ZIP](FoilStudio-Manual-All-Languages.zip).
 
-These complete manuals cover the current shared help and examples. Their language editions are maintained together. They explain layer-only material assignment, production-job review, active-project recovery, calibration and model-specific workflows.
+These complete manuals cover the current shared help and examples. Their language editions are maintained together. They explain layer-only material assignment, production-job review, active-project recovery, the square-grid calibration, reversible plotter preparation, direct Cut start, current licence and model-specific workflows.
 
 ## Concise English workflow guide
 

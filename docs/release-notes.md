@@ -1,20 +1,17 @@
 # Foil Studio release notes
 
-## 0.1.127 in Google Play review
+## 0.1.129 prepared for Google Play
 
-**0.1.127 (148) is in Google Play review; approval and rollout are pending.** The current production release is 0.1.116 (137), published 6 November 2026. The [0.1.127 notes in English, Polish, German and Spanish](releases/0.1.127.md) describe cumulative changes since that version: layer material inheritance and review checks, active-project recovery, compact Prepare/Cut, a tablet layer tree, colour-preserving imports and knife-calibration corrections.
+**0.1.129 (150)** is prepared for submission. Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026.
 
-**Polski:** Wersja 0.1.127 (148) została zgłoszona do Google Play i jest weryfikowana. Dostępność w sklepie oczekuje na zatwierdzenie i wdrożenie. Bieżąca wersja produkcyjna to 0.1.116 (137). [Zmiany i instrukcje](releases/0.1.127.md#polski).
+New features: reversible Prepare for plotter, circular arc recovery and path simplification, the 30 × 30 mm knife calibration grid with clear save scope, direct Start cutting after Job selection and the current plan in About.
 
-**Deutsch:** 0.1.127 (148) wurde bei Google Play eingereicht und wird geprüft. Freigabe und Veröffentlichung stehen noch aus. Aktuell ist 0.1.116 (137) in Produktion. [Änderungen und Hinweise](releases/0.1.127.md#deutsch).
-
-**Español:** 0.1.127 (148) se ha enviado a Google Play y está en revisión. La aprobación y la publicación siguen pendientes. La versión de producción actual es 0.1.116 (137). [Cambios e instrucciones](releases/0.1.127.md#español).
-
-The [workflow guide](user-manual.md), [four-language manuals](manual/README.md), [quick start](quick-start.md) and [reviewer guide](reviewer-guide.md) describe 0.1.127. Check your installed version. The [dated change summary](development-2026-11-07.md) and [validation report](validation-2026-11-07.md) provide more context.
+The [four-language release record](releases/0.1.129.md), [workflow guide](user-manual.md), [full manuals](manual/README.md), [quick start](quick-start.md) and [reviewer guide](reviewer-guide.md) describe this version. See [development notes](development-2026-11-09.md) and [validation](validation-2026-11-09.md).
 
 ## Versioned release records
 
-- [0.1.127](releases/0.1.127.md): in Google Play review; approval and rollout pending.
+- [0.1.129](releases/0.1.129.md): prepared for submission; availability pending.
+- [0.1.127](releases/0.1.127.md): available in Google Play since 7 November 2026; its versioned notes retain the original submission context.
 - [0.1.116](releases/0.1.116.md): current Google Play production version at the 7 November review; multi-plotter catalogue, connections, preparation, Print & Cut and imports.
 - [0.1.77](releases/0.1.77.md): four interface languages and shared help/examples.
 - [0.1.76](releases/0.1.76.md): Free, Basic and Pro access model.

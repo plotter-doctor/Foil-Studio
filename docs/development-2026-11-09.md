@@ -1,6 +1,6 @@
 # Changes prepared for 0.1.129
 
-Prepared 9 November 2026. Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026.
+Prepared 9 November 2026. Submitted for Google Play production on 9 November 2026. Google Play shows the changes in its checking workflow; automated checks and approval are pending. Managed publishing is off, with full rollout requested after approval. Current production remains 0.1.127 (148), available since 7 November 2026.
 
 ## Prepare for plotter
 

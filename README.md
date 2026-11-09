@@ -15,7 +15,7 @@ Create artwork, prepare material jobs and send them to a compatible plotter in t
 
 ## Versions
 
-Reviewed 9 November 2026. The current guides describe **0.1.129 (150)**. Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026. Check the installed version and [versioned release notes](docs/releases/0.1.129.md).
+Reviewed 9 November 2026. The current guides describe **0.1.129 (150)**. Submitted for Google Play production on 9 November 2026. Google Play shows the changes in its checking workflow; automated checks and approval are pending. Managed publishing is off, with full rollout requested after approval. Current production remains 0.1.127 (148), available since 7 November 2026. Check the installed version and [versioned release notes](docs/releases/0.1.129.md).
 
 ## Artwork, materials and jobs
 

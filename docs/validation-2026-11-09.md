@@ -1,10 +1,10 @@
 # Validation for 0.1.129
 
-Reviewed 9 November 2026. Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026.
+Reviewed 9 November 2026. Submitted for Google Play production on 9 November 2026. Google Play shows the changes in its checking workflow; automated checks and approval are pending. Managed publishing is off, with full rollout requested after approval. Current production remains 0.1.127 (148), available since 7 November 2026.
 
 ## Application and phone
 
-The exact runtime passes 3365 native-enabled host tests with 51 documented skips and no failures. Static analysis is clean. Skipped external, optional-platform or supervised-hardware cases are not reported as passed physical tests. Release CI verifies the exact candidate separately.
+The exact runtime passes 3365 native-enabled host tests with 51 documented skips and no failures. Static analysis is clean. Skipped external, optional-platform or supervised-hardware cases are not reported as passed physical tests. Release CI for this exact candidate passed all five jobs: Flutter/web and the four Rust packages.
 
 The signed universal APK was updated in place on a Samsung at 1080 × 2340, DPR 3 and font scale 1.15. Launch, current version/plan, Prepare entry, Cut Start, the full Design/Edit action and knife-calibration entry were visually inspected. No overlap or clipping was found in the changed controls. Project labels and the app pixels excluding system bars matched the pre-update empty Design view after QA. No project/library record was edited and no physical plotter movement occurred.
 

@@ -1,6 +1,6 @@
 # Foil Studio reviewer guide
 
-Reviewed 9 November 2026 for **0.1.129 (150)**. Prepared for Google Play submission; approval and availability are not yet claimed. Current production is 0.1.127 (148), available since 7 November 2026. The app has no application account or login. Installation is free; Google Play manages Basic and Pro. Use the entitlement required by the feature under review.
+Reviewed 9 November 2026 for **0.1.129 (150)**. Submitted for Google Play production on 9 November 2026. Google Play shows the changes in its checking workflow; automated checks and approval are pending. Managed publishing is off, with full rollout requested after approval. Current production remains 0.1.127 (148), available since 7 November 2026. The app has no application account or login. Installation is free; Google Play manages Basic and Pro. Use the entitlement required by the feature under review.
 
 ## English
 

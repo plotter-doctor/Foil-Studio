@@ -4,7 +4,7 @@ Prepared for Google Play production submission. Approval and availability of 0.1
 
 ## Software and layout
 
-The one-row correction passed the 75-test targeted regression run and the final 14-test layout suite, including custom saved distance. These overlapping runs are not added together. EN/PL/DE/ES renders cover narrow portrait, landscape, 200% text and the connected phone’s 360 × 780 logical viewport at 1.15 text scale. Chips remain separated and labels fit. Complete release CI and artifact checks are recorded before submission.
+The one-row correction passed the 75-test targeted regression run and the final 14-test layout suite, including custom saved distance. These overlapping runs are not added together. EN/PL/DE/ES renders cover narrow portrait, landscape, 200% text and the connected phone’s 360 × 780 logical viewport at 1.15 text scale. Chips remain separated and labels fit. The complete local Flutter suite passed 3913 tests with zero failures; 76 tests requiring optional fixtures or external environments were explicitly skipped. Format and static analysis passed. Android APK/AAB signatures, package/version, all bundled source assets and three CPU architectures were verified. The owner also confirmed the installed phone layout is correct; wider buttons are deferred to a future usability update.
 
 ## Protocol qualification
 

@@ -1,6 +1,6 @@
 # Android screenshot versions
 
-Reviewed 15 November 2026 for 0.1.145 (166). Prepared for Google Play production submission. Approval and availability of 0.1.145 are not yet claimed. Current production is 0.1.129 (150), available since 9 November 2026. See the [version guide](../docs/release-notes.md).
+Reviewed 15 November 2026 for 0.1.145 (166). Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026. See the [version guide](../docs/release-notes.md).
 
 ## Retained 0.1.129 samples
 

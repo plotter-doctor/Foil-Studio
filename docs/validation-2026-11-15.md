@@ -1,10 +1,10 @@
 # Validation scope for 0.1.145
 
-Prepared for Google Play production submission. Approval and availability of 0.1.145 are not yet claimed. Current production is 0.1.129 (150), available since 9 November 2026.
+Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026.
 
 ## Software and layout
 
-The one-row correction passed the 75-test targeted regression run and the final 14-test layout suite, including custom saved distance. These overlapping runs are not added together. EN/PL/DE/ES renders cover narrow portrait, landscape, 200% text and the connected phone’s 360 × 780 logical viewport at 1.15 text scale. Chips remain separated and labels fit. The complete local Flutter suite passed 3913 tests with zero failures; 76 tests requiring optional fixtures or external environments were explicitly skipped. Format and static analysis passed. Android APK/AAB signatures, package/version, all bundled source assets and three CPU architectures were verified. The owner also confirmed the installed phone layout is correct; wider buttons are deferred to a future usability update.
+The one-row correction passed the 75-test targeted regression run and the final 14-test layout suite, including custom saved distance. These overlapping runs are not added together. EN/PL/DE/ES renders cover narrow portrait, landscape, 200% text and the connected phone’s 360 × 780 logical viewport at 1.15 text scale. Chips remain separated and labels fit. Both local and GitHub Flutter suites passed 3913 tests with zero failures; 76 tests requiring optional fixtures or external environments were explicitly skipped. Format, static analysis, release web builds and all four GitHub Rust verification jobs passed. Android APK/AAB signatures, package/version, all bundled source assets and three CPU architectures were verified. The owner also confirmed the installed phone layout is correct; wider buttons are deferred to a future usability update.
 
 ## Protocol qualification
 

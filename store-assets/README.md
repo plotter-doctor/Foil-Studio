@@ -1,6 +1,6 @@
 # Google Play assets
 
-Original vector artwork, prepared 28 September 2026; captions reviewed 15 November 2026 for 0.1.145 (166). Prepared for Google Play production submission. Approval and availability of 0.1.145 are not yet claimed. Current production is 0.1.129 (150), available since 9 November 2026. See the [version guide](../docs/release-notes.md). The icon matches the application's existing teal-and-white F launcher mark. The feature graphic extends the same palette with independently authored cutting-path artwork; it is not a screenshot or a promise of a particular physical result.
+Original vector artwork, prepared 28 September 2026; captions reviewed 15 November 2026 for 0.1.145 (166). Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026. See the [version guide](../docs/release-notes.md). The icon matches the application's existing teal-and-white F launcher mark. The feature graphic extends the same palette with independently authored cutting-path artwork; it is not a screenshot or a promise of a particular physical result.
 
 - `icon-512.png`: 512 × 512, RGBA PNG; store icon.
 - `feature-1024x500.png`: 1024 × 500, RGB PNG; feature graphic.

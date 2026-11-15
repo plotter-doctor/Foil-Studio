@@ -2,7 +2,7 @@
 
 ## 0.1.145 prepared for Google Play
 
-**0.1.145 (166)**. Prepared for Google Play production submission. Approval and availability of 0.1.145 are not yet claimed. Current production is 0.1.129 (150), available since 9 November 2026.
+**0.1.145 (166)**. Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026.
 
 See the [four-language release record](releases/0.1.145.md), [current guide](user-manual.md), [manual downloads](manual/README.md), [reviewer guide](reviewer-guide.md) and [validation scope](validation-2026-11-15.md).
 

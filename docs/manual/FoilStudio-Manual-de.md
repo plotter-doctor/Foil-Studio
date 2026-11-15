@@ -1,8 +1,8 @@
 # Foil Studio Benutzerhandbuch
 
-Android 0.1.129 (150)  ·  9 November 2026
+Android 0.1.145 (166)  ·  15 November 2026
 
-Dieses Handbuch führt vom bearbeitbaren Entwurf zum Schneiden, Zeichnen mit Stift, passiven Gravieren und Falzen. Es beschreibt Foil Studio für Android 0.1.129 (150), einschließlich Objekteinstellungen, Produktionslayouts, Print & Cut und der aktuellen Verbindungsabläufe für Plotter.
+Dieses Handbuch führt vom bearbeitbaren Entwurf zum Schneiden, Zeichnen mit Stift, passiven Gravieren und Falzen. Es beschreibt Foil Studio für Android 0.1.145 (166), einschließlich Objekteinstellungen, Produktionslayouts, Print & Cut und der aktuellen Verbindungsabläufe für Plotter.
 
 ## 01 Dein erstes Projekt
 
@@ -24,33 +24,37 @@ Free umfasst Bearbeitung und Vorschau. Basic ist ein einmaliger Kauf für Speich
 
 03  Schneiden Zeichnen Gravieren und Falzen
 
-04  Werkzeugeinstellungen und Messerkalibrierung
+04  Plottergeometrie kalibrieren
 
-05  Formen auswählen und zeichnen
+05  GCC Plotter
 
-06  Text Layouts und Assistenten
+06  Werkzeugeinstellungen und Messerkalibrierung
 
-07  Projekte importieren speichern und wieder öffnen
+07  Formen auswählen und zeichnen
 
-08  Bilder nachzeichnen und Kurven bearbeiten
+08  Text Layouts und Assistenten
 
-09  Produktion vorbereiten und prüfen
+09  Projekte importieren speichern und wieder öffnen
 
-10  Ebenen Materialien und Aufträge
+10  Bilder nachzeichnen und Kurven bearbeiten
 
-11  Aufkleber und QR Etiketten
+11  Produktion vorbereiten und prüfen
 
-12  Druck und Schnitt ausrichten
+12  Ebenen Materialien und Aufträge
 
-13  Plotter verbinden und steuern
+13  Aufkleber und QR Etiketten
 
-14  HPGL und DMPL einrichten und bedienen
+14  Druck und Schnitt ausrichten
 
-15  Silhouette und AutoBlade
+15  Plotter verbinden und steuern
 
-16  Mit VEVOR Smart arbeiten
+16  HPGL und DMPL einrichten und bedienen
 
-17  Hilfe und Plotter Support
+17  Silhouette und AutoBlade
+
+18  Mit VEVOR Smart arbeiten
+
+19  Hilfe und Plotter Support
 
 ## 03 Schneiden Zeichnen Gravieren und Falzen
 
@@ -74,7 +78,41 @@ Weise den Faltlinien einen Falzstift und der Außenkontur ein Messer zu. Teste d
 
 Ein kombinierter Auftrag führt zuerst die Stiftzeichnung, dann Gravieren, Falzen und schließlich Messerschnitte aus. Prüfe jede Stufe und bestätige jeden angeforderten Werkzeugwechsel. Druckerobjekte gehören zur Druckausgabe; Hilfsobjekte werden vom Plotter nicht ausgegeben.
 
-## 04 Werkzeugeinstellungen und Messerkalibrierung
+## 04 Plottergeometrie kalibrieren
+
+### Plotterkalibrierung
+
+Zeichne mit einem Stift ein Rechteck, miss X und Y zwischen den Linienmitten und gib beide Messwerte ein. Lasse die Controllerskalierung auf 100 %. Verwende die bisherige Korrektur nur, wenn sie für diesen Test verwendet wurde. Neue Korrektur = Testkorrektur × Sollmaß / Messmaß.
+
+Miss X quer über die Mattenbreite und Y entlang ihrer Länge. Dies sind die Anwendungsachsen; die Controllerbuchstaben können abweichen.
+
+Die X/Y-Kalibrierung für FilmCut beginnt mit Stiftdruck 180. Passe ihn vor dem Zeichnen an Stift und Material an.
+
+Nutze hier die verfügbaren Mattensteuerungen. Beende den Test und warte vor dem Auswerfen zum Messen auf Stillstand. Prüfe nach dem Laden den Ursprung und bestätige Stift und Bogen erneut.
+
+Zeichne das Kreuz mit einem Stift im Schneidhalter. Hebe den Stift an und bewege den Laserpointer zur Kreuzmitte, ohne Bogen oder Ursprung zu verändern. Bestätige danach den Stillstand. Der gespeicherte Pointerversatz gilt nur für die manuelle Laserausrichtung; normale Schnitte werden nicht verschoben.
+
+Die Kalibrierung wird pro gewähltem Profil gespeichert. Prüfe die gespeicherten Werte unter Plotterkalibrierung vor einem weiteren Test.
+
+Die native optische Ausrichtung liefert die Achstransformation. Die gespeicherte X/Y-Korrektur gilt für normale und manuell ausgerichtete Schnitte.
+
+Beispiel in der Hilfe: Plotterkalibrierung
+
+## 05 GCC Plotter
+
+### GCC Plotter
+
+Wähle das genaue GCC-Modell und prüfe die Achsen mit einer kurzen Bewegung bei angehobenem Werkzeug. Die Maschinensteuerung bietet wiederholte Bewegungen, Werkzeug heben/senken und Rückkehr zum Ursprung. Sie fährt zum vorbereiteten Ursprung, sucht keinen Endschalter und startet die Elektronik nicht neu. Verbinde nach einer Kopfbewegung über das Plotterbedienfeld erneut.
+
+GCC-Aufträge verwenden getrennte Schritte für verschiedene Werkzeuge. Setze jedes Werkzeug vor seinem Schritt ein und bestätige es. Messer und Stift wählen ihren jeweiligen Werkzeugmodus. Wähle zum Rillen oder Gravieren den passenden Modus am Plotterbedienfeld. Druck, Geschwindigkeit und Beschleunigung bleiben dort eingestellt. Deaktiviere Messer-Offset und Überschnitt im Plotter, wenn die App das Messer kompensiert.
+
+Materialbereich abfragen ist eine optionale Abfrage im Stillstand, einmal pro Verbindung. Sie meldet die Spannweiten der Befehlsachsen X und Y, nicht die Kopfposition. Vergleiche sie mit den gewählten Achsen und der geladenen Matte; die Abfrage verändert das Projekt nie. Antwortet der Plotter nicht, gib die nutzbare Mattengröße manuell ein.
+
+GCC nutzt manuelles Print & Cut mit kalibriertem Zeiger. Automatische AAS-Marken, Segmentabtastung, automatischer Wechsel zweier Halter, Materialabschnitt und Hardware-Reset sind nicht verfügbar. i-Craft und Nautilus verwenden eigene Befehlsrahmen. Diese Profile müssen noch mit angehobenem Werkzeug an deinem Gerät geprüft werden. Eine abgeschlossene Übertragung bestätigt keinen Stillstand.
+
+Beispiel in der Hilfe: GCC-Beispiel mit zwei Werkzeugen
+
+## 06 Werkzeugeinstellungen und Messerkalibrierung
 
 ### Werkzeuge und Objekteigenschaften
 
@@ -89,6 +127,10 @@ Objekte verwenden die Einstellungen ihres Werkzeugs, soweit das gewählte Modell
 Objekte behalten ihre zugewiesenen Werkzeugeinstellungen. Wähle nach dem Bearbeiten eines Bibliothekswerkzeugs dessen aktualisierten Eintrag unter Objekteigenschaften.
 
 Klappe auf einem Tablet oder breiten Bildschirm eine Ebene im Ebenenbaum auf. Tippe auf ein Objekt, um es auszuwählen; seine Auswahltaste fügt es hinzu oder entfernt es. Ebenen- und Objektmenüs öffnen Eigenschaften. Nutze Ebene hinzufügen oder Auf Ebene verschieben. Halte den Objektnamen gedrückt, um ihn auf eine Ebene zu ziehen. Beim Verschieben übernimmt das Objekt das Material der Zielebene.
+
+Beim Öffnen der Eigenschaften eines ausgewählten Objekts bleibt die aktuelle Auswahl erhalten. Werkzeug der Auswahl bearbeitet nur Objekte mit diesem Werkzeug. Um unterschiedliche zugewiesene Werkzeuge gemeinsam zu ersetzen, wähle Ein Werkzeug für Auswahl zuweisen und ein kompatibles Werkzeug, dann Speichern. Die Liste unterscheidet Bibliothekswerkzeuge von Werkzeugen aus ausgewählten Objekten und zeigt ihre Geometrieeinstellungen. Vergleiche diese Angaben bei gleichen Namen. Abbrechen verwirft alle ungespeicherten Änderungen.
+
+Der kompakte Ebenenbaum zeigt das Material nach der Objektanzahl. Lange Ebenen- und Objektnamen enden mit Auslassungspunkten; öffne die Eigenschaften, um den vollständigen Namen zu lesen. Auswahl und Eigenschaften stehen neben jedem Objekt.
 
 Wähle das Zielmodell unter Verbindung. Werkzeuge zeigen nur dessen Einstellungen und speichern Werte je Modell. Physische Geschwindigkeit erscheint in mm/s; Silhouette nutzt native Kraft- und Geschwindigkeitsskalen. Alte Rohwerte behalten ihre Bedeutung. FilmCut-Grammwerte sind Schätzungen, keine Messungen.
 
@@ -124,7 +166,7 @@ Der mitgelieferte Bogen zeigt das Raster aus 30 × 30 mm großen Quadraten ohne 
 
 Beispiel in der Hilfe: Messerkalibrierung
 
-## 05 Formen auswählen und zeichnen
+## 07 Formen auswählen und zeichnen
 
 ### Auswählen verschieben und skalieren
 
@@ -144,19 +186,25 @@ Neue Konfigurationen verwenden ein sichtbares 1-mm-Linienraster, stärkere Linie
 
 Klappe auf einem Tablet oder breiten Bildschirm eine Ebene im Ebenenbaum auf. Tippe auf ein Objekt, um es auszuwählen; seine Auswahltaste fügt es hinzu oder entfernt es. Ebenen- und Objektmenüs öffnen Eigenschaften. Nutze Ebene hinzufügen oder Auf Ebene verschieben. Halte den Objektnamen gedrückt, um ihn auf eine Ebene zu ziehen. Beim Verschieben übernimmt das Objekt das Material der Zielebene.
 
+Beim Öffnen der Eigenschaften eines ausgewählten Objekts bleibt die aktuelle Auswahl erhalten. Werkzeug der Auswahl bearbeitet nur Objekte mit diesem Werkzeug. Um unterschiedliche zugewiesene Werkzeuge gemeinsam zu ersetzen, wähle Ein Werkzeug für Auswahl zuweisen und ein kompatibles Werkzeug, dann Speichern. Die Liste unterscheidet Bibliothekswerkzeuge von Werkzeugen aus ausgewählten Objekten und zeigt ihre Geometrieeinstellungen. Vergleiche diese Angaben bei gleichen Namen. Abbrechen verwirft alle ungespeicherten Änderungen.
+
+Der kompakte Ebenenbaum zeigt das Material nach der Objektanzahl. Lange Ebenen- und Objektnamen enden mit Auslassungspunkten; öffne die Eigenschaften, um den vollständigen Namen zu lesen. Auswahl und Eigenschaften stehen neben jedem Objekt.
+
 Öffne Details für weitere Hinweise. Die Hilfe enthält vollständige Anleitungen und bearbeitbare Beispiele.
 
 Beispiel in der Hilfe: Ein kleines Dankeschön
 
 ### Das Objektmenü
 
-Das Objektmenü beginnt mit Eigenschaften und Inhaltsbearbeitung, gefolgt von Verschieben, Skalieren und Drehen, dann Duplizieren und Stapelreihenfolge. Löschen steht zuletzt. Ausrichten und verteilen sowie Blatt füllen findest du unter Bearbeiten.
+Gruppierung aufheben trennt gruppierte Objekte. Konturen trennen zerlegt eine ungruppierte Zeichnung in einzelne Konturen und erhält Positionen und Werkzeugeinstellungen. Rückgängig stellt das ursprüngliche Objekt wieder her. Gefüllte Objekte, Text, QR, Assistenten, Bilder und verknüpfte Aufkleberobjekte lassen sich so nicht trennen.
+
+Das Objektmenü zeigt ein kompaktes Raster mit Gruppieren und Gruppierung aufheben neben den Eigenschaften. Verschieben, Skalieren, Drehen, Duplizieren und Stapelreihenfolge bleiben verfügbar. Löschen steht zuletzt. Ausrichten und verteilen sowie Blatt füllen findest du unter Bearbeiten.
 
 Wähle ein Objekt und halte den Finger darauf, ohne ihn zu bewegen. Mit der Maus klicke und halte die Taste gedrückt.
 
 Wähle im Objektmenü Verschieben für genaue horizontale und vertikale Abstände oder Skalieren für Breite, Höhe oder Skalierungsfaktor. Gruppierte Motive ändern sich gemeinsam; löse die Gruppe auf, um einzelne Teile zu bearbeiten.
 
-Bearbeitungsbefehle stehen auch unter „Bearbeiten“. Der Abwärtspfeil am Rand eines langen Menüs zeigt weitere Optionen.
+Das Objektmenü passt ohne Scrollen auf den verfügbaren Bildschirm. Bei großer Schrift oder niedrigen Fenstern wechselst du die Seiten mit den Pfeilen. Bearbeitungsbefehle findest du auch unter Bearbeiten.
 
 Beispiel in der Hilfe: Ein kleines Dankeschön
 
@@ -174,7 +222,7 @@ Zwei Finger verwerfen eine unfertige Form und verschieben oder zoomen die Ansich
 
 Beispiel in der Hilfe: Drei Formen und eine Referenz
 
-## 06 Text Layouts und Assistenten
+## 08 Text Layouts und Assistenten
 
 ### Text bearbeiten
 
@@ -240,7 +288,7 @@ Die Tragebox ist eine offene Schale mit separatem Steckgriff. Führe jede Griffl
 
 Beispiel in der Hilfe: Ein Geschenk mit Fenster
 
-## 07 Projekte importieren speichern und wieder öffnen
+## 09 Projekte importieren speichern und wieder öffnen
 
 ### Eigene Kopie behalten
 
@@ -278,11 +326,13 @@ Die App speichert das aktive Projekt auf diesem Gerät für die Rückkehr aus de
 
 Beim Öffnen eines anderen Projekts fragt die App nach ungespeicherter Arbeit. Nutze Projekt → Speichern oder Speichern unter, soweit dein Tarif es erlaubt.
 
+Öffne Sprache sowie Hilfe & Beispiele über das Menü Projekt.
+
 Sprachänderungen betreffen Oberfläche und Hilfe. Deine Texte, Objekt- und Dateinamen bleiben unverändert.
 
 Beispiel in der Hilfe: Ein kleines Dankeschön
 
-## 08 Bilder nachzeichnen und Kurven bearbeiten
+## 10 Bilder nachzeichnen und Kurven bearbeiten
 
 ### Kurven und Knoten bearbeiten
 
@@ -314,9 +364,11 @@ Hinzufügen → Bézierkurve erstellt eine Kurve aus Kontrollpunkten. Bewahre ei
 
 Beispiel in der Hilfe: Blüte
 
-## 09 Produktion vorbereiten und prüfen
+## 11 Produktion vorbereiten und prüfen
 
 ### Geführt
+
+Zeichne mit einem Stift ein Rechteck, miss X und Y zwischen den Linienmitten und gib beide Messwerte ein. Lasse die Controllerskalierung auf 100 %. Verwende die bisherige Korrektur nur, wenn sie für diesen Test verwendet wurde. Neue Korrektur = Testkorrektur × Sollmaß / Messmaß.
 
 Vorbereiten zeigt kompakte Material-, Schneidematten- und Plottereinstellungen. Klappe Material oder Schneidematte für weitere Einstellungen auf. Öffne direkt die Produktionsvorschau für Layout, Aufträge und geführte Vorbereitung.
 
@@ -344,7 +396,7 @@ Prüfe kleine Details, Randabstand und Werkzeugeinstellungen an einem Teststück
 
 Beispiel in der Hilfe: Produktionsvorschau
 
-## 10 Ebenen Materialien und Aufträge
+## 12 Ebenen Materialien und Aufträge
 
 ### Ebenen und Aufträge
 
@@ -382,6 +434,10 @@ Ebenen vereint die Organisation der Gestaltung und Materialzuweisungen. Öffne E
 
 Klappe auf einem Tablet oder breiten Bildschirm eine Ebene im Ebenenbaum auf. Tippe auf ein Objekt, um es auszuwählen; seine Auswahltaste fügt es hinzu oder entfernt es. Ebenen- und Objektmenüs öffnen Eigenschaften. Nutze Ebene hinzufügen oder Auf Ebene verschieben. Halte den Objektnamen gedrückt, um ihn auf eine Ebene zu ziehen. Beim Verschieben übernimmt das Objekt das Material der Zielebene.
 
+Beim Öffnen der Eigenschaften eines ausgewählten Objekts bleibt die aktuelle Auswahl erhalten. Werkzeug der Auswahl bearbeitet nur Objekte mit diesem Werkzeug. Um unterschiedliche zugewiesene Werkzeuge gemeinsam zu ersetzen, wähle Ein Werkzeug für Auswahl zuweisen und ein kompatibles Werkzeug, dann Speichern. Die Liste unterscheidet Bibliothekswerkzeuge von Werkzeugen aus ausgewählten Objekten und zeigt ihre Geometrieeinstellungen. Vergleiche diese Angaben bei gleichen Namen. Abbrechen verwirft alle ungespeicherten Änderungen.
+
+Der kompakte Ebenenbaum zeigt das Material nach der Objektanzahl. Lange Ebenen- und Objektnamen enden mit Auslassungspunkten; öffne die Eigenschaften, um den vollständigen Namen zu lesen. Auswahl und Eigenschaften stehen neben jedem Objekt.
+
 Gestaltungsfarbe, Material und Produktionsauftrag sind unabhängig. Mehrere Gestaltungsebenen können einen Auftrag teilen, und dasselbe Material kann in getrennten Aufträgen verwendet werden.
 
 Öffne Details für weitere Hinweise. Die Hilfe enthält vollständige Anleitungen und bearbeitbare Beispiele.
@@ -390,7 +446,7 @@ Scrolle in einem niedrigen Fenster zu den Aktionen des Formulars. Tastatureingab
 
 Beispiel in der Hilfe: Ebenen und Aufträge
 
-## 11 Aufkleber und QR Etiketten
+## 13 Aufkleber und QR Etiketten
 
 ### Aufkleber erstellen
 
@@ -430,9 +486,11 @@ Die Größe umfasst die Ruhezone.
 
 Beispiel in der Hilfe: QR-Etikett
 
-## 12 Druck und Schnitt ausrichten
+## 14 Druck und Schnitt ausrichten
 
 ### Manuelles Print Cut
+
+Zeichne mit einem Stift ein Rechteck, miss X und Y zwischen den Linienmitten und gib beide Messwerte ein. Lasse die Controllerskalierung auf 100 %. Verwende die bisherige Korrektur nur, wenn sie für diesen Test verwendet wurde. Neue Korrektur = Testkorrektur × Sollmaß / Messmaß.
 
 Drucke für manuelles Print & Cut in Originalgröße und prüfe die Ränder. Lade das Blatt ohne Werkzeug und richte die Haltermitte auf A, B, D und C aus. Korrigiere mit kleinen Schritten und erfasse erst nach Stillstand.
 
@@ -458,7 +516,7 @@ Prüfe standardmäßig nach der Übertragung den Stillstand und wähle Fertig. A
 
 Beispiel in der Hilfe: Optisches Print & Cut
 
-## 13 Plotter verbinden und steuern
+## 15 Plotter verbinden und steuern
 
 ### Vom Entwurf zur Ausgabe
 
@@ -480,7 +538,7 @@ Wähle die geladene Größe unter Vorbereiten → Schneidematte. Arbeitsbereich-
 
 Tippe in der Mattenbibliothek auf einen Eintrag, um ihn anzuwenden. Bei großer Schrift oder kurzen Fenstern wechseln Bereichssymbole zwischen Materialien, Werkzeugen und Matten; das Plus fügt einen eigenen Eintrag hinzu. Halte ein Symbol gedrückt, um seinen Namen zu sehen.
 
-Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke; der gespeicherte Wert wird im unterstützten Bereich des gewählten Plotters verwendet. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
+Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke: 0,1, 1, 5, 10, 50 oder 100 mm oder den gespeicherten Wert. Die Streckenoptionen bleiben in einer Zeile. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Bei VEVOR-Modellen außer Smart lösen die Werkzeugtasten einen kleinen Schlittenschritt und die Rückkehr aus. Nach dem Absenken kann das Werkzeug im Stillstand wieder anheben; weitere Fahrten verwenden den gewählten Werkzeugzustand. Verbinde diesen Plotter nach einer Bewegung über sein Bedienfeld erneut, bevor du ihn in der App steuerst. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
 
 „Gestalten“ erstellt die Objekte. „Vorbereiten“ prüft Layout und Werkzeuge. „Schneiden“ enthält Auftragsvorschau und Steuerung.
 
@@ -492,13 +550,25 @@ Beispiele dienen zum Lernen und sind keine kalibrierten Materialprofile. Teste e
 
 Beispiel in der Hilfe: Noch ein Kapitel
 
-## 14 HPGL und DMPL einrichten und bedienen
+## 16 HPGL und DMPL einrichten und bedienen
 
 ### HPGL DMPL Plotter
 
+Home hebt das Werkzeug an und fährt zum logischen Ursprung der aktuellen Verbindung zurück. Dieser kann von der Ecke des Motivs abweichen. Die Funktion sucht keinen Endschalter und stellt keinen Ursprung vor einer erneuten Verbindung wieder her. Home wird verfügbar, nachdem eine normale Fahrt oder ein Auftrag den Rahmen festgelegt hat und du Stillstand bestätigst. Bestätige nach Home den Stillstand des Plotters.
+
+Prüfe vor dem Start die Werkzeugreihenfolge. Setze das erste Werkzeug ein und bestätige es. Warte nach jeder Stufe auf vollständigen Stillstand und bestätige den Abschluss. Das nächste Werkzeug bleibt unter Schneiden sichtbar: Wähle Werkzeug wechseln, setze es ein und bestätige vor dem Start der Stufe. Die Datenübertragung bestätigt keinen Bewegungsabschluss. Lass das Material beim Werkzeugwechsel liegen.
+
+VEVOR-Modelle KH, KI, SK, KW, X, Y und B haben je ein DMPL-Profil pro Modell. Smart-Modelle behalten ihr eigenes Protokoll. Direktes USB verwendet standardmäßig die USB-Druckerschnittstelle mit deaktiviertem XON/XOFF; erlaube den Android-Zugriff. Alle diese DMPL-Profile verwenden dieselbe Verbindungs- und Bewegungssteuerung. Wähle das Modell erneut, falls ein älteres HPGL-Profil nicht mehr aufgeführt ist. Prüfe die Achsen und bereite den Auftrag neu vor. Stelle den tatsächlich eingelegten Arbeitsbereich ein; eine unbekannte Breite ist kein bestätigtes Limit. Die Maschinensteuerung für HPGL/DMPL ist in Free verfügbar. Zum Starten eines Auftrags ist Basic erforderlich.
+
+Zeichne mit einem Stift ein Rechteck, miss X und Y zwischen den Linienmitten und gib beide Messwerte ein. Lasse die Controllerskalierung auf 100 %. Verwende die bisherige Korrektur nur, wenn sie für diesen Test verwendet wurde. Neue Korrektur = Testkorrektur × Sollmaß / Messmaß.
+
+Zeichne das Kreuz mit einem Stift im Schneidhalter. Hebe den Stift an und bewege den Laserpointer zur Kreuzmitte, ohne Bogen oder Ursprung zu verändern. Bestätige danach den Stillstand. Der gespeicherte Pointerversatz gilt nur für die manuelle Laserausrichtung; normale Schnitte werden nicht verschoben.
+
 Wähle in Plotterverbindung Hersteller, Modell und Verbindung, dann ein Gerät und Verbinden. Gerätelisten werden automatisch aktualisiert, solange keine Verbindung besteht und die App sichtbar ist; Geräte aktualisieren startet eine neue Suche. Erlaube Bluetooth-Zugriff, wenn du dazu aufgefordert wirst. Wähle für USB Verbinden und erlaube den Android-Zugriff; die Verbindung wird automatisch fortgesetzt. Protokolleinstellungen und FilmCut-Verbindungsoptionen sind darunter gruppiert. Trenne die Verbindung, bevor du den Plotter wechselst. Verbunden bestätigt die Verbindung, nicht das Ende der Bewegung. Automatisches Verbinden ist für FilmCut und VEVOR Smart über Bluetooth verfügbar und setzt nie einen Auftrag fort.
 
-Die USB-Druckerschnittstelle verbindet sich direkt mit einer bidirektionalen Standardschnittstelle mit Bulk-Ein- und -Ausgang. Herstellerspezifische USB-Schnittstellen benötigen einen eigenen Treiber. Wähle die passende Plottersprache und USB–seriell für serielle Adapter.
+Die USB-Druckerschnittstelle unterstützt unidirektionale und bidirektionale Rohdatenverbindungen. Unidirektionale Verbindungen deaktivieren XON/XOFF und Pufferabfragen. Bietet ein Gerät mehrere Schnittstellen, wähle die für den Plotter dokumentierte. Passe die Befehlssprache an; die USB-Erkennung erkennt weder HPGL noch DMPL. IEEE 1284.4 ist nicht verfügbar; herstellerspezifisches USB ist auf ausdrücklich unterstützte GCC-Geräte begrenzt. Verwende USB–seriell für serielle Adapter.
+
+Öffne nach dem Verbinden über eine USB-Druckerschnittstelle USB-Geräteinformationen, um das gemeldete Produkt, den Hersteller, das Modell und die Befehlssprachen zu lesen. Die optionale IEEE-1284-Device-ID-Abfrage kann nicht verfügbar sein; die Verbindung funktioniert weiter. Diese Angaben identifizieren kein einzelnes Exemplar eindeutig und bestätigen nicht seine Plottersprache. Wähle Modell und Sprache selbst.
 
 Wähle für den CE LITE-50 sein Graphtec-Profil und die USB-Verbindung. Wähle am Plotter HPGL und den Ursprung LOWER LEFT. Behalte die Profilachsen bei: X vorwärts, Y rechts. Die USB-Übertragung berücksichtigt den vom Plotter gemeldeten freien Pufferspeicher. Stelle Kraft und Geschwindigkeit am Bedienfeld ein. Der Arbeitsbereich 498 mm umfasst die maximale Schnittbreite; passe seine Länge an das geladene Material an, höchstens 3000 mm.
 
@@ -508,7 +578,7 @@ Wähle die geladene Größe unter Vorbereiten → Schneidematte. Arbeitsbereich-
 
 Tippe in der Mattenbibliothek auf einen Eintrag, um ihn anzuwenden. Bei großer Schrift oder kurzen Fenstern wechseln Bereichssymbole zwischen Materialien, Werkzeugen und Matten; das Plus fügt einen eigenen Eintrag hinzu. Halte ein Symbol gedrückt, um seinen Namen zu sehen.
 
-Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke; der gespeicherte Wert wird im unterstützten Bereich des gewählten Plotters verwendet. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
+Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke: 0,1, 1, 5, 10, 50 oder 100 mm oder den gespeicherten Wert. Die Streckenoptionen bleiben in einer Zeile. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Bei VEVOR-Modellen außer Smart lösen die Werkzeugtasten einen kleinen Schlittenschritt und die Rückkehr aus. Nach dem Absenken kann das Werkzeug im Stillstand wieder anheben; weitere Fahrten verwenden den gewählten Werkzeugzustand. Verbinde diesen Plotter nach einer Bewegung über sein Bedienfeld erneut, bevor du ihn in der App steuerst. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
 
 Plotter ohne relative Fahrten verwenden X- und Y-Zielkoordinaten mit Bewegen; diese Felder sind Ziele, keine Positionsanzeige.
 
@@ -522,19 +592,19 @@ Bei Generic zeigt der Prozentsatz gesendete Daten, nicht ausgeführte Bewegungen
 
 Wähle den genauen Hersteller und das Modell oder Generic mit HPGL oder DMPL, wenn keine Voreinstellung aufgeführt ist. Modellprofile legen Sprache, Maßstab und verfügbare Verbindungen fest; sie erkennen das angeschlossene Gerät nicht. Graphtec umfasst Craft Robo mit einem eigenen Verbindungsablauf. VEVOR Smart verwendet ein eigenes Protokoll; KH-, KI- und SK-Profile verwenden die beim Modell angezeigte Sprache. Gleiche die unter Protokolleinstellungen angezeigten Bedienfeldeinstellungen ab. Stelle Arbeitsbereich des geladenen Materials, Werkzeug, Kraft und Geschwindigkeit am Plotter ein. Die USB-Verfügbarkeit hängt vom gewählten Modell ab. Wähle eine seiner verfügbaren Verbindungen.
 
-Prüfe bei benannten HPGL/DMPL-Profilen vor dem Verbinden die Koordinatenachsen. Dies sind die positiven Befehlsrichtungen von vorn gesehen: vorwärts bedeutet vom Benutzer weg entlang der Vorschubachse. Profile verwenden dokumentierte Achsen, falls verfügbar; andernfalls wähle sie ausdrücklich. Passe den Ursprung am Gerät an und schalte Drehung, Spiegelung und Skalierung aus. Prüfe vor einem Auftrag eine kleine Bewegung mit angehobenem Werkzeug. Seriell benötigt einen unterstützten USB–Seriell-Adapter; die anderen Optionen verwenden einen transparenten SPP-Adapter oder eine Raw-TCP-Brücke.
+Prüfe bei benannten HPGL/DMPL-Profilen vor einer Bewegung die Koordinatenachsen. Dies sind die positiven Befehlsrichtungen von vorn gesehen: vorwärts bedeutet vom Benutzer weg entlang der Vorschubachse. Profile verwenden dokumentierte Achsen, falls verfügbar; andernfalls wähle sie ausdrücklich. Passe den Ursprung am Gerät an und schalte Drehung, Spiegelung und Skalierung aus. Prüfe vor einem Auftrag eine kleine Bewegung mit angehobenem Werkzeug. Seriell benötigt einen unterstützten USB–Seriell-Adapter; die anderen Optionen verwenden einen transparenten SPP-Adapter oder eine Raw-TCP-Brücke.
 
 Aktiviere bei HPGL/DMPL XON/XOFF oder ESC.B nur, wenn Gerät und Verbindung dies unterstützen, und passe die Übertragungsrate an den Puffer an. Die Maschinensteuerung verwendet die gemeinsamen Fahr- und Werkzeughubtasten. Senden stoppen schließt die Verbindung; halte gepufferte Bewegungen am Bedienfeld an. Bestätige den Stillstand nach einem Auftrag oder beim Verlassen der manuellen Steuerung. Jede Werkzeugstufe startet separat; unterbrochene Aufträge werden nie automatisch fortgesetzt.
 
 Beispiel in der Hilfe: HPGL-/DMPL-Plotter
 
-## 15 Silhouette und AutoBlade
+## 17 Silhouette und AutoBlade
 
 ### Erster Auftrag mit Silhouette Craft Robo
 
 Wähle in Plotterverbindung Hersteller, Modell und Verbindung, dann ein Gerät und Verbinden. Gerätelisten werden automatisch aktualisiert, solange keine Verbindung besteht und die App sichtbar ist; Geräte aktualisieren startet eine neue Suche. Erlaube Bluetooth-Zugriff, wenn du dazu aufgefordert wirst. Wähle für USB Verbinden und erlaube den Android-Zugriff; die Verbindung wird automatisch fortgesetzt. Protokolleinstellungen und FilmCut-Verbindungsoptionen sind darunter gruppiert. Trenne die Verbindung, bevor du den Plotter wechselst. Verbunden bestätigt die Verbindung, nicht das Ende der Bewegung. Automatisches Verbinden ist für FilmCut und VEVOR Smart über Bluetooth verfügbar und setzt nie einen Auftrag fort.
 
-Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke; der gespeicherte Wert wird im unterstützten Bereich des gewählten Plotters verwendet. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
+Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke: 0,1, 1, 5, 10, 50 oder 100 mm oder den gespeicherten Wert. Die Streckenoptionen bleiben in einer Zeile. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Bei VEVOR-Modellen außer Smart lösen die Werkzeugtasten einen kleinen Schlittenschritt und die Rückkehr aus. Nach dem Absenken kann das Werkzeug im Stillstand wieder anheben; weitere Fahrten verwenden den gewählten Werkzeugzustand. Verbinde diesen Plotter nach einer Bewegung über sein Bedienfeld erneut, bevor du ihn in der App steuerst. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
 
 Schneiden zeigt eine große Vorschau. Werkzeuge und Durchgänge bearbeitest du unter Objekteigenschaften. Erweiterte Einstellungen enthalten Matte, optische Registrierung, Rückkehr zum Ursprung und Abschluss bei Gerätebereitschaft.
 
@@ -572,7 +642,7 @@ Die App fragt zwischen kleinen Paketen Bereit/Beschäftigt/Kein Material ab. Pr�
 
 Beispiel in der Hilfe: Erster Auftrag mit Silhouette / Craft Robo
 
-## 16 Mit VEVOR Smart arbeiten
+## 18 Mit VEVOR Smart arbeiten
 
 ### Erster VEVOR Smart Auftrag
 
@@ -582,7 +652,7 @@ Smart4 kann Bluetooth SPP oder USB über OTG verwenden. USB ist eine separate Ve
 
 Wähle in Plotterverbindung Hersteller, Modell und Verbindung, dann ein Gerät und Verbinden. Gerätelisten werden automatisch aktualisiert, solange keine Verbindung besteht und die App sichtbar ist; Geräte aktualisieren startet eine neue Suche. Erlaube Bluetooth-Zugriff, wenn du dazu aufgefordert wirst. Wähle für USB Verbinden und erlaube den Android-Zugriff; die Verbindung wird automatisch fortgesetzt. Protokolleinstellungen und FilmCut-Verbindungsoptionen sind darunter gruppiert. Trenne die Verbindung, bevor du den Plotter wechselst. Verbunden bestätigt die Verbindung, nicht das Ende der Bewegung. Automatisches Verbinden ist für FilmCut und VEVOR Smart über Bluetooth verfügbar und setzt nie einen Auftrag fort.
 
-Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke; der gespeicherte Wert wird im unterstützten Bereich des gewählten Plotters verwendet. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
+Die Maschinensteuerung verwendet für alle Plotter dieselben Pfeiltasten. Wähle eine Fahrstrecke: 0,1, 1, 5, 10, 50 oder 100 mm oder den gespeicherten Wert. Die Streckenoptionen bleiben in einer Zeile. Bestätige die erste manuelle Aktion, danach kannst du ohne erneute Bestätigung fahren und das Werkzeug heben oder senken. Referenzfahrt und Änderungen des Arbeitsursprungs bei FilmCut erfordern immer eine eigene Bestätigung. FilmCut verwendet PWM, VEVOR Smart Gramm, Silhouette seine native Kraftskala und HPGL/DMPL-Plotter ihre Bedienfeldeinstellungen. Bei VEVOR Smart 1–4 beträgt der manuelle Anfangsdruck 250 g und kann im Bereich 250–500 g eingestellt werden. Bei VEVOR Smart sendet Werkzeug anheben einen 0,025-mm-Schritt nach links und einen gleich großen Schritt nach rechts. Halte den Bereich auf beiden Seiten des Schlittens frei. Bei VEVOR-Modellen außer Smart lösen die Werkzeugtasten einen kleinen Schlittenschritt und die Rückkehr aus. Nach dem Absenken kann das Werkzeug im Stillstand wieder anheben; weitere Fahrten verwenden den gewählten Werkzeugzustand. Verbinde diesen Plotter nach einer Bewegung über sein Bedienfeld erneut, bevor du ihn in der App steuerst. Weitere Fahrten behalten den Werkzeugzustand bei. FilmCut und Silhouette warten auf Controller-Bereitschaft; VEVOR Smart und HPGL/DMPL verlangen beim Verlassen der manuellen Steuerung eine Stillstandsbestätigung. Prüfe nach Stopp oder einem Fehler den Plotter, bevor du fortfährst. Senden stoppen hält gepufferte HPGL/DMPL-Bewegungen nicht an. Lade Material über das Bedienfeld des Plotters.
 
 Nach der letzten Werkzeugphase erhält VEVOR PU0,0;PG; zum Zurückfahren und Auswerfen der Matte. Halte den Mattenweg frei und bestätige Fertig erst nach Stillstand.
 
@@ -622,7 +692,7 @@ Scrolle in einem niedrigen Fenster zu den Aktionen des Formulars. Tastatureingab
 
 Beispiel in der Hilfe: Erster VEVOR-Smart-Auftrag
 
-## 17 Hilfe und Plotter Support
+## 19 Hilfe und Plotter Support
 
 ### Plotter Support
 

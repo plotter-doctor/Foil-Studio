@@ -1,8 +1,8 @@
 # Foil Studio manual de usuario
 
-Android 0.1.129 (150)  ·  9 de noviembre de 2026
+Android 0.1.145 (166)  ·  15 de noviembre de 2026
 
-Este manual te guía desde un diseño editable hasta el corte, el dibujo con bolígrafo, el grabado pasivo y el hendido. Describe Foil Studio para Android 0.1.129 (150), incluidos los ajustes de objetos, las composiciones de producción, Print & Cut y los procedimientos actuales de conexión de plóteres.
+Este manual te guía desde un diseño editable hasta el corte, el dibujo con bolígrafo, el grabado pasivo y el hendido. Describe Foil Studio para Android 0.1.145 (166), incluidos los ajustes de objetos, las composiciones de producción, Print & Cut y los procedimientos actuales de conexión de plóteres.
 
 ## 01 Tu primer proyecto
 
@@ -24,33 +24,37 @@ Free incluye edición y vista previa. Basic es una compra única para guardar, e
 
 03  Cortar dibujar grabar y hendir
 
-04  Ajustes de herramientas y calibración
+04  Calibrar la geometría del plóter
 
-05  Seleccionar y dibujar formas
+05  Plóteres GCC
 
-06  Texto composiciones y asistentes
+06  Ajustes de herramientas y calibración
 
-07  Importar guardar y reabrir proyectos
+07  Seleccionar y dibujar formas
 
-08  Trazar imágenes y editar curvas
+08  Texto composiciones y asistentes
 
-09  Preparar y previsualizar la producción
+09  Importar guardar y reabrir proyectos
 
-10  Capas materiales y trabajos
+10  Trazar imágenes y editar curvas
 
-11  Pegatinas y etiquetas QR
+11  Preparar y previsualizar la producción
 
-12  Alinear impresión y corte
+12  Capas materiales y trabajos
 
-13  Conectar y controlar el plóter
+13  Pegatinas y etiquetas QR
 
-14  Configurar y manejar HPGL y DMPL
+14  Alinear impresión y corte
 
-15  Silhouette y AutoBlade
+15  Conectar y controlar el plóter
 
-16  Trabajar con VEVOR Smart
+16  Configurar y manejar HPGL y DMPL
 
-17  Ayuda y asistencia para plóteres
+17  Silhouette y AutoBlade
+
+18  Trabajar con VEVOR Smart
+
+19  Ayuda y asistencia para plóteres
 
 ## 03 Cortar dibujar grabar y hendir
 
@@ -74,7 +78,41 @@ Asigna un punzón de hendido a las líneas de pliegue y una cuchilla al contorno
 
 Un trabajo combinado ejecuta primero el dibujo, después el grabado, el hendido y finalmente el corte con cuchilla. Revisa cada etapa y confirma cada cambio de herramienta solicitado. Los objetos de impresora forman parte de la impresión; los objetos guía se excluyen de la salida del plóter.
 
-## 04 Ajustes de herramientas y calibración
+## 04 Calibrar la geometría del plóter
+
+### Calibración del plotter
+
+Dibuja un rectángulo con bolígrafo, mide X e Y entre los centros de las líneas e introduce ambas medidas. Mantén la escala del controlador al 100 %. Usa la corrección anterior solo si se utilizó en esta prueba. Nueva corrección = corrección de prueba × medida solicitada / medida obtenida.
+
+Mide X a lo ancho de la base e Y a lo largo. Son los ejes de la aplicación; las letras del controlador pueden ser distintas.
+
+La calibración X/Y de FilmCut comienza con presión de bolígrafo 180. Ajústala al bolígrafo y al material antes de dibujar.
+
+Usa aquí los controles disponibles de la base. Termina la prueba y espera a que el plotter se detenga antes de expulsarla para medir. Después de cargarla, comprueba el origen y confirma de nuevo el bolígrafo y la hoja.
+
+Dibuja la cruz con un bolígrafo en el soporte de corte. Sin mover la hoja ni cambiar el origen, levanta el bolígrafo y mueve el puntero láser al centro de la cruz. Confirma la parada después del movimiento. El desfase guardado solo se usa en la alineación láser manual; los cortes normales no se desplazan.
+
+La calibración se guarda por perfil seleccionado. Revisa los valores guardados en Calibración del plotter antes de otra prueba.
+
+La alineación óptica nativa proporciona la transformación de ejes. La corrección X/Y guardada se usa en cortes normales y alineados manualmente.
+
+Ejemplo en la ayuda: Calibración del plotter
+
+## 05 Plóteres GCC
+
+### Plóteres GCC
+
+Elige el modelo GCC exacto y comprueba los ejes con un movimiento corto con la herramienta levantada. El control de máquina permite movimientos repetidos, subir/bajar la herramienta y volver al origen preparado; no busca un final de carrera ni reinicia la electrónica. Vuelve a conectar tras mover el cabezal desde el panel del plóter.
+
+Los trabajos GCC usan etapas separadas para herramientas distintas. Instala y confirma cada herramienta antes de su etapa. Cuchilla y lápiz seleccionan su propio modo. Para hendido o grabado, selecciona el modo adecuado en el panel del plóter. Presión, velocidad y aceleración se ajustan en el panel. Desactiva la compensación y el sobrecorte del plóter cuando la app compense la cuchilla.
+
+Consultar área del material es una consulta opcional en reposo, disponible una vez por conexión. Informa de los intervalos X e Y de los comandos, no de la posición del cabezal. Compáralos con los ejes elegidos y el tapete cargado; la consulta nunca cambia el proyecto. Si el plóter no responde, introduce manualmente el tamaño útil del tapete.
+
+GCC usa Print & Cut manual con un puntero calibrado. No están disponibles marcas AAS automáticas, escaneo por segmentos, cambio automático de dos portaherramientas, corte final ni reinicio de hardware. i-Craft y Nautilus usan formatos de comandos distintos. Estos perfiles aún necesitan una prueba física con la herramienta levantada en tu máquina. Terminar la transmisión no confirma que el movimiento haya parado.
+
+Ejemplo en la ayuda: Ejemplo GCC con dos herramientas
+
+## 06 Ajustes de herramientas y calibración
 
 ### Herramientas y propiedades del objeto
 
@@ -89,6 +127,10 @@ Los objetos usan los ajustes de su herramienta que admite el modelo seleccionado
 Los objetos conservan la copia asignada de los ajustes de herramienta. Tras editar una herramienta de la biblioteca, selecciona su registro actualizado en Propiedades del objeto.
 
 En una tableta o pantalla ancha, despliega una capa en el árbol Capas. Toca un objeto para seleccionarlo; su botón de selección lo añade o quita. Los menús de capa y objeto abren propiedades. Usa Añadir capa o Mover a capa. Mantén pulsado el nombre del objeto para arrastrarlo a una capa. Al moverlo hereda el material de la capa de destino.
+
+Abrir las propiedades de un objeto seleccionado conserva la selección actual. Herramienta de la selección edita solo los objetos que usan esa herramienta. Para sustituir juntas distintas herramientas asignadas, elige Asignar una herramienta a la selección, una herramienta compatible y Guardar. La lista distingue las herramientas de la biblioteca de las guardadas en los objetos seleccionados y muestra sus ajustes de geometría. Compara estos datos si los nombres coinciden. Cancelar descarta todos los cambios del borrador.
+
+El árbol compacto de Capas muestra el material después del número de objetos. Los nombres largos terminan con puntos suspensivos; abre las propiedades para leer el nombre completo. Los controles de selección y propiedades están junto a cada objeto.
 
 Selecciona el modelo en Conexión. Las herramientas muestran sus ajustes y guardan valores por modelo. La velocidad física se muestra en mm/s; Silhouette usa escalas nativas de fuerza y velocidad. Los valores antiguos conservan su significado. Los gramos de FilmCut son estimados, no medidos.
 
@@ -124,7 +166,7 @@ La hoja incluida muestra la cuadrícula de cuadrados de 30 × 30 mm sin cortar. 
 
 Ejemplo en la ayuda: Calibración de cuchilla
 
-## 05 Seleccionar y dibujar formas
+## 07 Seleccionar y dibujar formas
 
 ### Seleccionar mover y cambiar tamaño
 
@@ -144,19 +186,25 @@ Abre las herramientas de formas con la pequeña pestaña del marco izquierdo: t�
 
 En una tableta o pantalla ancha, despliega una capa en el árbol Capas. Toca un objeto para seleccionarlo; su botón de selección lo añade o quita. Los menús de capa y objeto abren propiedades. Usa Añadir capa o Mover a capa. Mantén pulsado el nombre del objeto para arrastrarlo a una capa. Al moverlo hereda el material de la capa de destino.
 
+Abrir las propiedades de un objeto seleccionado conserva la selección actual. Herramienta de la selección edita solo los objetos que usan esa herramienta. Para sustituir juntas distintas herramientas asignadas, elige Asignar una herramienta a la selección, una herramienta compatible y Guardar. La lista distingue las herramientas de la biblioteca de las guardadas en los objetos seleccionados y muestra sus ajustes de geometría. Compara estos datos si los nombres coinciden. Cancelar descarta todos los cambios del borrador.
+
+El árbol compacto de Capas muestra el material después del número de objetos. Los nombres largos terminan con puntos suspensivos; abre las propiedades para leer el nombre completo. Los controles de selección y propiedades están junto a cada objeto.
+
 Abre Detalles para obtener más indicaciones. Ayuda contiene lecciones completas y ejemplos editables.
 
 Ejemplo en la ayuda: Un pequeño agradecimiento
 
 ### El menú del objeto
 
-El menú del objeto empieza con propiedades y edición de contenido, seguido de Mover, Escalar y Girar, y después Duplicar y orden de apilado. Eliminar está al final. Abre Editar para Alinear y distribuir o Rellenar hoja.
+Desagrupar separa objetos agrupados. Separar contornos divide un dibujo sin agrupar en contornos individuales conservando sus posiciones y ajustes de herramienta. Deshacer restaura el objeto original. No se pueden separar así objetos rellenos, texto, QR, asistentes, imágenes ni objetos de pegatinas vinculados.
+
+El menú del objeto muestra una cuadrícula compacta con Agrupar y Desagrupar junto a las propiedades. Mover, Escalar, Girar, Duplicar y el orden de apilado siguen disponibles. Eliminar está al final. Abre Editar para Alinear y distribuir o Rellenar hoja.
 
 Selecciona un objeto y mantén el dedo sobre él sin moverlo. Con ratón, pulsa y mantén presionado.
 
 En el menú del objeto, elige Mover para indicar desplazamientos horizontales y verticales exactos o Escalar para establecer anchura, altura o factor de escala. Los grupos cambian juntos; desagrúpalos para editar sus partes.
 
-También encontrarás comandos en «Editar». La flecha hacia abajo en el borde de un menú largo muestra más opciones.
+El menú del objeto cabe en la pantalla disponible sin desplazarse. Con texto grande o una ventana baja, usa las flechas para cambiar de página. Los comandos también están disponibles en Editar.
 
 Ejemplo en la ayuda: Un pequeño agradecimiento
 
@@ -174,7 +222,7 @@ Dos dedos cancelan una forma sin terminar y desplazan o amplían la vista. Para 
 
 Ejemplo en la ayuda: Tres figuras y una referencia
 
-## 06 Texto composiciones y asistentes
+## 08 Texto composiciones y asistentes
 
 ### Editar texto
 
@@ -240,7 +288,7 @@ La caja con asa es una bandeja abierta con un asa encajable separada. Pasa cada 
 
 Ejemplo en la ayuda: Un regalo con ventana
 
-## 07 Importar guardar y reabrir proyectos
+## 09 Importar guardar y reabrir proyectos
 
 ### Conserva tu propia copia
 
@@ -278,11 +326,13 @@ La aplicación guarda el proyecto activo en este dispositivo para volver desde s
 
 Al abrir otro proyecto se pregunta por el trabajo sin guardar. Usa Proyecto → Guardar o Guardar como cuando tu plan lo permita.
 
+Abre Idioma y Ayuda y ejemplos desde el menú Proyecto.
+
 El cambio de idioma afecta a la interfaz y la ayuda. Tus textos y nombres de objetos y archivos no cambian.
 
 Ejemplo en la ayuda: Un pequeño agradecimiento
 
-## 08 Trazar imágenes y editar curvas
+## 10 Trazar imágenes y editar curvas
 
 ### Editar curvas y nodos
 
@@ -314,9 +364,11 @@ Abre Detalles para obtener más indicaciones. Ayuda contiene lecciones completas
 
 Ejemplo en la ayuda: Flor
 
-## 09 Preparar y previsualizar la producción
+## 11 Preparar y previsualizar la producción
 
 ### Guiado
+
+Dibuja un rectángulo con bolígrafo, mide X e Y entre los centros de las líneas e introduce ambas medidas. Mantén la escala del controlador al 100 %. Usa la corrección anterior solo si se utilizó en esta prueba. Nueva corrección = corrección de prueba × medida solicitada / medida obtenida.
 
 Preparar muestra controles compactos de material, tapete de corte y plóter. Despliega Material o Tapete de corte para ver más ajustes. Abre directamente Vista previa de producción para la disposición, los trabajos y la preparación guiada.
 
@@ -344,7 +396,7 @@ Abre Detalles para obtener más indicaciones. Ayuda contiene lecciones completas
 
 Ejemplo en la ayuda: Vista previa de producción
 
-## 10 Capas materiales y trabajos
+## 12 Capas materiales y trabajos
 
 ### Capas y trabajos
 
@@ -382,6 +434,10 @@ Capas reúne la organización del diseño y las asignaciones de material. Abre E
 
 En una tableta o pantalla ancha, despliega una capa en el árbol Capas. Toca un objeto para seleccionarlo; su botón de selección lo añade o quita. Los menús de capa y objeto abren propiedades. Usa Añadir capa o Mover a capa. Mantén pulsado el nombre del objeto para arrastrarlo a una capa. Al moverlo hereda el material de la capa de destino.
 
+Abrir las propiedades de un objeto seleccionado conserva la selección actual. Herramienta de la selección edita solo los objetos que usan esa herramienta. Para sustituir juntas distintas herramientas asignadas, elige Asignar una herramienta a la selección, una herramienta compatible y Guardar. La lista distingue las herramientas de la biblioteca de las guardadas en los objetos seleccionados y muestra sus ajustes de geometría. Compara estos datos si los nombres coinciden. Cancelar descarta todos los cambios del borrador.
+
+El árbol compacto de Capas muestra el material después del número de objetos. Los nombres largos terminan con puntos suspensivos; abre las propiedades para leer el nombre completo. Los controles de selección y propiedades están junto a cada objeto.
+
 El color del diseño, el material y el trabajo de producción son independientes. Varias capas de diseño pueden compartir un trabajo y el mismo material puede utilizarse en trabajos separados.
 
 Abre Detalles para obtener más indicaciones. Ayuda contiene lecciones completas y ejemplos editables.
@@ -390,7 +446,7 @@ En una ventana baja, desplaza el formulario hasta sus acciones. Escribir con el 
 
 Ejemplo en la ayuda: Capas y trabajos
 
-## 11 Pegatinas y etiquetas QR
+## 13 Pegatinas y etiquetas QR
 
 ### Crear una pegatina
 
@@ -430,9 +486,11 @@ El tamaño incluye la zona de silencio.
 
 Ejemplo en la ayuda: Etiqueta QR
 
-## 12 Alinear impresión y corte
+## 14 Alinear impresión y corte
 
 ### Print Cut manual
+
+Dibuja un rectángulo con bolígrafo, mide X e Y entre los centros de las líneas e introduce ambas medidas. Mantén la escala del controlador al 100 %. Usa la corrección anterior solo si se utilizó en esta prueba. Nueva corrección = corrección de prueba × medida solicitada / medida obtenida.
 
 Para Print & Cut manual, imprime a tamaño real y comprueba los márgenes. Carga la hoja sin herramienta y centra el portaherramientas sobre A, B, D y C. Ajusta con movimientos pequeños y registra la posición solo al detenerse.
 
@@ -458,7 +516,7 @@ Por defecto, comprueba la parada y pulsa Listo tras la transferencia. Finalizar 
 
 Ejemplo en la ayuda: Print & Cut óptico
 
-## 13 Conectar y controlar el plóter
+## 15 Conectar y controlar el plóter
 
 ### Del diseño al resultado
 
@@ -480,7 +538,7 @@ Elige el tamaño cargado en Preparar → Tapete de corte. Los ajustes de área d
 
 En la biblioteca de tapetes, toca un registro para usarlo. Con texto grande o ventanas bajas, los iconos cambian entre materiales, herramientas y tapetes; el signo más añade un registro personalizado. Mantén pulsado un icono para ver su nombre.
 
-El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance; el valor guardado se usa dentro del rango admitido por el plóter seleccionado. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
+El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance: 0,1, 1, 5, 10, 50 o 100 mm, o el valor guardado. Las opciones de distancia permanecen en una sola fila. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. En los modelos VEVOR excepto Smart, los botones de herramienta solicitan un pequeño paso del carro y su retorno. Tras bajar, la herramienta puede subir de nuevo en reposo; los avances siguientes usan el estado solicitado. Después de mover este plóter desde su panel, vuelve a conectarlo antes de usar los controles de la app. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
 
 «Diseñar» crea los objetos. «Preparar» permite revisar la distribución y las herramientas. «Cortar» contiene la vista previa y los controles.
 
@@ -492,13 +550,25 @@ Abre Detalles para obtener más indicaciones. Ayuda contiene lecciones completas
 
 Ejemplo en la ayuda: Un capítulo más
 
-## 14 Configurar y manejar HPGL y DMPL
+## 16 Configurar y manejar HPGL y DMPL
 
 ### Plóteres HPGL DMPL
 
+Inicio eleva la herramienta y vuelve al origen lógico establecido para esta conexión. Puede diferir de la esquina del dibujo. No busca un final de carrera ni restaura un origen anterior a la reconexión. Está disponible después de que un movimiento normal o trabajo establezca el marco y confirmes la parada. Confirma que el plóter está parado después de Inicio.
+
+Revisa la secuencia antes de empezar. Instala y confirma la primera herramienta. Tras cada etapa, espera a que termine todo movimiento y confirma la finalización. La siguiente herramienta permanece visible en Cortar: elige Cambiar herramienta, instálala y confirma antes de iniciar la etapa. Enviar datos no confirma el fin del movimiento. Mantén el material en su sitio al cambiar herramientas.
+
+Los modelos VEVOR KH, KI, SK, KW, X, Y y B tienen un perfil DMPL por modelo. Los modelos Smart mantienen su propio protocolo. El USB directo usa por defecto la interfaz de impresora USB con XON/XOFF desactivado; permite el acceso en Android. Todos estos perfiles DMPL usan el mismo control de conexión y movimiento. Vuelve a elegir el modelo si un perfil HPGL antiguo ya no aparece. Comprueba los ejes y prepara el trabajo de nuevo. Define el área real cargada; un ancho sin especificar no es un límite verificado. El control de máquina HPGL/DMPL está disponible en Free. Iniciar un trabajo requiere Basic.
+
+Dibuja un rectángulo con bolígrafo, mide X e Y entre los centros de las líneas e introduce ambas medidas. Mantén la escala del controlador al 100 %. Usa la corrección anterior solo si se utilizó en esta prueba. Nueva corrección = corrección de prueba × medida solicitada / medida obtenida.
+
+Dibuja la cruz con un bolígrafo en el soporte de corte. Sin mover la hoja ni cambiar el origen, levanta el bolígrafo y mueve el puntero láser al centro de la cruz. Confirma la parada después del movimiento. El desfase guardado solo se usa en la alineación láser manual; los cortes normales no se desplazan.
+
 En Conexión del plóter, elige fabricante, modelo y conexión; después selecciona un dispositivo y Conectar. Las listas se actualizan automáticamente cuando no hay conexión y la app está visible; Actualizar dispositivos inicia otra búsqueda. Concede acceso a Bluetooth cuando se solicite. Para USB, pulsa Conectar y permite el acceso en Android; la conexión continuará automáticamente. Los ajustes de protocolo y las opciones de conexión de FilmCut están agrupados debajo. Desconecta antes de cambiar de plóter. Conectado confirma el enlace, no el fin del movimiento. La conexión automática está disponible para FilmCut y VEVOR Smart por Bluetooth y nunca reanuda un trabajo.
 
-La interfaz de impresora USB conecta directamente con una interfaz bidireccional estándar con entrada y salida bulk. Las interfaces USB específicas del fabricante requieren su propio controlador. Selecciona el lenguaje correcto del plotter y USB–serie para adaptadores serie.
+La interfaz de impresora USB admite conexiones de datos sin encapsular unidireccionales y bidireccionales. Las unidireccionales desactivan XON/XOFF y las consultas del búfer. Si un dispositivo ofrece varias interfaces, selecciona la documentada para el plóter. Adapta el lenguaje; la detección USB no identifica HPGL ni DMPL. IEEE 1284.4 no está disponible; el USB del fabricante se limita a dispositivos GCC compatibles de forma explícita. Usa USB–serie para adaptadores serie.
+
+Después de conectar mediante una interfaz de impresora USB, abre Información del dispositivo USB para leer el producto, fabricante, modelo y lenguajes de comandos indicados. La consulta opcional IEEE 1284 Device ID puede no estar disponible; la conexión sigue funcionando. Estos datos no identifican una unidad de forma única ni verifican su lenguaje de plóter. Elige tú el modelo y el lenguaje.
 
 Para el CE LITE-50, elige su perfil Graphtec y la conexión USB. Selecciona HPGL y el origen LOWER LEFT en el plóter. Conserva los ejes del perfil: X adelante, Y derecha. La transferencia USB utiliza el espacio libre del búfer que comunica el plóter. Ajusta fuerza y velocidad en su panel. El área de trabajo de 498 mm cubre la anchura máxima de corte; adapta su longitud al material cargado, hasta 3000 mm.
 
@@ -508,7 +578,7 @@ Elige el tamaño cargado en Preparar → Tapete de corte. Los ajustes de área d
 
 En la biblioteca de tapetes, toca un registro para usarlo. Con texto grande o ventanas bajas, los iconos cambian entre materiales, herramientas y tapetes; el signo más añade un registro personalizado. Mantén pulsado un icono para ver su nombre.
 
-El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance; el valor guardado se usa dentro del rango admitido por el plóter seleccionado. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
+El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance: 0,1, 1, 5, 10, 50 o 100 mm, o el valor guardado. Las opciones de distancia permanecen en una sola fila. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. En los modelos VEVOR excepto Smart, los botones de herramienta solicitan un pequeño paso del carro y su retorno. Tras bajar, la herramienta puede subir de nuevo en reposo; los avances siguientes usan el estado solicitado. Después de mover este plóter desde su panel, vuelve a conectarlo antes de usar los controles de la app. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
 
 Los plóteres sin avance relativo usan coordenadas de destino X e Y con Mover; estos campos son destinos, no una lectura de posición.
 
@@ -522,19 +592,19 @@ En Cut para Generic, el porcentaje indica datos enviados, no movimientos complet
 
 Elige el fabricante y modelo exactos, o Generic con HPGL o DMPL si no hay un perfil. Los perfiles definen el lenguaje, la escala y las conexiones disponibles; no identifican el dispositivo conectado. Graphtec incluye Craft Robo con su propio proceso de conexión. VEVOR Smart usa su propio protocolo; los perfiles KH, KI y SK usan el lenguaje indicado para cada modelo. Haz coincidir los ajustes del panel indicados en Ajustes de protocolo. Configura el área del material cargado, la herramienta, la fuerza y la velocidad en el plóter. La disponibilidad de USB depende del modelo seleccionado. Elige una de sus conexiones disponibles.
 
-En los perfiles HPGL/DMPL de modelos concretos, revisa Ejes de coordenadas antes de conectar. Son las direcciones positivas de los comandos vistas desde el frente: adelante significa alejarse por el eje de avance. Los perfiles usan ejes documentados cuando están disponibles; en caso contrario, elígelos explícitamente. Haz coincidir el origen del dispositivo y desactiva la rotación, el reflejo y la escala. Comprueba un pequeño movimiento con la herramienta levantada antes de un trabajo. La conexión serie requiere un adaptador USB–serie compatible; las demás opciones usan un adaptador SPP transparente o un puente TCP sin procesar.
+En los perfiles HPGL/DMPL de modelos concretos, revisa Ejes de coordenadas antes de mover el plotter. Son las direcciones positivas de los comandos vistas desde el frente: adelante significa alejarse por el eje de avance. Los perfiles usan ejes documentados cuando están disponibles; en caso contrario, elígelos explícitamente. Haz coincidir el origen del dispositivo y desactiva la rotación, el reflejo y la escala. Comprueba un pequeño movimiento con la herramienta levantada antes de un trabajo. La conexión serie requiere un adaptador USB–serie compatible; las demás opciones usan un adaptador SPP transparente o un puente TCP sin procesar.
 
 Para HPGL/DMPL, activa XON/XOFF o ESC.B solo si el dispositivo y la conexión lo admiten, y ajusta la velocidad de transferencia al búfer. El control de máquina usa los controles comunes de avance y elevación. Detener envío cierra el enlace; detén el movimiento almacenado en el panel del plóter. Confirma la inmovilidad tras un trabajo o al salir del control manual. Cada etapa de herramienta se inicia por separado; los trabajos interrumpidos nunca se reanudan automáticamente.
 
 Ejemplo en la ayuda: Plóteres HPGL / DMPL
 
-## 15 Silhouette y AutoBlade
+## 17 Silhouette y AutoBlade
 
 ### Primer trabajo con Silhouette Craft Robo
 
 En Conexión del plóter, elige fabricante, modelo y conexión; después selecciona un dispositivo y Conectar. Las listas se actualizan automáticamente cuando no hay conexión y la app está visible; Actualizar dispositivos inicia otra búsqueda. Concede acceso a Bluetooth cuando se solicite. Para USB, pulsa Conectar y permite el acceso en Android; la conexión continuará automáticamente. Los ajustes de protocolo y las opciones de conexión de FilmCut están agrupados debajo. Desconecta antes de cambiar de plóter. Conectado confirma el enlace, no el fin del movimiento. La conexión automática está disponible para FilmCut y VEVOR Smart por Bluetooth y nunca reanuda un trabajo.
 
-El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance; el valor guardado se usa dentro del rango admitido por el plóter seleccionado. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
+El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance: 0,1, 1, 5, 10, 50 o 100 mm, o el valor guardado. Las opciones de distancia permanecen en una sola fila. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. En los modelos VEVOR excepto Smart, los botones de herramienta solicitan un pequeño paso del carro y su retorno. Tras bajar, la herramienta puede subir de nuevo en reposo; los avances siguientes usan el estado solicitado. Después de mover este plóter desde su panel, vuelve a conectarlo antes de usar los controles de la app. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
 
 Cortar muestra una vista previa grande. Edita herramientas y pasadas en Propiedades del objeto. Los ajustes avanzados incluyen alfombrilla, registro óptico, retorno al origen y finalización al estar listo.
 
@@ -572,7 +642,7 @@ La app consulta listo/ocupado/sin material entre bloques pequeños. Tras la últ
 
 Ejemplo en la ayuda: Primer trabajo con Silhouette / Craft Robo
 
-## 16 Trabajar con VEVOR Smart
+## 18 Trabajar con VEVOR Smart
 
 ### Primer trabajo VEVOR Smart
 
@@ -582,7 +652,7 @@ En Cortar, abre Ajustes avanzados para acceder a Usar presión y velocidad de la
 
 En Conexión del plóter, elige fabricante, modelo y conexión; después selecciona un dispositivo y Conectar. Las listas se actualizan automáticamente cuando no hay conexión y la app está visible; Actualizar dispositivos inicia otra búsqueda. Concede acceso a Bluetooth cuando se solicite. Para USB, pulsa Conectar y permite el acceso en Android; la conexión continuará automáticamente. Los ajustes de protocolo y las opciones de conexión de FilmCut están agrupados debajo. Desconecta antes de cambiar de plóter. Conectado confirma el enlace, no el fin del movimiento. La conexión automática está disponible para FilmCut y VEVOR Smart por Bluetooth y nunca reanuda un trabajo.
 
-El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance; el valor guardado se usa dentro del rango admitido por el plóter seleccionado. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
+El control de máquina usa las mismas flechas para todos los plóteres. Elige una distancia de avance: 0,1, 1, 5, 10, 50 o 100 mm, o el valor guardado. Las opciones de distancia permanecen en una sola fila. Confirma la primera acción manual; después mueve o sube y baja la herramienta sin repetir esa confirmación. El inicio de referencia de FilmCut y los cambios de origen siempre requieren confirmación aparte. FilmCut usa PWM, VEVOR Smart gramos, Silhouette su escala nativa de fuerza y los plóteres HPGL/DMPL los ajustes de su panel. En VEVOR Smart 1–4, la presión manual inicial es de 250 g y se puede ajustar entre 250 y 500 g. En VEVOR Smart, Subir herramienta solicita un paso del carro de 0,025 mm a la izquierda y otro igual a la derecha. Deja espacio libre a ambos lados del carro. En los modelos VEVOR excepto Smart, los botones de herramienta solicitan un pequeño paso del carro y su retorno. Tras bajar, la herramienta puede subir de nuevo en reposo; los avances siguientes usan el estado solicitado. Después de mover este plóter desde su panel, vuelve a conectarlo antes de usar los controles de la app. Los avances posteriores conservan el estado de la herramienta. FilmCut y Silhouette esperan la disponibilidad del controlador; VEVOR Smart y HPGL/DMPL requieren confirmar la inmovilidad al salir del control manual. Tras Detener o un error, comprueba el plóter antes de continuar. Detener envío no detiene los movimientos HPGL/DMPL almacenados en el búfer. Carga el material con el panel del plóter.
 
 Tras la última etapa de herramienta, VEVOR recibe PU0,0;PG; para regresar y expulsar la alfombrilla. Mantén libre su recorrido y confirma Listo solo cuando termine el movimiento.
 
@@ -622,7 +692,7 @@ En una ventana baja, desplaza el formulario hasta sus acciones. Escribir con el 
 
 Ejemplo en la ayuda: Primer trabajo VEVOR Smart
 
-## 17 Ayuda y asistencia para plóteres
+## 19 Ayuda y asistencia para plóteres
 
 ### Soporte de plóteres
 

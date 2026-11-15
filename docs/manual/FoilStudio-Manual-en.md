@@ -1,8 +1,8 @@
 # Foil Studio user manual
 
-Android 0.1.129 (150)  ·  9 November 2026
+Android 0.1.145 (166)  ·  15 November 2026
 
-Use this manual to take a project from editable artwork to cutting, pen drawing, passive engraving or scoring. It covers Foil Studio for Android 0.1.129 (150), including object settings, production layouts, Print & Cut and the current plotter connection workflows.
+Use this manual to take a project from editable artwork to cutting, pen drawing, passive engraving or scoring. It covers Foil Studio for Android 0.1.145 (166), including object settings, production layouts, Print & Cut and the current plotter connection workflows.
 
 ## 01 Your first project
 
@@ -24,33 +24,37 @@ Free includes editing and preview. Basic is a one-time purchase for saving, expo
 
 03  Cut draw engrave and score
 
-04  Tool settings and knife calibration
+04  Calibrate machine geometry
 
-05  Select and draw shapes
+05  GCC plotters
 
-06  Text layouts and wizards
+06  Tool settings and knife calibration
 
-07  Import save and reopen projects
+07  Select and draw shapes
 
-08  Trace images and edit curves
+08  Text layouts and wizards
 
-09  Prepare and preview production
+09  Import save and reopen projects
 
-10  Layers materials and jobs
+10  Trace images and edit curves
 
-11  Stickers and QR labels
+11  Prepare and preview production
 
-12  Print and Cut registration
+12  Layers materials and jobs
 
-13  Connect and control the plotter
+13  Stickers and QR labels
 
-14  HPGL and DMPL setup and operation
+14  Print and Cut registration
 
-15  Silhouette and AutoBlade
+15  Connect and control the plotter
 
-16  VEVOR Smart workflows
+16  HPGL and DMPL setup and operation
 
-17  Help and plotter support
+17  Silhouette and AutoBlade
+
+18  VEVOR Smart workflows
+
+19  Help and plotter support
 
 ## 03 Cut draw engrave and score
 
@@ -74,7 +78,41 @@ Assign a scoring stylus to fold lines and a knife to the outer contour. Test the
 
 A combined job runs pen drawing, engraving, scoring and then knife cutting. Review every stage and confirm each requested tool change. Printer artwork belongs to printed output; Guide objects are excluded from plotter output.
 
-## 04 Tool settings and knife calibration
+## 04 Calibrate machine geometry
+
+### Plotter calibration
+
+Draw a rectangle with a pen, measure X and Y between line centres, then enter both measurements. Keep controller scaling at 100%. Use the previous correction only if it was used for this test. New correction = test correction × requested / measured.
+
+Measure X across the mat width and Y along its length. These are application axes; controller letters may differ.
+
+FilmCut X/Y calibration starts at pen pressure 180. Adjust it for your pen and material before drawing.
+
+Use the available mat controls here. Finish the test and wait for standstill before unloading to measure. After loading, check the origin and confirm the pen and sheet again.
+
+Use a pen in the cutting holder to draw the cross. Without moving the sheet or changing the origin, raise the pen and move the laser pointer to the cross centre. Confirm standstill after moving. The saved pointer offset is used only for manual laser alignment; ordinary cuts are not shifted.
+
+Calibration is saved per selected profile. Review the saved values in Plotter calibration before drawing another test.
+
+Native optical alignment supplies the axis transform. Saved X/Y correction is used for ordinary and manually aligned cuts.
+
+Example in Help: Plotter calibration
+
+## 05 GCC plotters
+
+### GCC plotters
+
+Choose the exact GCC model and verify the coordinate axes with a small raised-tool move. Machine control supports repeated jogs, tool up/down and Return to origin. This returns to the prepared origin; it does not find a limit switch or restart the electronics. Reconnect after moving the head from the plotter panel.
+
+GCC jobs use separate stages for different tools. Install and confirm each tool before its stage. Knife and pen select their own tool mode. For scoring or engraving, select the matching mode on the plotter panel. Force, speed and acceleration stay panel-controlled. Keep firmware blade offset and overcut off when the app compensates the knife.
+
+Read material bounds is an optional idle query, available once per connection. It reports command-axis X and Y spans, not head position. Compare them with your selected coordinate axes and loaded mat; the query never changes the project. If the plotter does not reply, enter the usable mat size manually.
+
+GCC uses manual Print & Cut with a calibrated pointer. Automatic AAS marks, segment scanning, automatic dual-holder switching, cut-off and hardware reset are not available. i-Craft and Nautilus use distinct command framing. These profiles still need a physical raised-tool check on your machine. A completed transfer does not confirm stopped motion.
+
+Example in Help: GCC two-tool example
+
+## 06 Tool settings and knife calibration
 
 ### Object tools and properties
 
@@ -89,6 +127,10 @@ Objects use their assigned tool settings where supported by the selected model. 
 Objects keep their assigned tool snapshot. After editing a library tool, select its updated record in Object properties.
 
 On a tablet or wide screen, expand a layer in the Layers tree. Tap an object to select it; its selection button adds or removes it. Layer and object menus open properties. Use Add layer or Move to layer. Hold the object name to drag it onto a layer. Moving uses the destination layer material.
+
+Opening properties from a selected object keeps the current selection. Tool in selection edits only objects using that tool. To replace different assigned tools together, choose Assign one tool to selection and a compatible tool, then Save. The list distinguishes library tools from tools saved in selected objects and shows their geometry settings. Compare these details when names match. Cancel discards the complete draft.
+
+The compact Layers tree shows the material after the object count. Long layer and object names end with an ellipsis; open their properties to read the full name. Selection and properties controls sit beside each object.
 
 Choose the target model in Connection. Tools show only its settings and remember values separately for each model. Physical speed is shown in mm/s; Silhouette uses native force and speed scales. Old raw pressure values retain their meaning. FilmCut grams are an estimate, not measured force.
 
@@ -124,7 +166,7 @@ The bundled sheet previews the 30 × 30 mm square grid without cutting. Use Cali
 
 Example in Help: Knife calibration
 
-## 05 Select and draw shapes
+## 07 Select and draw shapes
 
 ### Select move and resize
 
@@ -144,19 +186,25 @@ Open Shape tools with the small tab on the left frame: tap it or swipe right fro
 
 On a tablet or wide screen, expand a layer in the Layers tree. Tap an object to select it; its selection button adds or removes it. Layer and object menus open properties. Use Add layer or Move to layer. Hold the object name to drag it onto a layer. Moving uses the destination layer material.
 
+Opening properties from a selected object keeps the current selection. Tool in selection edits only objects using that tool. To replace different assigned tools together, choose Assign one tool to selection and a compatible tool, then Save. The list distinguishes library tools from tools saved in selected objects and shows their geometry settings. Compare these details when names match. Cancel discards the complete draft.
+
+The compact Layers tree shows the material after the object count. Long layer and object names end with an ellipsis; open their properties to read the full name. Selection and properties controls sit beside each object.
+
 Open Details for extra guidance. Help contains full lessons and editable examples.
 
 Example in Help: A little thank you
 
 ### The object menu
 
-The object menu groups properties and content editing first, then Move, Scale and Rotate, then Duplicate and stacking. Delete is last. Open Edit for Align and distribute or Fill sheet.
+Ungroup separates grouped objects. Split contours separates one ungrouped drawing into its individual contours, keeping their positions and tool settings. Undo restores the original object. Filled artwork, text, QR, wizards, images and linked sticker objects cannot be split this way.
+
+The object menu shows a compact grid with Group and Ungroup beside properties. Move, Scale, Rotate, Duplicate and stacking remain available. Delete is last. Open Edit for Align and distribute or Fill sheet.
 
 Select an object, then hold your finger on it without moving. With a mouse, press and hold.
 
 In the object menu, choose Move for exact horizontal and vertical offsets or Scale for a width, height or scale factor. Grouped artwork changes together; ungroup it to edit individual parts.
 
-You can also find editing commands in Edit. The down arrow at the edge of a long menu reveals more options.
+The object menu fits the available screen without scrolling. With large text or a short window, use the arrows to change pages. Editing commands are also available in Edit.
 
 Example in Help: A little thank you
 
@@ -174,7 +222,7 @@ Two fingers cancel an unfinished shape and pan or zoom the view. To cancel drawi
 
 Example in Help: Three shapes and a reference
 
-## 06 Text layouts and wizards
+## 08 Text layouts and wizards
 
 ### Edit text
 
@@ -240,7 +288,7 @@ The handle box is an open tray with a separate locking handle. Pass each handle 
 
 Example in Help: A gift with a window
 
-## 07 Import save and reopen projects
+## 09 Import save and reopen projects
 
 ### Keep your own copy
 
@@ -278,11 +326,13 @@ The app saves the active project on this device for returning from the backgroun
 
 Opening another project asks about unsaved work. Use Project → Save or Save as when available for your plan.
 
+Open Language and Help & examples from the Project menu.
+
 Language changes affect the interface and help. Your text, object names and file names stay unchanged.
 
 Example in Help: A little thank you
 
-## 08 Trace images and edit curves
+## 10 Trace images and edit curves
 
 ### Edit curves and nodes
 
@@ -314,9 +364,11 @@ Open Details for extra guidance. Help contains full lessons and editable example
 
 Example in Help: Bloom
 
-## 09 Prepare and preview production
+## 11 Prepare and preview production
 
 ### Guided
+
+Draw a rectangle with a pen, measure X and Y between line centres, then enter both measurements. Keep controller scaling at 100%. Use the previous correction only if it was used for this test. New correction = test correction × requested / measured.
 
 Prepare uses compact material, cutting mat and plotter controls. Expand Material or Cutting mat for more settings. Open Production preview directly for layout, jobs and guided preparation.
 
@@ -344,7 +396,7 @@ Open Details for extra guidance. Help contains full lessons and editable example
 
 Example in Help: Production preview
 
-## 10 Layers materials and jobs
+## 12 Layers materials and jobs
 
 ### Layers and jobs
 
@@ -382,6 +434,10 @@ Layers keeps artwork organization and material assignments together. Open Edit l
 
 On a tablet or wide screen, expand a layer in the Layers tree. Tap an object to select it; its selection button adds or removes it. Layer and object menus open properties. Use Add layer or Move to layer. Hold the object name to drag it onto a layer. Moving uses the destination layer material.
 
+Opening properties from a selected object keeps the current selection. Tool in selection edits only objects using that tool. To replace different assigned tools together, choose Assign one tool to selection and a compatible tool, then Save. The list distinguishes library tools from tools saved in selected objects and shows their geometry settings. Compare these details when names match. Cancel discards the complete draft.
+
+The compact Layers tree shows the material after the object count. Long layer and object names end with an ellipsis; open their properties to read the full name. Selection and properties controls sit beside each object.
+
 Artwork color, material and production job are independent. Several design layers can share a job, and the same material can be used in separate jobs.
 
 Open Details for extra guidance. Help contains full lessons and editable examples.
@@ -390,7 +446,7 @@ In a short window, scroll the form to reach its actions. Keyboard entry keeps th
 
 Example in Help: Layers and jobs
 
-## 11 Stickers and QR labels
+## 13 Stickers and QR labels
 
 ### Make a sticker
 
@@ -430,9 +486,11 @@ Size includes the quiet zone.
 
 Example in Help: QR label
 
-## 12 Print and Cut registration
+## 14 Print and Cut registration
 
 ### Manual Print Cut
+
+Draw a rectangle with a pen, measure X and Y between line centres, then enter both measurements. Keep controller scaling at 100%. Use the previous correction only if it was used for this test. New correction = test correction × requested / measured.
 
 For manual Print & Cut, print at actual size and confirm the margins. Load the sheet without a tool and align the holder centre to marks A, B, D and C. Small jogs refine each position; capture only after the plotter stops.
 
@@ -458,7 +516,7 @@ By default, check physical standstill and choose Done after transfer. Complete o
 
 Example in Help: Optical Print & Cut
 
-## 13 Connect and control the plotter
+## 15 Connect and control the plotter
 
 ### From design to output
 
@@ -480,7 +538,7 @@ Choose the loaded size in Prepare → Cutting mat. Work area presets cover regis
 
 In Mat library, tap a record to apply it. With large text or a short window, section icons switch between materials, tools and mats; the plus icon adds a custom record. Hold an icon for its name.
 
-Machine control uses the same arrow pad for all plotters. Choose a jog distance; the saved distance is used within the selected plotter’s supported range. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
+Machine control uses the same arrow pad for all plotters. Choose a jog distance: 0.1, 1, 5, 10, 50 or 100 mm, or the saved distance. Distance options stay in one row. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. On VEVOR models other than Smart, tool buttons request a small carriage step and return. Tool down may lift again at rest; later jogs use the requested tool state. After moving this plotter from its panel, reconnect before using app controls. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
 
 Design creates the artwork. Prepare checks layout and tools. Cut contains the job preview and controls.
 
@@ -492,13 +550,25 @@ Open Details for extra guidance. Help contains full lessons and editable example
 
 Example in Help: One more chapter
 
-## 14 HPGL and DMPL setup and operation
+## 16 HPGL and DMPL setup and operation
 
 ### HPGL DMPL plotters
 
+Home raises the tool and returns to the logical origin established for this connection. This can differ from the artwork corner. It does not seek a limit switch or restore an origin from before reconnecting. Home becomes available after a normal move or job establishes the frame and you confirm standstill. Confirm the plotter is stationary after Home.
+
+Review the tool sequence before starting. Fit and confirm the first tool. After each stage, wait until all movement stops and confirm completion. The next tool stays visible in Cut: choose Change tool, fit it and confirm before starting its stage. Uploading data does not confirm finished motion. Keep the material in place during tool changes.
+
+VEVOR KH, KI, SK, KW, X, Y and B models use one DMPL profile per model. Smart models keep their own protocol. Direct USB uses USB printer interface with XON/XOFF off by default; grant Android access. The same connection and movement handling applies to all these DMPL profiles. Choose the model again if an older HPGL profile is no longer listed. Check axes and prepare the job again. Set the actual loaded work area; an unspecified width is not a verified limit. HPGL/DMPL Machine control is available in Free. Starting a job requires Basic.
+
+Draw a rectangle with a pen, measure X and Y between line centres, then enter both measurements. Keep controller scaling at 100%. Use the previous correction only if it was used for this test. New correction = test correction × requested / measured.
+
+Use a pen in the cutting holder to draw the cross. Without moving the sheet or changing the origin, raise the pen and move the laser pointer to the cross centre. Confirm standstill after moving. The saved pointer offset is used only for manual laser alignment; ordinary cuts are not shifted.
+
 In Plotter connection, choose vendor, model and connection, then select a device and Connect. Device lists refresh automatically while disconnected and the app is visible; Refresh devices starts another search. Grant Bluetooth access when requested. For USB, choose Connect and allow Android access; the connection continues automatically. Protocol settings and FilmCut connection options are grouped below. Disconnect before changing the plotter. Connected confirms the link, not completed movement. Auto-connect is available for FilmCut and VEVOR Smart Bluetooth and never resumes a job.
 
-USB printer interface connects directly to a standard bidirectional USB printer interface with bulk input and output. Vendor-specific USB interfaces still need their own driver. Match the plotter language and use USB–serial for serial adapters.
+USB printer interface supports one-way and two-way raw connections. One-way connections disable XON/XOFF and buffer queries. If a device offers several interfaces, select the one documented for the plotter. Match its language; USB detection does not identify HPGL or DMPL. IEEE 1284.4 is unavailable; vendor-specific USB is limited to explicitly supported GCC devices. Use USB–serial for serial adapters.
+
+After connecting through a USB printer interface, open USB device information to read the reported product, manufacturer, model and command languages. The optional IEEE 1284 Device ID query may be unavailable; the connection still works. These details do not uniquely identify a unit or verify its plotter language. Choose the model and language yourself.
 
 For CE LITE-50, choose its Graphtec profile and USB connection. Select HPGL and LOWER LEFT origin on the plotter. Keep the profile axes: X forward, Y right. USB transfer follows the free buffer space reported by the plotter. Set force and speed on its panel. Work area 498 mm covers the maximum cutting width; resize its length to match the loaded material, up to 3000 mm.
 
@@ -508,7 +578,7 @@ Choose the loaded size in Prepare → Cutting mat. Work area presets cover regis
 
 In Mat library, tap a record to apply it. With large text or a short window, section icons switch between materials, tools and mats; the plus icon adds a custom record. Hold an icon for its name.
 
-Machine control uses the same arrow pad for all plotters. Choose a jog distance; the saved distance is used within the selected plotter’s supported range. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
+Machine control uses the same arrow pad for all plotters. Choose a jog distance: 0.1, 1, 5, 10, 50 or 100 mm, or the saved distance. Distance options stay in one row. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. On VEVOR models other than Smart, tool buttons request a small carriage step and return. Tool down may lift again at rest; later jogs use the requested tool state. After moving this plotter from its panel, reconnect before using app controls. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
 
 Plotters without relative jog use X and Y target coordinates with Move; these fields are targets, not a position readout.
 
@@ -522,19 +592,19 @@ In Generic Cut, the percentage measures data sent, not completed motion. After a
 
 Choose the exact vendor and model, or Generic with HPGL or DMPL when no preset is listed. Named presets define language, scale and available connections; they do not identify the attached device. Graphtec includes Craft Robo with its own connection workflow. VEVOR Smart uses its own protocol; KH, KI and SK presets use the language shown for that model. Match the plotter panel settings shown in Protocol settings. Set the loaded working area, tool, force and speed on the plotter. USB availability depends on the selected model. Choose one of its available connections.
 
-For named HPGL/DMPL profiles, check Coordinate axes before connecting. These are the positive command directions viewed from the front: forward means away along the feed axis. Presets use documented axes where available; otherwise choose explicitly. Match the origin on the device and turn off device rotation, mirroring and scaling. Check a small pen-up movement before a job. Serial requires a supported USB–serial adapter; other options use a transparent SPP adapter or raw TCP bridge.
+For named HPGL/DMPL profiles, check Coordinate axes before moving. These are the positive command directions viewed from the front: forward means away along the feed axis. Presets use documented axes where available; otherwise choose explicitly. Match the origin on the device and turn off device rotation, mirroring and scaling. Check a small pen-up movement before a job. Serial requires a supported USB–serial adapter; other options use a transparent SPP adapter or raw TCP bridge.
 
 For HPGL/DMPL, enable XON/XOFF or ESC.B only when the device and connection support it, and set the transfer rate for the buffer. Machine control uses the shared jog and tool-lift controls. Stop sending closes the link; stop buffered motion on the plotter panel. Confirm standstill after a job or when leaving manual control. Each tool stage starts separately; interrupted jobs never resume automatically.
 
 Example in Help: HPGL / DMPL plotters
 
-## 15 Silhouette and AutoBlade
+## 17 Silhouette and AutoBlade
 
 ### Silhouette Craft Robo first job
 
 In Plotter connection, choose vendor, model and connection, then select a device and Connect. Device lists refresh automatically while disconnected and the app is visible; Refresh devices starts another search. Grant Bluetooth access when requested. For USB, choose Connect and allow Android access; the connection continues automatically. Protocol settings and FilmCut connection options are grouped below. Disconnect before changing the plotter. Connected confirms the link, not completed movement. Auto-connect is available for FilmCut and VEVOR Smart Bluetooth and never resumes a job.
 
-Machine control uses the same arrow pad for all plotters. Choose a jog distance; the saved distance is used within the selected plotter’s supported range. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
+Machine control uses the same arrow pad for all plotters. Choose a jog distance: 0.1, 1, 5, 10, 50 or 100 mm, or the saved distance. Distance options stay in one row. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. On VEVOR models other than Smart, tool buttons request a small carriage step and return. Tool down may lift again at rest; later jogs use the requested tool state. After moving this plotter from its panel, reconnect before using app controls. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
 
 Cut keeps a large preview visible. Edit tools and passes in Object properties. Advanced settings contains mat settings, optical registration, return to origin and device-ready completion.
 
@@ -572,7 +642,7 @@ The app polls ready/busy/unloaded status between small batches. After the last r
 
 Example in Help: Silhouette / Craft Robo first job
 
-## 16 VEVOR Smart workflows
+## 18 VEVOR Smart workflows
 
 ### VEVOR Smart first job
 
@@ -582,7 +652,7 @@ In Cut, open Advanced settings for Use app force and speed and Unload mat.
 
 In Plotter connection, choose vendor, model and connection, then select a device and Connect. Device lists refresh automatically while disconnected and the app is visible; Refresh devices starts another search. Grant Bluetooth access when requested. For USB, choose Connect and allow Android access; the connection continues automatically. Protocol settings and FilmCut connection options are grouped below. Disconnect before changing the plotter. Connected confirms the link, not completed movement. Auto-connect is available for FilmCut and VEVOR Smart Bluetooth and never resumes a job.
 
-Machine control uses the same arrow pad for all plotters. Choose a jog distance; the saved distance is used within the selected plotter’s supported range. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
+Machine control uses the same arrow pad for all plotters. Choose a jog distance: 0.1, 1, 5, 10, 50 or 100 mm, or the saved distance. Distance options stay in one row. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. On VEVOR models other than Smart, tool buttons request a small carriage step and return. Tool down may lift again at rest; later jogs use the requested tool state. After moving this plotter from its panel, reconnect before using app controls. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
 
 After the final tool stage, VEVOR receives PU0,0;PG; to return and eject the mat. Keep the mat clear and confirm Done only when movement has stopped.
 
@@ -622,7 +692,7 @@ In a short window, scroll the form to reach its actions. Keyboard entry keeps th
 
 Example in Help: VEVOR Smart first job
 
-## 17 Help and plotter support
+## 19 Help and plotter support
 
 ### Plotter support
 

@@ -1,8 +1,8 @@
 # Foil Studio instrukcja obsługi
 
-Android 0.1.129 (150)  ·  9 listopada 2026
+Android 0.1.145 (166)  ·  15 listopada 2026
 
-Ta instrukcja prowadzi od edytowalnego projektu do cięcia, rysowania pisakiem, grawerowania pasywnego i bigowania. Opisuje Foil Studio dla Androida 0.1.129 (150), w tym ustawienia obiektów, układy produkcyjne, Print & Cut oraz aktualne sposoby łączenia z ploterami.
+Ta instrukcja prowadzi od edytowalnego projektu do cięcia, rysowania pisakiem, grawerowania pasywnego i bigowania. Opisuje Foil Studio dla Androida 0.1.145 (166), w tym ustawienia obiektów, układy produkcyjne, Print & Cut oraz aktualne sposoby łączenia z ploterami.
 
 ## 01 Pierwszy projekt
 
@@ -24,33 +24,37 @@ Free obejmuje edycję i podgląd. Basic to jednorazowy zakup umożliwiający zap
 
 03  Cięcie rysowanie grawerowanie i bigowanie
 
-04  Ustawienia narzędzi i kalibracja noża
+04  Kalibracja geometrii plotera
 
-05  Zaznaczanie i rysowanie kształtów
+05  Plotery GCC
 
-06  Tekst układy i kreatory
+06  Ustawienia narzędzi i kalibracja noża
 
-07  Importowanie zapisywanie i przywracanie projektów
+07  Zaznaczanie i rysowanie kształtów
 
-08  Wektoryzacja obrazów i edycja krzywych
+08  Tekst układy i kreatory
 
-09  Przygotowanie i podgląd produkcji
+09  Importowanie zapisywanie i przywracanie projektów
 
-10  Warstwy materiały i zadania
+10  Wektoryzacja obrazów i edycja krzywych
 
-11  Naklejki i etykiety QR
+11  Przygotowanie i podgląd produkcji
 
-12  Pasowanie wydruku i cięcia
+12  Warstwy materiały i zadania
 
-13  Łączenie i sterowanie ploterem
+13  Naklejki i etykiety QR
 
-14  Konfiguracja i obsługa HPGL i DMPL
+14  Pasowanie wydruku i cięcia
 
-15  Silhouette i AutoBlade
+15  Łączenie i sterowanie ploterem
 
-16  Praca z VEVOR Smart
+16  Konfiguracja i obsługa HPGL i DMPL
 
-17  Pomoc i zgłoszenia dotyczące ploterów
+17  Silhouette i AutoBlade
+
+18  Praca z VEVOR Smart
+
+19  Pomoc i zgłoszenia dotyczące ploterów
 
 ## 03 Cięcie rysowanie grawerowanie i bigowanie
 
@@ -74,7 +78,41 @@ Przypisz rylec do bigowania do linii zgięcia, a nóż do zewnętrznego konturu.
 
 Zadanie łączone wykonuje kolejno rysowanie pisakiem, grawerowanie, bigowanie i cięcie nożem. Sprawdź każdy etap i potwierdź każdą wymaganą zmianę narzędzia. Grafika przypisana do drukarki trafia do wydruku; obiekty pomocnicze nie są wykonywane przez ploter.
 
-## 04 Ustawienia narzędzi i kalibracja noża
+## 04 Kalibracja geometrii plotera
+
+### Kalibracja plotera
+
+Narysuj prostokąt pisakiem, zmierz X i Y między środkami linii, a następnie wpisz oba pomiary. Ustaw skalowanie kontrolera na 100%. Użyj poprzedniej korekcji tylko wtedy, gdy zastosowano ją w tej próbie. Nowa korekcja = korekcja testu × wymiar zadany / zmierzony.
+
+Zmierz X w poprzek szerokości maty, a Y wzdłuż jej długości. To osie aplikacji; litery osi kontrolera mogą być inne.
+
+Kalibracja X/Y dla FilmCut zaczyna się od nacisku pisaka 180. Przed rysowaniem dostosuj go do pisaka i materiału.
+
+Tutaj możesz użyć dostępnych przycisków obsługi maty. Przed wysunięciem do pomiaru zakończ test i poczekaj na bezruch. Po wsunięciu sprawdź początek układu i ponownie potwierdź gotowość pisaka oraz arkusza.
+
+Narysuj krzyżyk pisakiem w uchwycie tnącym. Bez przesuwania arkusza ani zmiany początku układu podnieś pisak i przesuń wskaźnik laserowy na środek krzyżyka. Po ruchu potwierdź bezruch. Zapisane przesunięcie wskaźnika jest używane wyłącznie przy ręcznym wyrównaniu laserem; zwykłe cięcia nie są przesuwane.
+
+Kalibracja jest zapisywana dla wybranego profilu. Przed kolejną próbą sprawdź zapisane wartości w Kalibracji plotera.
+
+Natywne wyrównanie optyczne wyznacza transformację osi. Zapisana korekcja X/Y jest używana przy zwykłym cięciu i wyrównaniu ręcznym.
+
+Przykład w pomocy: Kalibracja plotera
+
+## 05 Plotery GCC
+
+### Plotery GCC
+
+Wybierz dokładny model GCC i sprawdź osie krótkim ruchem z podniesionym narzędziem. Sterowanie maszyną obsługuje powtarzane ruchy, podnoszenie i opuszczanie narzędzia oraz Powrót do początku. Powrót prowadzi do przygotowanego początku; nie szuka krańcówki ani nie uruchamia elektroniki ponownie. Po ruchu głowicy z panelu plotera połącz się ponownie.
+
+Zadania GCC mają osobne etapy dla różnych narzędzi. Zamontuj i potwierdź każde narzędzie przed jego etapem. Nóż i pisak wybierają własny tryb narzędzia. Dla bigowania lub grawerowania wybierz właściwy tryb na panelu plotera. Nacisk, prędkość i przyspieszenie ustawia się na panelu. Wyłącz offset noża i nadcięcie w ploterze, gdy aplikacja kompensuje nóż.
+
+Odczytaj obszar materiału to opcjonalne zapytanie podczas bezczynności, dostępne raz na połączenie. Zwraca zakres osi poleceń X i Y, nie pozycję głowicy. Porównaj go z wybranymi osiami i załadowaną matą; zapytanie nigdy nie zmienia projektu. Jeśli ploter nie odpowiada, wpisz ręcznie użyteczny rozmiar maty.
+
+GCC korzysta z ręcznego Print & Cut ze skalibrowanym wskaźnikiem. Automatyczne znaczniki AAS, skanowanie segmentów, automatyczne przełączanie dwóch uchwytów, odcinanie materiału i reset sprzętowy są niedostępne. i-Craft i Nautilus mają odrębny format poleceń. Profile wymagają jeszcze fizycznego sprawdzenia z podniesionym narzędziem na Twoim ploterze. Zakończona transmisja nie potwierdza zatrzymania ruchu.
+
+Przykład w pomocy: GCC — przykład z dwoma narzędziami
+
+## 06 Ustawienia narzędzi i kalibracja noża
 
 ### Narzędzia i właściwości obiektu
 
@@ -89,6 +127,10 @@ Obiekty używają ustawień przypisanego narzędzia w zakresie obsługiwanym prz
 Obiekty zachowują przypisaną kopię ustawień narzędzia. Po edycji narzędzia w bibliotece wybierz jego zaktualizowany wpis we Właściwościach obiektu.
 
 Na tablecie lub szerokim ekranie rozwiń warstwę w drzewie Warstwy. Dotknij obiektu, aby go zaznaczyć; przycisk zaznaczenia dodaje go lub usuwa z zaznaczenia. Menu warstwy i obiektu otwierają właściwości. Użyj Dodaj warstwę lub Przenieś do warstwy. Przytrzymaj nazwę obiektu, aby przeciągnąć go na warstwę. Po przeniesieniu obiekt otrzymuje materiał warstwy docelowej.
+
+Otwarcie właściwości zaznaczonego obiektu zachowuje bieżące zaznaczenie. Narzędzie zaznaczenia edytuje tylko obiekty używające tego narzędzia. Aby razem zastąpić różne przypisane narzędzia, wybierz Przypisz jedno narzędzie do zaznaczenia i zgodne narzędzie, a następnie Zapisz. Lista odróżnia narzędzia z biblioteki od narzędzi zapisanych w zaznaczonych obiektach i pokazuje ich ustawienia geometrii. Porównaj te dane, gdy nazwy są takie same. Anuluj odrzuca cały szkic zmian.
+
+Zwarty panel Warstwy pokazuje materiał po liczbie obiektów. Długie nazwy warstw i obiektów kończą się wielokropkiem; otwórz właściwości, aby przeczytać pełną nazwę. Przyciski zaznaczania i właściwości są obok każdego obiektu.
 
 Wybierz model w Połączeniu. Narzędzia pokazują tylko jego ustawienia i zapamiętują wartości osobno dla każdego modelu. Prędkość fizyczna jest podawana w mm/s; Silhouette używa własnej skali siły i prędkości. Stare wartości nacisku zachowują znaczenie. Gramy FilmCut są szacunkowe, nie zmierzone.
 
@@ -124,7 +166,7 @@ Dołączony arkusz przedstawia siatkę kwadratów 30 × 30 mm bez cięcia. Użyj
 
 Przykład w pomocy: Kalibracja noża
 
-## 05 Zaznaczanie i rysowanie kształtów
+## 07 Zaznaczanie i rysowanie kształtów
 
 ### Zaznaczanie przesuwanie i rozmiar
 
@@ -144,19 +186,25 @@ Otwórz Kształty małą zakładką na lewej ramce: dotknij jej lub przesuń od 
 
 Na tablecie lub szerokim ekranie rozwiń warstwę w drzewie Warstwy. Dotknij obiektu, aby go zaznaczyć; przycisk zaznaczenia dodaje go lub usuwa z zaznaczenia. Menu warstwy i obiektu otwierają właściwości. Użyj Dodaj warstwę lub Przenieś do warstwy. Przytrzymaj nazwę obiektu, aby przeciągnąć go na warstwę. Po przeniesieniu obiekt otrzymuje materiał warstwy docelowej.
 
+Otwarcie właściwości zaznaczonego obiektu zachowuje bieżące zaznaczenie. Narzędzie zaznaczenia edytuje tylko obiekty używające tego narzędzia. Aby razem zastąpić różne przypisane narzędzia, wybierz Przypisz jedno narzędzie do zaznaczenia i zgodne narzędzie, a następnie Zapisz. Lista odróżnia narzędzia z biblioteki od narzędzi zapisanych w zaznaczonych obiektach i pokazuje ich ustawienia geometrii. Porównaj te dane, gdy nazwy są takie same. Anuluj odrzuca cały szkic zmian.
+
+Zwarty panel Warstwy pokazuje materiał po liczbie obiektów. Długie nazwy warstw i obiektów kończą się wielokropkiem; otwórz właściwości, aby przeczytać pełną nazwę. Przyciski zaznaczania i właściwości są obok każdego obiektu.
+
 Otwórz Szczegóły, aby uzyskać dodatkowe wskazówki. Pomoc zawiera pełne lekcje i edytowalne przykłady.
 
 Przykład w pomocy: Małe podziękowanie
 
 ### Menu obiektu
 
-Menu obiektu zaczyna się od właściwości i edycji treści, potem zawiera Przesuń, Skaluj i Obróć, a następnie Duplikuj i kolejność obiektów. Usuń jest na końcu. Wyrównaj i rozmieść oraz Wypełnij arkusz znajdziesz w Edytuj.
+Rozgrupuj rozdziela zgrupowane obiekty. Rozdziel kontury dzieli jeden niezgrupowany rysunek na osobne kontury, zachowując ich położenie i ustawienia narzędzia. Cofnij przywraca pierwotny obiekt. Nie można tak rozdzielać obiektów z wypełnieniem, tekstu, QR, kreatorów, obrazów ani powiązanych obiektów naklejek.
+
+Menu obiektu pokazuje zwartą siatkę z Grupuj i Rozgrupuj obok właściwości. Dostępne są też Przesuń, Skaluj, Obróć, Duplikuj i kolejność obiektów. Usuń jest na końcu. Wyrównaj i rozmieść oraz Wypełnij arkusz znajdziesz w Edytuj.
 
 Zaznacz obiekt, a następnie przytrzymaj na nim palec bez przesuwania. Mysz: naciśnij i przytrzymaj przycisk.
 
 W menu obiektu wybierz Przesuń, aby podać dokładne przesunięcie w poziomie i pionie, lub Skaluj, aby ustawić szerokość, wysokość albo współczynnik skali. Zgrupowane obiekty zmieniają się razem; rozgrupuj je, aby edytować poszczególne części.
 
-Polecenia edycji znajdziesz również w „Edytuj”. Strzałka w dół przy krawędzi długiego menu pokazuje dalsze opcje.
+Menu obiektu mieści się na dostępnym ekranie bez przewijania. Przy dużym tekście lub niskim oknie zmieniaj strony strzałkami. Polecenia edycji są też dostępne w Edytuj.
 
 Przykład w pomocy: Małe podziękowanie
 
@@ -174,7 +222,7 @@ Dwa palce anulują niedokończony kształt i przesuwają lub powiększają widok
 
 Przykład w pomocy: Trzy figury i odniesienie
 
-## 06 Tekst układy i kreatory
+## 08 Tekst układy i kreatory
 
 ### Edytuj tekst
 
@@ -240,7 +288,7 @@ Pudełko z uchwytem to otwarta tacka z oddzielnym uchwytem zatrzaskowym. Przeł�
 
 Przykład w pomocy: Prezent z okienkiem
 
-## 07 Importowanie zapisywanie i przywracanie projektów
+## 09 Importowanie zapisywanie i przywracanie projektów
 
 ### Zachowaj własną kopię
 
@@ -278,11 +326,13 @@ Aplikacja zapisuje bieżący projekt na tym urządzeniu, aby wrócić do niego p
 
 Przy otwieraniu innego projektu aplikacja pyta o niezapisaną pracę. Użyj Projekt → Zapisz lub Zapisz jako, jeśli pozwala na to Twój plan.
 
+Otwórz Język oraz Pomoc i przykłady z menu Projekt.
+
 Zmiana języka dotyczy interfejsu i pomocy. Twój tekst oraz nazwy obiektów i plików pozostają bez zmian.
 
 Przykład w pomocy: Małe podziękowanie
 
-## 08 Wektoryzacja obrazów i edycja krzywych
+## 10 Wektoryzacja obrazów i edycja krzywych
 
 ### Edycja krzywych i węzłów
 
@@ -314,9 +364,11 @@ Otwórz Szczegóły, aby uzyskać dodatkowe wskazówki. Pomoc zawiera pełne lek
 
 Przykład w pomocy: Rozkwit
 
-## 09 Przygotowanie i podgląd produkcji
+## 11 Przygotowanie i podgląd produkcji
 
 ### Prowadzony
+
+Narysuj prostokąt pisakiem, zmierz X i Y między środkami linii, a następnie wpisz oba pomiary. Ustaw skalowanie kontrolera na 100%. Użyj poprzedniej korekcji tylko wtedy, gdy zastosowano ją w tej próbie. Nowa korekcja = korekcja testu × wymiar zadany / zmierzony.
 
 Przygotowanie pokazuje zwarte ustawienia materiału, maty i plotera. Rozwiń Materiał lub Matę do cięcia, aby zobaczyć więcej ustawień. Otwórz bezpośrednio Podgląd produkcji, aby ustawić układ, zadania lub skorzystać z przewodnika.
 
@@ -344,7 +396,7 @@ Otwórz Szczegóły, aby uzyskać dodatkowe wskazówki. Pomoc zawiera pełne lek
 
 Przykład w pomocy: Podgląd produkcji
 
-## 10 Warstwy materiały i zadania
+## 12 Warstwy materiały i zadania
 
 ### Warstwy i zadania
 
@@ -382,6 +434,10 @@ Warstwy łączą organizację projektu z przypisaniami materiałów. Otwórz Edy
 
 Na tablecie lub szerokim ekranie rozwiń warstwę w drzewie Warstwy. Dotknij obiektu, aby go zaznaczyć; przycisk zaznaczenia dodaje go lub usuwa z zaznaczenia. Menu warstwy i obiektu otwierają właściwości. Użyj Dodaj warstwę lub Przenieś do warstwy. Przytrzymaj nazwę obiektu, aby przeciągnąć go na warstwę. Po przeniesieniu obiekt otrzymuje materiał warstwy docelowej.
 
+Otwarcie właściwości zaznaczonego obiektu zachowuje bieżące zaznaczenie. Narzędzie zaznaczenia edytuje tylko obiekty używające tego narzędzia. Aby razem zastąpić różne przypisane narzędzia, wybierz Przypisz jedno narzędzie do zaznaczenia i zgodne narzędzie, a następnie Zapisz. Lista odróżnia narzędzia z biblioteki od narzędzi zapisanych w zaznaczonych obiektach i pokazuje ich ustawienia geometrii. Porównaj te dane, gdy nazwy są takie same. Anuluj odrzuca cały szkic zmian.
+
+Zwarty panel Warstwy pokazuje materiał po liczbie obiektów. Długie nazwy warstw i obiektów kończą się wielokropkiem; otwórz właściwości, aby przeczytać pełną nazwę. Przyciski zaznaczania i właściwości są obok każdego obiektu.
+
 Kolor projektu, materiał i zadanie produkcyjne są niezależne. Kilka warstw projektu może należeć do jednego zadania, a ten sam materiał można wykorzystać w osobnych zadaniach.
 
 Otwórz Szczegóły, aby uzyskać dodatkowe wskazówki. Pomoc zawiera pełne lekcje i edytowalne przykłady.
@@ -390,7 +446,7 @@ W krótkim oknie przewiń formularz do przycisków. Wpisywanie na klawiaturze za
 
 Przykład w pomocy: Warstwy i zadania
 
-## 11 Naklejki i etykiety QR
+## 13 Naklejki i etykiety QR
 
 ### Zrób naklejkę
 
@@ -430,9 +486,11 @@ Rozmiar obejmuje strefę ciszy.
 
 Przykład w pomocy: Etykieta QR
 
-## 12 Pasowanie wydruku i cięcia
+## 14 Pasowanie wydruku i cięcia
 
 ### Ręczne Print Cut
+
+Narysuj prostokąt pisakiem, zmierz X i Y między środkami linii, a następnie wpisz oba pomiary. Ustaw skalowanie kontrolera na 100%. Użyj poprzedniej korekcji tylko wtedy, gdy zastosowano ją w tej próbie. Nowa korekcja = korekcja testu × wymiar zadany / zmierzony.
 
 W ręcznym Print & Cut wydrukuj arkusz w rzeczywistym rozmiarze i sprawdź marginesy. Załaduj go bez narzędzia i ustaw środek uchwytu nad znacznikami A, B, D i C. Dopasuj pozycję małymi ruchami i zapisz ją po zatrzymaniu plotera.
 
@@ -458,7 +516,7 @@ Domyślnie sprawdź zatrzymanie i wybierz Gotowe po transmisji. Zakończ po zgł
 
 Przykład w pomocy: Optyczne Print & Cut
 
-## 13 Łączenie i sterowanie ploterem
+## 15 Łączenie i sterowanie ploterem
 
 ### Od projektu do wykonania
 
@@ -480,7 +538,7 @@ Wybierz załadowany rozmiar w Przygotowanie → Mata do cięcia. Gotowe obszary 
 
 W bibliotece mat dotknij pozycji, aby jej użyć. Przy dużym tekście lub krótkim oknie ikony sekcji przełączają materiały, narzędzia i maty; plus dodaje własną pozycję. Przytrzymaj ikonę, aby zobaczyć jej nazwę.
 
-Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia; zapisana wartość jest używana w zakresie obsługiwanym przez wybrany ploter. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
+Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia: 0,1, 1, 5, 10, 50 lub 100 mm albo zapisaną wartość. Opcje odległości pozostają w jednym wierszu. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. W modelach VEVOR poza Smart przyciski narzędzia zlecają mały ruch karetki i powrót. Po opuszczeniu narzędzie może wrócić do góry podczas postoju; kolejne przesunięcia używają wybranego stanu narzędzia. Po ruchu z panelu tego plotera połącz go ponownie przed użyciem sterowania w aplikacji. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
 
 „Projektowanie” służy do tworzenia obiektów. „Przygotowanie” pozwala sprawdzić układ i narzędzia. „Cięcie” zawiera podgląd i sterowanie zadaniem.
 
@@ -492,13 +550,25 @@ Otwórz Szczegóły, aby uzyskać dodatkowe wskazówki. Pomoc zawiera pełne lek
 
 Przykład w pomocy: Jeszcze jeden rozdział
 
-## 14 Konfiguracja i obsługa HPGL i DMPL
+## 16 Konfiguracja i obsługa HPGL i DMPL
 
 ### Plotery HPGL DMPL
 
+Powrót podnosi narzędzie i wraca do logicznego początku ustalonego dla bieżącego połączenia. Może on różnić się od narożnika rysunku. Funkcja nie szuka krańcówki ani nie przywraca początku sprzed ponownego połączenia. Staje się dostępna po ustaleniu układu przez zwykły ruch lub zadanie i potwierdzeniu zatrzymania. Po powrocie potwierdź zatrzymanie plotera.
+
+Przed uruchomieniem sprawdź kolejność narzędzi. Zamontuj i potwierdź pierwsze narzędzie. Po każdym etapie poczekaj na całkowite zatrzymanie i potwierdź zakończenie. Następne narzędzie pozostaje widoczne w Cięciu: wybierz Zmień narzędzie, zamontuj je i potwierdź przed uruchomieniem etapu. Wysłanie danych nie potwierdza zakończenia ruchu. Nie przesuwaj materiału przy zmianie narzędzi.
+
+Modele VEVOR KH, KI, SK, KW, X, Y i B mają po jednym profilu DMPL na model. Modele Smart zachowują własny protokół. Bezpośrednie USB domyślnie używa interfejsu drukarki USB z wyłączonym XON/XOFF; zezwól na dostęp w Androidzie. Wszystkie te profile DMPL korzystają ze wspólnej obsługi połączenia i ruchu. Jeśli starszy profil HPGL nie jest już dostępny, wybierz model ponownie. Sprawdź osie i ponownie przygotuj zadanie. Ustaw rzeczywisty obszar założonego materiału; nieokreślona szerokość nie jest zweryfikowanym limitem. Sterowanie ploterem HPGL/DMPL jest dostępne w planie Free. Uruchomienie zadania wymaga planu Basic.
+
+Narysuj prostokąt pisakiem, zmierz X i Y między środkami linii, a następnie wpisz oba pomiary. Ustaw skalowanie kontrolera na 100%. Użyj poprzedniej korekcji tylko wtedy, gdy zastosowano ją w tej próbie. Nowa korekcja = korekcja testu × wymiar zadany / zmierzony.
+
+Narysuj krzyżyk pisakiem w uchwycie tnącym. Bez przesuwania arkusza ani zmiany początku układu podnieś pisak i przesuń wskaźnik laserowy na środek krzyżyka. Po ruchu potwierdź bezruch. Zapisane przesunięcie wskaźnika jest używane wyłącznie przy ręcznym wyrównaniu laserem; zwykłe cięcia nie są przesuwane.
+
 W Połączeniu z ploterem wybierz producenta, model i połączenie, a następnie urządzenie i Połącz. Listy urządzeń odświeżają się automatycznie, gdy ploter jest rozłączony, a aplikacja widoczna; Odśwież urządzenia rozpoczyna nowe wyszukiwanie. Udziel dostępu do Bluetooth, gdy pojawi się prośba. Dla USB wybierz Połącz i zezwól na dostęp w Androidzie; łączenie będzie kontynuowane automatycznie. Ustawienia protokołu i opcje połączenia FilmCut są zgrupowane poniżej. Rozłącz ploter przed jego zmianą. Połączono oznacza nawiązanie łącza, a nie zakończenie ruchu. Automatyczne łączenie działa dla FilmCut i Bluetooth VEVOR Smart; nigdy nie wznawia zadania.
 
-Interfejs drukarki USB łączy się bezpośrednio ze standardowym dwukierunkowym interfejsem z wejściem i wyjściem bulk. Interfejsy USB producenta wymagają osobnego sterownika. Dopasuj język plotera; do adapterów szeregowych wybierz USB–serial.
+Interfejs drukarki USB obsługuje jednokierunkowe i dwukierunkowe połączenia surowe. Połączenie jednokierunkowe wyłącza XON/XOFF i odpytywanie bufora. Jeśli urządzenie udostępnia kilka interfejsów, wybierz ten opisany w dokumentacji plotera. Dopasuj język poleceń; wykrycie USB nie rozpoznaje HPGL ani DMPL. IEEE 1284.4 jest niedostępne; interfejsy USB producenta są ograniczone do jawnie obsługiwanych urządzeń GCC. Dla adapterów szeregowych użyj USB–serial.
+
+Po połączeniu przez interfejs drukarki USB otwórz Informacje o urządzeniu USB, aby odczytać zgłoszony produkt, producenta, model i języki poleceń. Opcjonalne zapytanie IEEE 1284 Device ID może być niedostępne; połączenie nadal działa. Te dane nie identyfikują jednoznacznie egzemplarza ani nie potwierdzają języka plotera. Samodzielnie wybierz model i język.
 
 Dla CE LITE-50 wybierz jego profil Graphtec i połączenie USB. Na ploterze wybierz HPGL i początek LOWER LEFT. Pozostaw osie profilu: X do przodu, Y w prawo. Transmisja USB korzysta ze zgłaszanego przez ploter wolnego miejsca w buforze. Siłę i prędkość ustaw na panelu plotera. Obszar roboczy 498 mm obejmuje maksymalną szerokość cięcia; dostosuj długość do załadowanego materiału, maksymalnie 3000 mm.
 
@@ -508,7 +578,7 @@ Wybierz załadowany rozmiar w Przygotowanie → Mata do cięcia. Gotowe obszary 
 
 W bibliotece mat dotknij pozycji, aby jej użyć. Przy dużym tekście lub krótkim oknie ikony sekcji przełączają materiały, narzędzia i maty; plus dodaje własną pozycję. Przytrzymaj ikonę, aby zobaczyć jej nazwę.
 
-Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia; zapisana wartość jest używana w zakresie obsługiwanym przez wybrany ploter. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
+Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia: 0,1, 1, 5, 10, 50 lub 100 mm albo zapisaną wartość. Opcje odległości pozostają w jednym wierszu. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. W modelach VEVOR poza Smart przyciski narzędzia zlecają mały ruch karetki i powrót. Po opuszczeniu narzędzie może wrócić do góry podczas postoju; kolejne przesunięcia używają wybranego stanu narzędzia. Po ruchu z panelu tego plotera połącz go ponownie przed użyciem sterowania w aplikacji. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
 
 Plotery bez przesuwania względnego używają docelowych współrzędnych X i Y oraz przycisku Przesuń; te pola określają cel, a nie odczytaną pozycję.
 
@@ -522,19 +592,19 @@ W Cut dla Generic procent oznacza wysłane dane, a nie wykonany ruch. Po wysłan
 
 Wybierz dokładnego producenta i model lub Generic z HPGL albo DMPL, jeśli nie ma gotowego profilu. Profile modeli określają język, skalę i dostępne połączenia; nie rozpoznają podłączonego urządzenia. Graphtec obejmuje Craft Robo z własnym sposobem łączenia. VEVOR Smart używa własnego protokołu; profile KH, KI i SK korzystają z języka wskazanego dla danego modelu. Dopasuj ustawienia panelu podane w Ustawieniach protokołu. Ustaw obszar załadowanego materiału, narzędzie, siłę i prędkość na ploterze. Dostępność USB zależy od wybranego modelu. Wybierz jedno z jego dostępnych połączeń.
 
-W profilach konkretnych modeli HPGL/DMPL sprawdź Osie współrzędnych przed połączeniem. To dodatnie kierunki poleceń widziane od przodu: do przodu oznacza od użytkownika wzdłuż osi podawania. Profile używają udokumentowanych osi, jeśli są dostępne; w pozostałych przypadkach wybierz je jawnie. Dopasuj początek na urządzeniu i wyłącz obrót, odbicie lustrzane oraz skalowanie. Przed zadaniem sprawdź mały ruch z podniesionym narzędziem. Port szeregowy wymaga obsługiwanego adaptera USB–szeregowego; pozostałe opcje używają przezroczystego adaptera SPP lub mostu surowego TCP.
+W profilach konkretnych modeli HPGL/DMPL sprawdź Osie współrzędnych przed ruchem plotera. To dodatnie kierunki poleceń widziane od przodu: do przodu oznacza od użytkownika wzdłuż osi podawania. Profile używają udokumentowanych osi, jeśli są dostępne; w pozostałych przypadkach wybierz je jawnie. Dopasuj początek na urządzeniu i wyłącz obrót, odbicie lustrzane oraz skalowanie. Przed zadaniem sprawdź mały ruch z podniesionym narzędziem. Port szeregowy wymaga obsługiwanego adaptera USB–szeregowego; pozostałe opcje używają przezroczystego adaptera SPP lub mostu surowego TCP.
 
 Dla HPGL/DMPL włącz XON/XOFF lub ESC.B tylko wtedy, gdy obsługuje je urządzenie i połączenie, i dostosuj prędkość transmisji do bufora. Sterowanie maszyną używa wspólnych przycisków przesuwania oraz podnoszenia i opuszczania narzędzia. Zatrzymanie wysyłania zamyka łącze; ruch z bufora zatrzymaj na panelu plotera. Potwierdź zatrzymanie po zadaniu lub przy zamykaniu sterowania ręcznego. Każdy etap narzędzia uruchamia się osobno; przerwane zadania nigdy nie wznawiają się automatycznie.
 
 Przykład w pomocy: Plotery HPGL / DMPL
 
-## 15 Silhouette i AutoBlade
+## 17 Silhouette i AutoBlade
 
 ### Pierwsze zadanie Silhouette Craft Robo
 
 W Połączeniu z ploterem wybierz producenta, model i połączenie, a następnie urządzenie i Połącz. Listy urządzeń odświeżają się automatycznie, gdy ploter jest rozłączony, a aplikacja widoczna; Odśwież urządzenia rozpoczyna nowe wyszukiwanie. Udziel dostępu do Bluetooth, gdy pojawi się prośba. Dla USB wybierz Połącz i zezwól na dostęp w Androidzie; łączenie będzie kontynuowane automatycznie. Ustawienia protokołu i opcje połączenia FilmCut są zgrupowane poniżej. Rozłącz ploter przed jego zmianą. Połączono oznacza nawiązanie łącza, a nie zakończenie ruchu. Automatyczne łączenie działa dla FilmCut i Bluetooth VEVOR Smart; nigdy nie wznawia zadania.
 
-Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia; zapisana wartość jest używana w zakresie obsługiwanym przez wybrany ploter. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
+Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia: 0,1, 1, 5, 10, 50 lub 100 mm albo zapisaną wartość. Opcje odległości pozostają w jednym wierszu. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. W modelach VEVOR poza Smart przyciski narzędzia zlecają mały ruch karetki i powrót. Po opuszczeniu narzędzie może wrócić do góry podczas postoju; kolejne przesunięcia używają wybranego stanu narzędzia. Po ruchu z panelu tego plotera połącz go ponownie przed użyciem sterowania w aplikacji. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
 
 Cięcie pokazuje duży podgląd. Narzędzia i przejścia edytujesz we Właściwościach obiektu. Ustawienia zaawansowane zawierają matę, rejestrację optyczną, powrót do początku i kończenie po gotowości urządzenia.
 
@@ -572,7 +642,7 @@ Aplikacja odpytuje stan gotowy/zajęty/brak materiału między małymi paczkami.
 
 Przykład w pomocy: Pierwsze zadanie Silhouette / Craft Robo
 
-## 16 Praca z VEVOR Smart
+## 18 Praca z VEVOR Smart
 
 ### Pierwsze zadanie VEVOR Smart
 
@@ -582,7 +652,7 @@ W Cięciu otwórz Ustawienia zaawansowane, aby znaleźć Użyj nacisku i prędko
 
 W Połączeniu z ploterem wybierz producenta, model i połączenie, a następnie urządzenie i Połącz. Listy urządzeń odświeżają się automatycznie, gdy ploter jest rozłączony, a aplikacja widoczna; Odśwież urządzenia rozpoczyna nowe wyszukiwanie. Udziel dostępu do Bluetooth, gdy pojawi się prośba. Dla USB wybierz Połącz i zezwól na dostęp w Androidzie; łączenie będzie kontynuowane automatycznie. Ustawienia protokołu i opcje połączenia FilmCut są zgrupowane poniżej. Rozłącz ploter przed jego zmianą. Połączono oznacza nawiązanie łącza, a nie zakończenie ruchu. Automatyczne łączenie działa dla FilmCut i Bluetooth VEVOR Smart; nigdy nie wznawia zadania.
 
-Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia; zapisana wartość jest używana w zakresie obsługiwanym przez wybrany ploter. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
+Sterowanie maszyną używa tych samych strzałek dla wszystkich ploterów. Wybierz odległość przesunięcia: 0,1, 1, 5, 10, 50 lub 100 mm albo zapisaną wartość. Opcje odległości pozostają w jednym wierszu. Potwierdź pierwszą czynność ręczną, potem przesuwaj lub podnoś i opuszczaj narzędzie bez powtarzania tego potwierdzenia. Bazowanie FilmCut i zmiana początku pracy zawsze wymagają osobnego potwierdzenia. FilmCut używa nacisku PWM, VEVOR Smart gramów, Silhouette własnej skali siły, a plotery HPGL/DMPL ustawień panelu. W VEVOR Smart 1–4 początkowy nacisk w sterowaniu ręcznym wynosi 250 g i można go zmieniać w zakresie 250–500 g. W VEVOR Smart funkcja Narzędzie w górę zleca ruch karetki o 0,025 mm w lewo i o tyle samo w prawo. Zapewnij wolne miejsce po obu stronach karetki. W modelach VEVOR poza Smart przyciski narzędzia zlecają mały ruch karetki i powrót. Po opuszczeniu narzędzie może wrócić do góry podczas postoju; kolejne przesunięcia używają wybranego stanu narzędzia. Po ruchu z panelu tego plotera połącz go ponownie przed użyciem sterowania w aplikacji. Kolejne przesunięcia zachowują stan narzędzia. FilmCut i Silhouette czekają na gotowość kontrolera; VEVOR Smart i HPGL/DMPL wymagają potwierdzenia zatrzymania przy zamykaniu sterowania ręcznego. Po zatrzymaniu lub błędzie sprawdź ploter przed kontynuacją. Zatrzymanie wysyłania nie zatrzymuje ruchów HPGL/DMPL zapisanych w buforze. Załaduj materiał przy użyciu panelu plotera.
 
 Po ostatnim etapie narzędzia VEVOR otrzymuje PU0,0;PG;, aby wrócić i wysunąć matę. Zapewnij wolną przestrzeń dla maty i potwierdź Gotowe dopiero po zatrzymaniu ruchu.
 
@@ -622,7 +692,7 @@ W krótkim oknie przewiń formularz do przycisków. Wpisywanie na klawiaturze za
 
 Przykład w pomocy: Pierwsze zadanie VEVOR Smart
 
-## 17 Pomoc i zgłoszenia dotyczące ploterów
+## 19 Pomoc i zgłoszenia dotyczące ploterów
 
 ### Wsparcie ploterów
 

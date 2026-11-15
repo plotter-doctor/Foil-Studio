@@ -1,8 +1,8 @@
 # Android screenshot versions
 
-Reviewed 9 November 2026 for 0.1.129 (150). Submitted for Google Play production on 9 November 2026. Google Play shows the changes in its checking workflow; automated checks and approval are pending. Managed publishing is off, with full rollout requested after approval. Current production remains 0.1.127 (148), available since 7 November 2026. See the [version guide](../docs/release-notes.md).
+Reviewed 15 November 2026 for 0.1.145 (166). Prepared for Google Play production submission. Approval and availability of 0.1.145 are not yet claimed. Current production is 0.1.129 (150), available since 9 November 2026. See the [version guide](../docs/release-notes.md).
 
-## Current 0.1.129 samples
+## Retained 0.1.129 samples
 
 The [current store set](../store-assets/0.1.129/README.md) contains four 1080 × 1920 phone captures and four 2880 × 1620 tablet captures, all RGB with text scale 1.15. Fresh disconnected renders show independent stars and a circular accent, with no user data or hardware qualification claim.
 
@@ -40,3 +40,7 @@ The four images in this directory are archived phone-size renders prepared on 28
 | Layers | [Open](04-layers.png) |
 
 All publication samples use independently created artwork. No customer project or private phone screenshot is published. Versioned images under docs/mobile retain their original context. Match new Play listing images to the uploaded build and keep release availability separate from screenshots. UI symbols include Google Material Icons under Apache License 2.0; application/documentation rights remain separate from third-party licences.
+
+## 0.1.145 caption review
+
+The retained images are explicitly dated 0.1.129 captures. They illustrate Design, Prepare, Cut and layer material assignment, not the new Machine control picker or GCC qualification. The one-row picker, USB device information and GCC workflows are described in the current manuals. Generic icon/feature artwork and the listed four-language captions remain applicable; no historical image is relabelled as a new capture.

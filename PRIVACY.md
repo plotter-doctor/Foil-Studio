@@ -1,6 +1,6 @@
 # Foil Studio privacy policy
 
-Effective 28 September 2026. Reviewed 9 November 2026 for Android version 0.1.129 and its Free, Basic and Pro access model. Release status is recorded in the [version guide](docs/release-notes.md). The established publisher/contact and support-retention terms below are unchanged.
+Effective 28 September 2026. Reviewed 15 November 2026 for Android version 0.1.145 and its Free, Basic and Pro access model. Release status is recorded in the [version guide](docs/release-notes.md). The established publisher/contact and support-retention terms below are unchanged.
 
 Publisher: **PAWEŁ RATAŃCZUK INTEGRATEIT**. Support and privacy contact: [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com).
 
@@ -16,7 +16,7 @@ Named projects and reusable artwork can remain in the app's private local librar
 
 ## Plotter connections
 
-The app accesses device names/identifiers and connection endpoints as needed to list, select, and communicate with supported Bluetooth or USB devices and TCP controllers. When you start a job or issue a machine command, it sends toolpaths derived from your artwork and machine-control commands to the controller you choose and receives status and error responses. Your chosen controller may process or retain these commands according to its firmware. These operations are not transfers to an application-operated analytics service.
+The app accesses device names/identifiers and connection endpoints including optional reported USB manufacturer, model and command-language information stored locally with connection settings, as needed to list, select, and communicate with supported Bluetooth or USB devices and TCP controllers. When you start a job or issue a machine command, it sends toolpaths derived from your artwork and machine-control commands to the controller you choose and receives status and error responses. Your chosen controller may process or retain these commands according to its firmware. These operations are not transfers to an application-operated analytics service.
 
 Demo mode uses only an in-memory virtual plotter; it does not connect to a device or transmit job commands over a network.
 

@@ -1,12 +1,12 @@
 # Foil Studio user manual
 
-English · Updated 9 November 2026 · Version 0.1.129 (150)
+English · Updated 15 November 2026 · Version 0.1.145 (166)
 
 [Home](../README.md) · [Release notes](release-notes.md) · [Four-language quick start](quick-start.md) · [Download PDF](manual/FoilStudio-User-Manual.pdf) · [Download Word](manual/FoilStudio-User-Manual.docx)
 
 ## Versions covered
 
-This manual covers 0.1.129 (150). Check the [version guide](release-notes.md) for Google Play submission, approval and rollout status, and check the version installed on your device. Earlier versioned release records retain their original context.
+This manual covers 0.1.145 (166). Check the [version guide](release-notes.md) for Google Play submission, approval and rollout status, and check the version installed on your device. Earlier versioned release records retain their original context.
 
 ## First project
 
@@ -33,6 +33,10 @@ Objects keep the tool snapshot assigned to them. Editing a library record does n
 Path editing, offsets and Boolean operations require suitable geometry. Closed contours, holes, open strokes and very small details behave differently. Inspect generated contours after union, subtraction, offsets, tracing or simplification. The weeding tools add waste-removal paths, so include them in the preview check.
 
 Box and Craft wizards create editable projects with fold/cut operations. Preserve the wizard's generated object relationships when regenerating. Test fit with your actual material thickness. Pro is required for wizard creation and regeneration; already-open artwork remains subject to the normal editing and output access rules.
+
+
+
+Long-press selected artwork for the compact object menu, including Group and Ungroup. Ungroup separates actual groups. Split contours separates eligible ungrouped drawings into individual contours while retaining positions and tools. Filled artwork, text, QR, wizard, image and linked sticker objects are excluded. Use Undo to restore the original. Mixed-tool selections remain selected in Object properties; assigning one common tool is explicit.
 
 ## Layers materials and production jobs
 
@@ -123,19 +127,60 @@ Placement lets you retain original coordinates or fit artwork to the selected ar
 
 Printer objects retain appearance for printing. Cutting contours must be explicitly provided or created; an image's white region does not automatically identify a removable background. Sticker offsets are cutting margins, not white ink.
 
-Prepare the sheet at actual size and verify printer margins. Print the artwork and registration marks at 100 percent scale. Manual Print & Cut uses the supported four-mark workflow for FilmCut, Smart and the included Silhouette/Craft Robo profiles. Optical registration, AutoBlade and available tool stages depend on the exact model.
+Prepare the sheet at actual size and verify printer margins. Print the artwork and registration marks at 100 percent scale. Manual Print & Cut uses the supported four-mark workflow for FilmCut, Smart, the included Silhouette/Craft Robo profiles and compatible raw profiles, including GCC, with a calibrated pointer. Optical registration, AutoBlade and available tool stages depend on the exact model.
 
 Use the app's registration workflow for the current sheet. Changing artwork, job, tool settings or the printed sheet invalidates earlier approvals. Assembly marks used for layered vinyl do not substitute for these registration checks.
 
 ## Plotters and connections
 
-Select the exact vendor and model in Connection. The catalogue includes FilmCut/GRBL, supported Silhouette and VEVOR Smart devices, and named Graphtec, Roland, Summa, Skycut, USCutter, Teneth and HP profiles. The selected profile determines the protocol, connection types, work area and available operations. A catalogue entry or simulator test is not physical qualification of every model and firmware.
+Select the exact vendor and model in Connection. The catalogue includes FilmCut/GRBL, supported Silhouette and VEVOR Smart devices, and named GCC, non-Smart VEVOR, Graphtec, Roland, Summa, Skycut, USCutter, Teneth and HP profiles. The selected profile determines the protocol, connection types, work area and available operations. A catalogue entry or simulator test is not physical qualification of every model and firmware.
 
-Bluetooth Classic serial, supported USB serial adapters, bidirectional USB printer interfaces, BLE and TCP are available only where the selected profile supports them. A BLE device cannot be used as Bluetooth Classic serial. Approve the Android permission for the selected device. Use a data-capable cable and a suitable phone adapter.
+Bluetooth Classic serial, supported USB serial adapters, one-way and two-way raw USB printer interfaces, BLE and TCP are available only where the selected profile supports them. A BLE device cannot be used as Bluetooth Classic serial. Approve the Android permission for the selected device. Use a data-capable cable and a suitable phone adapter.
 
 TCP endpoints must match the actual controller or transparent bridge. Use a trusted local network; TCP controller connections are not authenticated or encrypted. A local hostname may require a working local resolver. Bluetooth discovery on older Android versions can depend on Android location-related permission settings.
 
 Load and unload actions are model/firmware dependent. Some machines require panel operations or explicit completion confirmation. On VEVOR Smart, manual Tool up includes a short left-and-return carriage movement; clear the area before using it. The manual pressure control uses its displayed range, independently of object cutting settings. Check the material position and working origin before alignment confirmation. Do not infer motion completion solely from a connection or command acknowledgement.
+
+
+## Manual control and device information
+
+Machine control uses the same arrow pad for all plotters. Choose a jog distance: 0.1, 1, 5, 10, 50 or 100 mm, or the saved distance. Distance options stay in one row. Confirm the first manual action, then jog or lift/lower the tool without repeating that confirmation. FilmCut homing and work-origin changes always require separate confirmation. FilmCut pressure uses PWM, VEVOR Smart uses grams, Silhouette uses its native force scale, and HPGL/DMPL plotters use their panel settings. Manual pressure for VEVOR Smart 1–4 starts at 250 g and is adjustable within 250–500 g. On VEVOR Smart, Tool up requests a 0.025 mm carriage step left and an equal step right. Keep clearance on both sides of the carriage. On VEVOR models other than Smart, tool buttons request a small carriage step and return. Tool down may lift again at rest; later jogs use the requested tool state. After moving this plotter from its panel, reconnect before using app controls. Later jogs retain the tool state. FilmCut and Silhouette wait for controller readiness; VEVOR Smart and HPGL/DMPL require standstill confirmation when leaving a manual session. After Stop or an error, check the plotter before continuing. Stop sending cannot stop buffered HPGL/DMPL motion. Load material using the plotter panel.
+
+Home raises the tool and returns to the logical origin established for this connection. This can differ from the artwork corner. It does not seek a limit switch or restore an origin from before reconnecting. Home becomes available after a normal move or job establishes the frame and you confirm standstill. Confirm the plotter is stationary after Home.
+
+Review the tool sequence before starting. Fit and confirm the first tool. After each stage, wait until all movement stops and confirm completion. The next tool stays visible in Cut: choose Change tool, fit it and confirm before starting its stage. Uploading data does not confirm finished motion. Keep the material in place during tool changes.
+
+USB printer interface supports one-way and two-way raw connections. One-way connections disable XON/XOFF and buffer queries. If a device offers several interfaces, select the one documented for the plotter. Match its language; USB detection does not identify HPGL or DMPL. IEEE 1284.4 is unavailable; vendor-specific USB is limited to explicitly supported GCC devices. Use USB–serial for serial adapters.
+
+After connecting through a USB printer interface, open USB device information to read the reported product, manufacturer, model and command languages. The optional IEEE 1284 Device ID query may be unavailable; the connection still works. These details do not uniquely identify a unit or verify its plotter language. Choose the model and language yourself.
+
+USB serial adapters use serial settings; direct USB printer connections do not use a baud rate. Non-Smart VEVOR models use the consolidated DMPL profiles; Smart keeps its distinct protocol. Connection fixes separate blocking reads from writes and avoid unsolicited printer-input polling. Device ID remains advisory and never automatically chooses a language.
+
+## GCC profiles
+
+Choose the exact GCC model and verify the coordinate axes with a small raised-tool move. Machine control supports repeated jogs, tool up/down and Return to origin. This returns to the prepared origin; it does not find a limit switch or restart the electronics. Reconnect after moving the head from the plotter panel.
+
+GCC jobs use separate stages for different tools. Install and confirm each tool before its stage. Knife and pen select their own tool mode. For scoring or engraving, select the matching mode on the plotter panel. Force, speed and acceleration stay panel-controlled. Keep firmware blade offset and overcut off when the app compensates the knife.
+
+Read material bounds is an optional idle query, available once per connection. It reports command-axis X and Y spans, not head position. Compare them with your selected coordinate axes and loaded mat; the query never changes the project. If the plotter does not reply, enter the usable mat size manually.
+
+GCC uses manual Print & Cut with a calibrated pointer. Automatic AAS marks, segment scanning, automatic dual-holder switching, cut-off and hardware reset are not available. i-Craft and Nautilus use distinct command framing. These profiles still need a physical raised-tool check on your machine. A completed transfer does not confirm stopped motion.
+
+## Machine geometry calibration
+
+Draw a rectangle with a pen, measure X and Y between line centres, then enter both measurements. Keep controller scaling at 100%. Use the previous correction only if it was used for this test. New correction = test correction × requested / measured.
+
+Measure X across the mat width and Y along its length. These are application axes; controller letters may differ.
+
+FilmCut X/Y calibration starts at pen pressure 180. Adjust it for your pen and material before drawing.
+
+Use the available mat controls here. Finish the test and wait for standstill before unloading to measure. After loading, check the origin and confirm the pen and sheet again.
+
+Use a pen in the cutting holder to draw the cross. Without moving the sheet or changing the origin, raise the pen and move the laser pointer to the cross centre. Confirm standstill after moving. The saved pointer offset is used only for manual laser alignment; ordinary cuts are not shifted.
+
+Calibration is saved per selected profile. Review the saved values in Plotter calibration before drawing another test.
+
+Native optical alignment supplies the axis transform. Saved X/Y correction is used for ordinary and manually aligned cuts.
 
 ## Practise without a machine
 
@@ -151,7 +196,7 @@ Basic and Pro save named projects in the private local library. Free can recover
 
 The earlier app did not record the last-active project. After updating from it, open the desired saved project once to establish the active document. Existing library content remains available. Artwork restoration is separate from canvas pan/zoom and other transient view state. A corrupt session is preserved with a visible warning; starting a new project explicitly replaces that session slot.
 
-Choose English, Polish, German or Spanish from Language, or follow the device language. Shared help and examples follow the interface language. User text, filenames and serialized project identifiers retain their original content.
+Choose English, Polish, German or Spanish from Project → Language, or follow the device language. Help & examples is also in Project. These two entries are no longer duplicated in Advanced settings. Shared help and examples follow the interface language. User text, filenames and serialized project identifiers retain their original content.
 
 The app is free to install. Free supports design/editing and previews. Basic is a permanent one-time purchase for named saves, export, printing and production. Optional monthly/yearly Pro includes Basic while active and adds Box/Craft wizard creation and regeneration. Restore purchases using the same Google Play account. Prices shown by Google Play depend on your account and region. About application shows Current plan: Free, Basic or Pro for the current access state.
 

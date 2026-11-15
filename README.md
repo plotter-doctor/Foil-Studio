@@ -15,7 +15,7 @@ Create artwork, prepare material jobs and send them to a compatible plotter in t
 
 ## Versions
 
-Reviewed 9 November 2026. The current guides describe **0.1.129 (150)**. Submitted for Google Play production on 9 November 2026. Google Play shows the changes in its checking workflow; automated checks and approval are pending. Managed publishing is off, with full rollout requested after approval. Current production remains 0.1.127 (148), available since 7 November 2026. Check the installed version and [versioned release notes](docs/releases/0.1.129.md).
+Reviewed 15 November 2026. The current guides describe **0.1.145 (166)**. Prepared for Google Play production submission. Approval and availability of 0.1.145 are not yet claimed. Current production is 0.1.129 (150), available since 9 November 2026. Check the installed version and [versioned release notes](docs/releases/0.1.145.md).
 
 ## Artwork, materials and jobs
 
@@ -32,6 +32,12 @@ Supported SVG/DXF and eligible PDF/EPS/AI/CDR inputs preserve supported original
 Open Design → Edit → Prepare for plotter, or the wand beside Production preview in Prepare. Compare Before/After, set the geometric tolerance and apply reversible cut preparation while retaining the original artwork. Circular arc recovery and path simplification protect uncertain contours and nearby details.
 
 Knife calibration uses 30 × 30 mm squares: five offset columns and three pressure rows where the application controls pressure. Choose a sample after inspecting the cut, then check the saved-result receipt. Existing objects retain their tool snapshot; reselect the updated library tool to use its saved settings. About shows the current Free, Basic or Pro plan.
+
+## Plotter control and editing
+
+Machine control offers 0.1, 1, 5, 10, 50 and 100 mm in one row. Project contains Language and Help. The long-press menu includes Group/Ungroup, with Split contours for eligible drawings. Tool stages require installation confirmation before each start.
+
+Non-Smart VEVOR profiles use DMPL with improved direct USB and serial handling. GCC profiles add model-specific command framing, manual control, logical origin return and manual Print & Cut; force and speed remain panel-controlled. USB printer connections accept supported one-way interfaces and show optional reported Device ID information. Choose the exact model and language yourself. IEEE 1284.4 remains unavailable.
 
 ## Compatibility and access
 

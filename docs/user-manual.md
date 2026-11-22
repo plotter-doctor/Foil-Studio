@@ -1,12 +1,12 @@
 # Foil Studio user manual
 
-English · Updated 15 November 2026 · Version 0.1.145 (166)
+English · Updated 22 November 2026 · Version 0.1.150 (171)
 
 [Home](../README.md) · [Release notes](release-notes.md) · [Four-language quick start](quick-start.md) · [Download PDF](manual/FoilStudio-User-Manual.pdf) · [Download Word](manual/FoilStudio-User-Manual.docx)
 
 ## Versions covered
 
-This manual covers 0.1.145 (166). Check the [version guide](release-notes.md) for Google Play submission, approval and rollout status, and check the version installed on your device. Earlier versioned release records retain their original context.
+This manual covers 0.1.150 (171). Check the [version guide](release-notes.md) for Google Play submission, approval and rollout status, and check the version installed on your device. Earlier versioned release records retain their original context.
 
 ## First project
 
@@ -133,7 +133,7 @@ Use the app's registration workflow for the current sheet. Changing artwork, job
 
 ## Plotters and connections
 
-Select the exact vendor and model in Connection. The catalogue includes FilmCut/GRBL, supported Silhouette and VEVOR Smart devices, and named GCC, non-Smart VEVOR, Graphtec, Roland, Summa, Skycut, USCutter, Teneth and HP profiles. The selected profile determines the protocol, connection types, work area and available operations. A catalogue entry or simulator test is not physical qualification of every model and firmware.
+Select the exact vendor and model in Connection. The catalogue includes FilmCut/GRBL, supported Silhouette and VEVOR Smart devices, and named GCC, non-Smart VEVOR, Graphtec, Roland, Summa, Skycut, USCutter, Teneth and HP profiles. The selected profile determines the protocol, connection types, work area and available operations. For production, match the exact model, firmware configuration and connection.
 
 Bluetooth Classic serial, supported USB serial adapters, one-way and two-way raw USB printer interfaces, BLE and TCP are available only where the selected profile supports them. A BLE device cannot be used as Bluetooth Classic serial. Approve the Android permission for the selected device. Use a data-capable cable and a suitable phone adapter.
 
@@ -182,11 +182,19 @@ Calibration is saved per selected profile. Review the saved values in Plotter ca
 
 Native optical alignment supplies the axis transform. Saved X/Y correction is used for ordinary and manually aligned cuts.
 
+## Plotter setup in 0.1.150
+
+For a GCC Puma II, choose the exact profile and its supported direct USB interface. New setups default to X forward and Y left. Verify the directions with the tool raised and the head at the prepared origin. The direct route sends jobs and manual commands.
+
+On Graphtec CE LITE-50, enable the optional return in Cut if the plotter should move back to the reviewed origin with the tool raised. Check the return path and confirm completion after the plotter stops.
+
+Check a cutting mat width warning against the profile and the loaded material. For Box Wizard work, matching knife operations can share one stage. The job review shows each stage and the corresponding tool confirmation.
+
+Session diagnostics can include the model, transfer progress and USB–serial modem inputs such as CTS when the port opens. Device addresses, raw traffic and artwork are excluded.
+
 ## Practise without a machine
 
 Open Prepare, Connection setup and Start demo mode for the supported virtual workflow. The DEMO banner identifies it. Practise review, alignment confirmation, progress and tool prompts using independent sample artwork. Exit demo mode before explicitly connecting real hardware.
-
-Demo mode and the external development plotter simulator serve different purposes. Demo is an in-app learning mode. External simulator tests check generated wire commands and state handling against protocol contracts. Neither measures cutting quality, real force, blade exposure or mechanical accuracy.
 
 ## Projects languages and purchases
 

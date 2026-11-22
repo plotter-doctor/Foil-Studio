@@ -1,6 +1,6 @@
 # Google Play assets
 
-Original vector artwork, prepared 28 September 2026; captions reviewed 15 November 2026 for 0.1.145 (166). Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026. See the [version guide](../docs/release-notes.md). The icon matches the application's existing teal-and-white F launcher mark. The feature graphic extends the same palette with independently authored cutting-path artwork; it is not a screenshot or a promise of a particular physical result.
+Original vector artwork, prepared 28 September 2026; captions reviewed 22 November 2026 for 0.1.150 (171). Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is prepared for production. See the [version guide](../docs/release-notes.md). The icon matches the application's existing teal-and-white F launcher mark. The feature graphic extends the same palette with independently authored cutting-path artwork; it is not a screenshot or a promise of a particular physical result.
 
 - `icon-512.png`: 512 × 512, RGBA PNG; store icon.
 - `feature-1024x500.png`: 1024 × 500, RGB PNG; feature graphic.
@@ -34,3 +34,7 @@ Use the fresh [0.1.129 sample inventory](../screenshots/README.md#retained-01129
 ## 0.1.145 caption review
 
 The retained images are explicitly dated 0.1.129 captures. They illustrate Design, Prepare, Cut and layer material assignment, not the new Machine control picker or GCC qualification. The one-row picker, USB device information and GCC workflows are described in the current manuals. Generic icon/feature artwork and the listed four-language captions remain applicable; no historical image is relabelled as a new capture.
+
+## 0.1.150 caption review
+
+The retained 0.1.129 images still illustrate Design, Prepare, Cut and layers. The versioned captions retain their original capture date and scope. The 0.1.150 documentation covers the mat-width warning, Box Wizard stages, model-specific plotter setup and the support form.

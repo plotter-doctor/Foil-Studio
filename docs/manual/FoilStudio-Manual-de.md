@@ -1,8 +1,8 @@
 # Foil Studio Benutzerhandbuch
 
-Android 0.1.145 (166)  ·  15 November 2026
+Android 0.1.150 (171)  ·  22 November 2026
 
-Dieses Handbuch führt vom bearbeitbaren Entwurf zum Schneiden, Zeichnen mit Stift, passiven Gravieren und Falzen. Es beschreibt Foil Studio für Android 0.1.145 (166), einschließlich Objekteinstellungen, Produktionslayouts, Print & Cut und der aktuellen Verbindungsabläufe für Plotter.
+Dieses Handbuch führt vom bearbeitbaren Entwurf zum Schneiden, Zeichnen mit Stift, passiven Gravieren und Falzen. Es beschreibt Foil Studio für Android 0.1.150 (171), einschließlich Objekteinstellungen, Produktionslayouts, Print & Cut und der aktuellen Verbindungsabläufe für Plotter.
 
 ## 01 Dein erstes Projekt
 
@@ -102,7 +102,7 @@ Beispiel in der Hilfe: Plotterkalibrierung
 
 ### GCC Plotter
 
-Wähle das genaue GCC-Modell und prüfe die Achsen mit einer kurzen Bewegung bei angehobenem Werkzeug. Die Maschinensteuerung bietet wiederholte Bewegungen, Werkzeug heben/senken und Rückkehr zum Ursprung. Sie fährt zum vorbereiteten Ursprung, sucht keinen Endschalter und startet die Elektronik nicht neu. Verbinde nach einer Kopfbewegung über das Plotterbedienfeld erneut.
+Wähle das genaue GCC-Modell und prüfe die Achsen mit einer kurzen Bewegung bei angehobenem Werkzeug. Bei Puma-II-Profilen zeigt X standardmäßig nach vorn und Y nach links. Die USB-PRINTER-Verbindung des Puma II sendet ausschließlich Befehle. Die Maschinensteuerung bietet wiederholte Bewegungen, Werkzeug heben/senken und Rückkehr zum Ursprung. Sie fährt zum vorbereiteten Ursprung, sucht keinen Endschalter und startet die Elektronik nicht neu. Verbinde nach einer Kopfbewegung über das Plotterbedienfeld erneut.
 
 GCC-Aufträge verwenden getrennte Schritte für verschiedene Werkzeuge. Setze jedes Werkzeug vor seinem Schritt ein und bestätige es. Messer und Stift wählen ihren jeweiligen Werkzeugmodus. Wähle zum Rillen oder Gravieren den passenden Modus am Plotterbedienfeld. Druck, Geschwindigkeit und Beschleunigung bleiben dort eingestellt. Deaktiviere Messer-Offset und Überschnitt im Plotter, wenn die App das Messer kompensiert.
 
@@ -274,9 +274,13 @@ Hinzufügen → Schachtelassistent und Bastelassistent erstellen Teile mit getre
 
 Wähle ein erzeugtes Teil und öffne seinen Assistenten über „Bearbeiten“. Ändere Maße, Mengen oder Bögen und prüfe die Vorschau.
 
+Der Schachtel- und der Bastelassistent blenden die Vorschau aus, solange die Tastatur geöffnet ist. Blende die Tastatur aus, um die aktualisierte Vorschau zu sehen.
+
 Neuerzeugung kann manuelle Änderungen ersetzen. Lies die Bestätigung und die Bauanleitung vor dem Anwenden.
 
 Öffne Details für Erläuterungen zu den Einstellungen. Öffne im Schachtelassistenten Zusammenbau für die Faltanleitung.
+
+Die Schnitte der Schachtel behalten ihre Reihenfolge. Aufeinanderfolgende Arbeitsschritte mit demselben Messer und denselben Einstellungen brauchen nur einen Start. Bei geänderten Einstellungen hält der Auftrag an, damit du den nächsten Schritt bei eingesetztem Messer prüfen kannst.
 
 Wähle eine Box ohne Kleber mit gefassten Ecken und Steckwänden. Beginne mit der Steckprobe, gib die gemessene Materialdicke ein und passe das Steckspiel an. Die Stecklaschenbreite bestimmt die Haltelaschen; das Deckelspiel wird getrennt eingestellt.
 
@@ -534,7 +538,7 @@ Wähle in Plotterverbindung Hersteller, Modell und Verbindung, dann ein Gerät u
 
 FilmCut-Auftrags-G-Code gilt nur für FilmCut. Gespeicherte Kopf- und Fußzeilen bleiben beim Zurückwechseln erhalten; andere Plotter senden sie nicht.
 
-Wähle die geladene Größe unter Vorbereiten → Schneidematte. Arbeitsbereich-Vorgaben decken die hinterlegten Plotterbreiten ab; ändere die Länge mit Mattengröße ändern oder speichere eine eigene Matte. Die Größen beschreiben die nutzbare Entwurfsfläche, nicht die Außenmaße einer Trägermatte.
+Wähle unter Vorbereiten → Schneidematte die Größe des geladenen Materials. Vorbereiten warnt, wenn die Matte die bekannte Schnittbreite des gewählten Plotters überschreitet. Die Arbeitsbereichsvorgaben berücksichtigen die hinterlegten Plotterbreiten. Passe die Maße mit Mattengröße ändern an oder speichere eine eigene Matte. Die Größen beschreiben die nutzbare Entwurfsfläche, nicht die Außenmaße der Trägermatte.
 
 Tippe in der Mattenbibliothek auf einen Eintrag, um ihn anzuwenden. Bei großer Schrift oder kurzen Fenstern wechseln Bereichssymbole zwischen Materialien, Werkzeugen und Matten; das Plus fügt einen eigenen Eintrag hinzu. Halte ein Symbol gedrückt, um seinen Namen zu sehen.
 
@@ -558,6 +562,8 @@ Home hebt das Werkzeug an und fährt zum logischen Ursprung der aktuellen Verbin
 
 Prüfe vor dem Start die Werkzeugreihenfolge. Setze das erste Werkzeug ein und bestätige es. Warte nach jeder Stufe auf vollständigen Stillstand und bestätige den Abschluss. Das nächste Werkzeug bleibt unter Schneiden sichtbar: Wähle Werkzeug wechseln, setze es ein und bestätige vor dem Start der Stufe. Die Datenübertragung bestätigt keinen Bewegungsabschluss. Lass das Material beim Werkzeugwechsel liegen.
 
+Die Schnitte der Schachtel behalten ihre Reihenfolge. Aufeinanderfolgende Arbeitsschritte mit demselben Messer und denselben Einstellungen brauchen nur einen Start. Bei geänderten Einstellungen hält der Auftrag an, damit du den nächsten Schritt bei eingesetztem Messer prüfen kannst.
+
 VEVOR-Modelle KH, KI, SK, KW, X, Y und B haben je ein DMPL-Profil pro Modell. Smart-Modelle behalten ihr eigenes Protokoll. Direktes USB verwendet standardmäßig die USB-Druckerschnittstelle mit deaktiviertem XON/XOFF; erlaube den Android-Zugriff. Alle diese DMPL-Profile verwenden dieselbe Verbindungs- und Bewegungssteuerung. Wähle das Modell erneut, falls ein älteres HPGL-Profil nicht mehr aufgeführt ist. Prüfe die Achsen und bereite den Auftrag neu vor. Stelle den tatsächlich eingelegten Arbeitsbereich ein; eine unbekannte Breite ist kein bestätigtes Limit. Die Maschinensteuerung für HPGL/DMPL ist in Free verfügbar. Zum Starten eines Auftrags ist Basic erforderlich.
 
 Zeichne mit einem Stift ein Rechteck, miss X und Y zwischen den Linienmitten und gib beide Messwerte ein. Lasse die Controllerskalierung auf 100 %. Verwende die bisherige Korrektur nur, wenn sie für diesen Test verwendet wurde. Neue Korrektur = Testkorrektur × Sollmaß / Messmaß.
@@ -572,9 +578,11 @@ Die USB-Druckerschnittstelle unterstützt unidirektionale und bidirektionale Roh
 
 Wähle für den CE LITE-50 sein Graphtec-Profil und die USB-Verbindung. Wähle am Plotter HPGL und den Ursprung LOWER LEFT. Behalte die Profilachsen bei: X vorwärts, Y rechts. Die USB-Übertragung berücksichtigt den vom Plotter gemeldeten freien Pufferspeicher. Stelle Kraft und Geschwindigkeit am Bedienfeld ein. Der Arbeitsbereich 498 mm umfasst die maximale Schnittbreite; passe seine Länge an das geladene Material an, höchstens 3000 mm.
 
+Aktiviere beim CE LITE-50 im ersten Startdialog Nach dem Schneiden zum Plotursprung zurückfahren. Nach dem letzten Werkzeugschritt hebt der Plotter das Werkzeug an und fährt zum Ursprung des Auftrags. Bestätige den Abschluss erst, wenn diese Bewegung beendet ist.
+
 Bei HPGL/DMPL bestimmt die Projektmatte die Grenzen für Schneiden und Maschinensteuerung sowie die Breite für die Achsumrechnung. Verbindung enthält Protokoll- und Übertragungseinstellungen. Passe den nutzbaren Bereich des geladenen Materials an die Projektmatte an. Modellgrenzen werden vor Bewegungen geprüft.
 
-Wähle die geladene Größe unter Vorbereiten → Schneidematte. Arbeitsbereich-Vorgaben decken die hinterlegten Plotterbreiten ab; ändere die Länge mit Mattengröße ändern oder speichere eine eigene Matte. Die Größen beschreiben die nutzbare Entwurfsfläche, nicht die Außenmaße einer Trägermatte.
+Wähle unter Vorbereiten → Schneidematte die Größe des geladenen Materials. Vorbereiten warnt, wenn die Matte die bekannte Schnittbreite des gewählten Plotters überschreitet. Die Arbeitsbereichsvorgaben berücksichtigen die hinterlegten Plotterbreiten. Passe die Maße mit Mattengröße ändern an oder speichere eine eigene Matte. Die Größen beschreiben die nutzbare Entwurfsfläche, nicht die Außenmaße der Trägermatte.
 
 Tippe in der Mattenbibliothek auf einen Eintrag, um ihn anzuwenden. Bei großer Schrift oder kurzen Fenstern wechseln Bereichssymbole zwischen Materialien, Werkzeugen und Matten; das Plus fügt einen eigenen Eintrag hinzu. Halte ein Symbol gedrückt, um seinen Namen zu sehen.
 
@@ -700,7 +708,7 @@ Beispiel in der Hilfe: Erster VEVOR-Smart-Auftrag
 
 Beschreibe das Problem, das erwartete Ergebnis und die Schritte zum Reproduzieren. Der Bericht kann den gewählten Plotter und letzte Verbindungsmetadaten enthalten. Er startet keinen Gerätetest.
 
-Die Diagnose umfasst die aktuelle App-Sitzung: Modell, Protokoll, Übertragungseinstellungen, Fortschritt, Bestätigungen und Fehlerkategorien. Geräteadressen, Rohbefehle, Antworten und Motive sind ausgeschlossen.
+Die Diagnose kann Modell, Fortschritt und USB-Seriellsignale wie CTS beim Öffnen des Ports enthalten. Geräteadressen, Rohdaten der Verbindung und Motive bleiben außen vor.
 
 Das Anhängen des vollständigen Projekts ist standardmäßig deaktiviert. Das vollständige Projekt kann Namen, Texte, Fotos und importierte Motive enthalten. Füge es nur bei, wenn der Support es erhalten soll.
 

@@ -1,8 +1,8 @@
 # Foil Studio instrukcja obsługi
 
-Android 0.1.145 (166)  ·  15 listopada 2026
+Android 0.1.150 (171)  ·  22 listopada 2026
 
-Ta instrukcja prowadzi od edytowalnego projektu do cięcia, rysowania pisakiem, grawerowania pasywnego i bigowania. Opisuje Foil Studio dla Androida 0.1.145 (166), w tym ustawienia obiektów, układy produkcyjne, Print & Cut oraz aktualne sposoby łączenia z ploterami.
+Ta instrukcja prowadzi od edytowalnego projektu do cięcia, rysowania pisakiem, grawerowania pasywnego i bigowania. Opisuje Foil Studio dla Androida 0.1.150 (171), w tym ustawienia obiektów, układy produkcyjne, Print & Cut oraz aktualne sposoby łączenia z ploterami.
 
 ## 01 Pierwszy projekt
 
@@ -102,7 +102,7 @@ Przykład w pomocy: Kalibracja plotera
 
 ### Plotery GCC
 
-Wybierz dokładny model GCC i sprawdź osie krótkim ruchem z podniesionym narzędziem. Sterowanie maszyną obsługuje powtarzane ruchy, podnoszenie i opuszczanie narzędzia oraz Powrót do początku. Powrót prowadzi do przygotowanego początku; nie szuka krańcówki ani nie uruchamia elektroniki ponownie. Po ruchu głowicy z panelu plotera połącz się ponownie.
+Wybierz dokładny model GCC i sprawdź osie krótkim ruchem z podniesionym narzędziem. W profilach Puma II oś X jest domyślnie skierowana do przodu, a oś Y w lewo. Połączenie USB-PRINTER w Puma II służy tylko do wysyłania poleceń. Sterowanie maszyną obsługuje powtarzane ruchy, podnoszenie i opuszczanie narzędzia oraz Powrót do początku. Powrót prowadzi do przygotowanego początku; nie szuka krańcówki ani nie uruchamia elektroniki ponownie. Po ruchu głowicy z panelu plotera połącz się ponownie.
 
 Zadania GCC mają osobne etapy dla różnych narzędzi. Zamontuj i potwierdź każde narzędzie przed jego etapem. Nóż i pisak wybierają własny tryb narzędzia. Dla bigowania lub grawerowania wybierz właściwy tryb na panelu plotera. Nacisk, prędkość i przyspieszenie ustawia się na panelu. Wyłącz offset noża i nadcięcie w ploterze, gdy aplikacja kompensuje nóż.
 
@@ -274,9 +274,13 @@ Dodaj → Kreator pudełek i Kreator projektów tworzą części z osobnymi rola
 
 Zaznacz wygenerowaną część i otwórz ponownie kreator z menu „Edytuj”. Zmień wymiary, liczbę kopii lub arkusze i sprawdź podgląd.
 
+Kreatory pudełek i projektów ukrywają podgląd, gdy klawiatura jest otwarta. Schowaj klawiaturę, aby zobaczyć zaktualizowany podgląd.
+
 Ponowne generowanie może zastąpić ręczne zmiany. Przed zatwierdzeniem przeczytaj potwierdzenie i instrukcje składania.
 
 Otwórz Szczegóły, aby poznać ustawienia. W kreatorze pudełek otwórz Składanie, aby zobaczyć instrukcję składania.
+
+Cięcie pudełka zachowuje kolejność operacji. Następujące po sobie operacje z tym samym nożem i ustawieniami uruchamiasz jednym przyciskiem. Przy zmianie ustawień zadanie zatrzymuje się, aby można było sprawdzić kolejny etap z nożem w uchwycie.
 
 Wybierz pudełko bez kleju z zamkniętymi narożnikami i ściankami zatrzaskowymi. Zacznij od próbki dopasowania, podaj zmierzoną grubość materiału i dostosuj luz zatrzasku. Szerokość zatrzasku określa języczki blokujące; luz wieczka jest ustawiany osobno.
 
@@ -534,7 +538,7 @@ W Połączeniu z ploterem wybierz producenta, model i połączenie, a następnie
 
 G-code zadania FilmCut dotyczy tylko FilmCut. Zapisany nagłówek i stopka pozostają dostępne po powrocie do FilmCut; inne plotery ich nie wysyłają.
 
-Wybierz załadowany rozmiar w Przygotowanie → Mata do cięcia. Gotowe obszary robocze obejmują szerokości zapisane dla ploterów; zmień długość przez Zmień rozmiar maty lub zapisz własną matę. Rozmiary opisują użyteczny obszar projektu, a nie zewnętrzny wymiar maty nośnej.
+Wybierz rozmiar załadowanego materiału w Przygotowanie → Mata do cięcia. Przygotowanie ostrzega, gdy mata przekracza znaną szerokość cięcia wybranego plotera. Gotowe obszary robocze uwzględniają zapisane szerokości ploterów. Wybierz Zmień rozmiar maty lub zapisz własną matę. Rozmiary określają użyteczny obszar projektu, a nie zewnętrzny wymiar maty nośnej.
 
 W bibliotece mat dotknij pozycji, aby jej użyć. Przy dużym tekście lub krótkim oknie ikony sekcji przełączają materiały, narzędzia i maty; plus dodaje własną pozycję. Przytrzymaj ikonę, aby zobaczyć jej nazwę.
 
@@ -558,6 +562,8 @@ Powrót podnosi narzędzie i wraca do logicznego początku ustalonego dla bież�
 
 Przed uruchomieniem sprawdź kolejność narzędzi. Zamontuj i potwierdź pierwsze narzędzie. Po każdym etapie poczekaj na całkowite zatrzymanie i potwierdź zakończenie. Następne narzędzie pozostaje widoczne w Cięciu: wybierz Zmień narzędzie, zamontuj je i potwierdź przed uruchomieniem etapu. Wysłanie danych nie potwierdza zakończenia ruchu. Nie przesuwaj materiału przy zmianie narzędzi.
 
+Cięcie pudełka zachowuje kolejność operacji. Następujące po sobie operacje z tym samym nożem i ustawieniami uruchamiasz jednym przyciskiem. Przy zmianie ustawień zadanie zatrzymuje się, aby można było sprawdzić kolejny etap z nożem w uchwycie.
+
 Modele VEVOR KH, KI, SK, KW, X, Y i B mają po jednym profilu DMPL na model. Modele Smart zachowują własny protokół. Bezpośrednie USB domyślnie używa interfejsu drukarki USB z wyłączonym XON/XOFF; zezwól na dostęp w Androidzie. Wszystkie te profile DMPL korzystają ze wspólnej obsługi połączenia i ruchu. Jeśli starszy profil HPGL nie jest już dostępny, wybierz model ponownie. Sprawdź osie i ponownie przygotuj zadanie. Ustaw rzeczywisty obszar założonego materiału; nieokreślona szerokość nie jest zweryfikowanym limitem. Sterowanie ploterem HPGL/DMPL jest dostępne w planie Free. Uruchomienie zadania wymaga planu Basic.
 
 Narysuj prostokąt pisakiem, zmierz X i Y między środkami linii, a następnie wpisz oba pomiary. Ustaw skalowanie kontrolera na 100%. Użyj poprzedniej korekcji tylko wtedy, gdy zastosowano ją w tej próbie. Nowa korekcja = korekcja testu × wymiar zadany / zmierzony.
@@ -572,9 +578,11 @@ Po połączeniu przez interfejs drukarki USB otwórz Informacje o urządzeniu US
 
 Dla CE LITE-50 wybierz jego profil Graphtec i połączenie USB. Na ploterze wybierz HPGL i początek LOWER LEFT. Pozostaw osie profilu: X do przodu, Y w prawo. Transmisja USB korzysta ze zgłaszanego przez ploter wolnego miejsca w buforze. Siłę i prędkość ustaw na panelu plotera. Obszar roboczy 498 mm obejmuje maksymalną szerokość cięcia; dostosuj długość do załadowanego materiału, maksymalnie 3000 mm.
 
+Na CE LITE-50 zaznacz Wróć do punktu zerowego po cięciu w pierwszym oknie uruchamiania. Po ostatnim etapie ploter uniesie narzędzie i wróci do punktu zerowego zadania. Zanim potwierdzisz zakończenie, poczekaj na koniec tego ruchu.
+
 Dla HPGL/DMPL mata projektu określa granice cięcia i sterowania maszyną oraz szerokość używaną do przeliczania osi. Połączenie zawiera ustawienia protokołu i transmisji. Dopasuj dostępny obszar załadowanego materiału do maty projektu. Limity modelu są sprawdzane przed ruchem.
 
-Wybierz załadowany rozmiar w Przygotowanie → Mata do cięcia. Gotowe obszary robocze obejmują szerokości zapisane dla ploterów; zmień długość przez Zmień rozmiar maty lub zapisz własną matę. Rozmiary opisują użyteczny obszar projektu, a nie zewnętrzny wymiar maty nośnej.
+Wybierz rozmiar załadowanego materiału w Przygotowanie → Mata do cięcia. Przygotowanie ostrzega, gdy mata przekracza znaną szerokość cięcia wybranego plotera. Gotowe obszary robocze uwzględniają zapisane szerokości ploterów. Wybierz Zmień rozmiar maty lub zapisz własną matę. Rozmiary określają użyteczny obszar projektu, a nie zewnętrzny wymiar maty nośnej.
 
 W bibliotece mat dotknij pozycji, aby jej użyć. Przy dużym tekście lub krótkim oknie ikony sekcji przełączają materiały, narzędzia i maty; plus dodaje własną pozycję. Przytrzymaj ikonę, aby zobaczyć jej nazwę.
 
@@ -700,7 +708,7 @@ Otwórz Więcej, a potem Zgłoś problem z ploterem lub Poproś o obsługę nowe
 
 Opisz problem, oczekiwany wynik i kroki jego odtworzenia. Zgłoszenie może zawierać wybrany ploter i ostatnie metadane połączenia. Nie uruchamia testu urządzenia.
 
-Diagnostyka obejmuje bieżącą sesję aplikacji: model, protokół, ustawienia transmisji, postęp, potwierdzenia i kategorie błędów. Pomija adresy urządzeń, surowe polecenia, odpowiedzi i grafikę.
+Diagnostyka sesji może obejmować model, postęp transmisji i stan wejść USB–serial, np. CTS przy otwarciu portu. Pomija adresy urządzeń, surowe dane komunikacji i grafikę.
 
 Dołączanie pełnego projektu jest domyślnie wyłączone. Pełny projekt może zawierać nazwy, tekst, zdjęcia i importowaną grafikę. Dołącz go tylko, jeśli chcesz przekazać go wsparciu.
 

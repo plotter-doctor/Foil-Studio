@@ -1,6 +1,6 @@
 # Foil Studio quick start
 
-Updated 15 November 2026 for **0.1.145 (166)**. Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026. See the [version guide](release-notes.md), [English workflow guide](user-manual.md) and [full manuals in four languages](manual/README.md).
+Updated 22 November 2026 for **0.1.150 (171)**. Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is prepared for production. See the [version guide](release-notes.md), [English workflow guide](user-manual.md) and [full manuals in four languages](manual/README.md).
 
 ## English
 
@@ -17,6 +17,9 @@ Ungroup separates grouped objects. Split contours separates one ungrouped drawin
 
 Choose the exact GCC model and verify the coordinate axes with a small raised-tool move. Machine control supports repeated jogs, tool up/down and Return to origin. This returns to the prepared origin; it does not find a limit switch or restart the electronics. Reconnect after moving the head from the plotter panel.
 
+GCC Puma II profiles add direct USB output and model-specific default axes. Graphtec CE LITE-50 can return to the prepared origin with the tool raised after a job.
+
+Session diagnostics can include the model, transfer progress and USB–serial modem inputs such as CTS when the port opens. Device addresses, raw traffic and artwork are excluded.
 
 ## Polski
 
@@ -33,6 +36,9 @@ Rozgrupuj rozdziela zgrupowane obiekty. Rozdziel kontury dzieli jeden niezgrupow
 
 Wybierz dokładny model GCC i sprawdź osie krótkim ruchem z podniesionym narzędziem. Sterowanie maszyną obsługuje powtarzane ruchy, podnoszenie i opuszczanie narzędzia oraz Powrót do początku. Powrót prowadzi do przygotowanego początku; nie szuka krańcówki ani nie uruchamia elektroniki ponownie. Po ruchu głowicy z panelu plotera połącz się ponownie.
 
+Profile GCC Puma II obsługują bezpośrednie wyjście USB i mają domyślne osie modelu. Graphtec CE LITE-50 może po zadaniu wrócić do ustawionego początku z podniesionym narzędziem.
+
+Diagnostyka sesji może obejmować model, postęp transmisji i stan wejść USB–serial, np. CTS przy otwarciu portu. Pomija adresy urządzeń, surowe dane komunikacji i grafikę.
 
 ## Deutsch
 
@@ -49,6 +55,9 @@ Gruppierung aufheben trennt gruppierte Objekte. Konturen trennen zerlegt eine un
 
 Wähle das genaue GCC-Modell und prüfe die Achsen mit einer kurzen Bewegung bei angehobenem Werkzeug. Die Maschinensteuerung bietet wiederholte Bewegungen, Werkzeug heben/senken und Rückkehr zum Ursprung. Sie fährt zum vorbereiteten Ursprung, sucht keinen Endschalter und startet die Elektronik nicht neu. Verbinde nach einer Kopfbewegung über das Plotterbedienfeld erneut.
 
+GCC Puma II Profile bieten direkte USB-Ausgabe und passende Standardachsen. Graphtec CE LITE-50 kann nach dem Auftrag mit angehobenem Werkzeug zum vorbereiteten Ursprung zurückkehren.
+
+Die Diagnose kann Modell, Fortschritt und USB-Seriellsignale wie CTS beim Öffnen des Ports enthalten. Geräteadressen, Rohdaten der Verbindung und Motive bleiben außen vor.
 
 ## Español
 
@@ -65,3 +74,6 @@ Desagrupar separa objetos agrupados. Separar contornos divide un dibujo sin agru
 
 Elige el modelo GCC exacto y comprueba los ejes con un movimiento corto con la herramienta levantada. El control de máquina permite movimientos repetidos, subir/bajar la herramienta y volver al origen preparado; no busca un final de carrera ni reinicia la electrónica. Vuelve a conectar tras mover el cabezal desde el panel del plóter.
 
+Los perfiles GCC Puma II ofrecen salida USB directa y ejes predeterminados del modelo. Graphtec CE LITE-50 puede volver al origen preparado con la herramienta levantada al terminar.
+
+El diagnóstico de la sesión puede incluir el modelo, el progreso y señales USB–serie como CTS al abrir el puerto. Excluye direcciones de dispositivos, tráfico sin procesar y diseños.

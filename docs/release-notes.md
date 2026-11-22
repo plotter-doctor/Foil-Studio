@@ -1,13 +1,14 @@
 # Foil Studio release notes
 
-## 0.1.145 prepared for Google Play
+## 0.1.150
 
-**0.1.145 (166)**. Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026.
+Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is prepared for production.
 
-See the [four-language release record](releases/0.1.145.md), [current guide](user-manual.md), [manual downloads](manual/README.md), [reviewer guide](reviewer-guide.md) and [validation scope](validation-2026-11-15.md).
+[Four-language release details](releases/0.1.150.md) · [Manual downloads](manual/README.md) · [Reviewer guide](reviewer-guide.md)
 
 ## Versioned release records
 
+- [0.1.150](releases/0.1.150.md)
 - [0.1.145](releases/0.1.145.md): prepared for production submission.
 - [0.1.129](releases/0.1.129.md): available since 9 November 2026; original submission record preserved.
 - [0.1.127](releases/0.1.127.md): available in Google Play since 7 November 2026; its versioned notes retain the original submission context.

@@ -1,8 +1,8 @@
 # Foil Studio user manual
 
-Android 0.1.145 (166)  ·  15 November 2026
+Android 0.1.150 (171)  ·  22 November 2026
 
-Use this manual to take a project from editable artwork to cutting, pen drawing, passive engraving or scoring. It covers Foil Studio for Android 0.1.145 (166), including object settings, production layouts, Print & Cut and the current plotter connection workflows.
+Use this manual to take a project from editable artwork to cutting, pen drawing, passive engraving or scoring. It covers Foil Studio for Android 0.1.150 (171), including object settings, production layouts, Print & Cut and the current plotter connection workflows.
 
 ## 01 Your first project
 
@@ -102,7 +102,7 @@ Example in Help: Plotter calibration
 
 ### GCC plotters
 
-Choose the exact GCC model and verify the coordinate axes with a small raised-tool move. Machine control supports repeated jogs, tool up/down and Return to origin. This returns to the prepared origin; it does not find a limit switch or restart the electronics. Reconnect after moving the head from the plotter panel.
+Choose the exact GCC model and verify the coordinate axes with a small raised-tool move. Puma II profiles default to X forward and Y left. The Puma II USB-PRINTER connection sends commands only. Machine control supports repeated jogs, tool up/down and Return to origin. This returns to the prepared origin; it does not find a limit switch or restart the electronics. Reconnect after moving the head from the plotter panel.
 
 GCC jobs use separate stages for different tools. Install and confirm each tool before its stage. Knife and pen select their own tool mode. For scoring or engraving, select the matching mode on the plotter panel. Force, speed and acceleration stay panel-controlled. Keep firmware blade offset and overcut off when the app compensates the knife.
 
@@ -274,9 +274,13 @@ Add → Box wizard and Craft wizard create parts with separate cutting, scoring,
 
 Select a generated part and reopen its wizard from Edit. Change dimensions, quantities or sheets and inspect the preview.
 
+The Box and Craft wizards hide the preview while the keyboard is open. Dismiss the keyboard to see the updated preview.
+
 Regeneration can replace manual edits. Read the confirmation and assembly instructions before applying changes.
 
 Open Details for setting explanations. In the box wizard, open Assembly for folding instructions.
+
+Box cuts keep their order. Consecutive operations with the same knife and settings run from one start. A settings change pauses the job so you can check the next stage with the knife still installed.
 
 Choose a no-glue box for captured corners and locking walls. Start with the lock-fit coupon, enter measured stock thickness and adjust lock clearance. Lock width controls the retaining tongues; lid clearance remains separate.
 
@@ -534,7 +538,7 @@ In Plotter connection, choose vendor, model and connection, then select a device
 
 FilmCut job G-code applies only to FilmCut. Saved Header and Footer commands remain available when you switch back; other plotters do not send them.
 
-Choose the loaded size in Prepare → Cutting mat. Work area presets cover registered plotter widths; change the length with Resize mat or save a custom mat. These sizes describe the usable design area, not the outside of a carrier mat.
+Choose the loaded size in Prepare → Cutting mat. Prepare warns when the mat exceeds the selected plotter’s known cutting width. Work area presets cover registered plotter widths; adjust the dimensions with Resize mat or save a custom mat. These sizes describe the usable design area, not the outside of a carrier mat.
 
 In Mat library, tap a record to apply it. With large text or a short window, section icons switch between materials, tools and mats; the plus icon adds a custom record. Hold an icon for its name.
 
@@ -558,6 +562,8 @@ Home raises the tool and returns to the logical origin established for this conn
 
 Review the tool sequence before starting. Fit and confirm the first tool. After each stage, wait until all movement stops and confirm completion. The next tool stays visible in Cut: choose Change tool, fit it and confirm before starting its stage. Uploading data does not confirm finished motion. Keep the material in place during tool changes.
 
+Box cuts keep their order. Consecutive operations with the same knife and settings run from one start. A settings change pauses the job so you can check the next stage with the knife still installed.
+
 VEVOR KH, KI, SK, KW, X, Y and B models use one DMPL profile per model. Smart models keep their own protocol. Direct USB uses USB printer interface with XON/XOFF off by default; grant Android access. The same connection and movement handling applies to all these DMPL profiles. Choose the model again if an older HPGL profile is no longer listed. Check axes and prepare the job again. Set the actual loaded work area; an unspecified width is not a verified limit. HPGL/DMPL Machine control is available in Free. Starting a job requires Basic.
 
 Draw a rectangle with a pen, measure X and Y between line centres, then enter both measurements. Keep controller scaling at 100%. Use the previous correction only if it was used for this test. New correction = test correction × requested / measured.
@@ -572,9 +578,11 @@ After connecting through a USB printer interface, open USB device information to
 
 For CE LITE-50, choose its Graphtec profile and USB connection. Select HPGL and LOWER LEFT origin on the plotter. Keep the profile axes: X forward, Y right. USB transfer follows the free buffer space reported by the plotter. Set force and speed on its panel. Work area 498 mm covers the maximum cutting width; resize its length to match the loaded material, up to 3000 mm.
 
+On CE LITE-50, select Return to plot origin after cutting in the first start dialog. After the last tool stage, the plotter lifts the tool and moves to the job’s starting origin. Wait until this move ends before confirming completion.
+
 For HPGL/DMPL, the project mat sets the cutting and Machine control bounds and the width used for axis conversion. Connection keeps protocol and transport settings. Match the loaded usable area to the project mat. Model limits are checked before movement.
 
-Choose the loaded size in Prepare → Cutting mat. Work area presets cover registered plotter widths; change the length with Resize mat or save a custom mat. These sizes describe the usable design area, not the outside of a carrier mat.
+Choose the loaded size in Prepare → Cutting mat. Prepare warns when the mat exceeds the selected plotter’s known cutting width. Work area presets cover registered plotter widths; adjust the dimensions with Resize mat or save a custom mat. These sizes describe the usable design area, not the outside of a carrier mat.
 
 In Mat library, tap a record to apply it. With large text or a short window, section icons switch between materials, tools and mats; the plus icon adds a custom record. Hold an icon for its name.
 
@@ -700,7 +708,7 @@ Open More, then Report a plotter problem or Request a new plotter. Select the af
 
 Describe the problem, expected result and steps to reproduce it. The report can include the selected plotter and recent connection metadata. It does not run a device test.
 
-Diagnostics cover this app session: model, protocol, transfer settings, progress, acknowledgements and error categories. They exclude device addresses, raw commands, replies and artwork.
+Session diagnostics can include the model, transfer progress and USB–serial modem inputs such as CTS when the port opens. Device addresses, raw traffic and artwork are excluded.
 
 Attaching the full project is off by default. The complete project may contain names, text, photos and imported artwork. Attach it only if you want support to receive it.
 

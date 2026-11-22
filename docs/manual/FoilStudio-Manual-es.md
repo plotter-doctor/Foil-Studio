@@ -1,8 +1,8 @@
 # Foil Studio manual de usuario
 
-Android 0.1.145 (166)  ·  15 de noviembre de 2026
+Android 0.1.150 (171)  ·  22 de noviembre de 2026
 
-Este manual te guía desde un diseño editable hasta el corte, el dibujo con bolígrafo, el grabado pasivo y el hendido. Describe Foil Studio para Android 0.1.145 (166), incluidos los ajustes de objetos, las composiciones de producción, Print & Cut y los procedimientos actuales de conexión de plóteres.
+Este manual te guía desde un diseño editable hasta el corte, el dibujo con bolígrafo, el grabado pasivo y el hendido. Describe Foil Studio para Android 0.1.150 (171), incluidos los ajustes de objetos, las composiciones de producción, Print & Cut y los procedimientos actuales de conexión de plóteres.
 
 ## 01 Tu primer proyecto
 
@@ -102,7 +102,7 @@ Ejemplo en la ayuda: Calibración del plotter
 
 ### Plóteres GCC
 
-Elige el modelo GCC exacto y comprueba los ejes con un movimiento corto con la herramienta levantada. El control de máquina permite movimientos repetidos, subir/bajar la herramienta y volver al origen preparado; no busca un final de carrera ni reinicia la electrónica. Vuelve a conectar tras mover el cabezal desde el panel del plóter.
+Elige el modelo GCC exacto y comprueba los ejes con un movimiento corto con la herramienta levantada. En los perfiles Puma II, X apunta hacia delante e Y hacia la izquierda de forma predeterminada. La conexión USB-PRINTER de Puma II solo envía comandos. El control de máquina permite movimientos repetidos, subir/bajar la herramienta y volver al origen preparado; no busca un final de carrera ni reinicia la electrónica. Vuelve a conectar tras mover el cabezal desde el panel del plóter.
 
 Los trabajos GCC usan etapas separadas para herramientas distintas. Instala y confirma cada herramienta antes de su etapa. Cuchilla y lápiz seleccionan su propio modo. Para hendido o grabado, selecciona el modo adecuado en el panel del plóter. Presión, velocidad y aceleración se ajustan en el panel. Desactiva la compensación y el sobrecorte del plóter cuando la app compense la cuchilla.
 
@@ -274,9 +274,13 @@ Añadir → Asistente de cajas y de manualidades crea piezas con funciones separ
 
 Selecciona una pieza generada y vuelve a abrir su asistente desde «Editar». Cambia medidas, cantidades u hojas y revisa la vista previa.
 
+Los asistentes de cajas y de manualidades ocultan la vista previa mientras el teclado está abierto. Oculta el teclado para ver la vista previa actualizada.
+
 Regenerar puede reemplazar cambios manuales. Lee la confirmación y las instrucciones de montaje antes de aplicar.
 
 Abre Detalles para consultar las explicaciones de los ajustes. En el asistente de cajas, abre Montaje para ver las instrucciones de plegado.
+
+Los cortes de la caja conservan su orden. Las operaciones consecutivas con la misma cuchilla y los mismos ajustes se ejecutan con un solo inicio. Si cambian los ajustes, el trabajo se detiene para que compruebes la siguiente etapa con la cuchilla instalada.
 
 Elige una caja sin pegamento con esquinas retenidas y paredes encajables. Empieza con la muestra de ajuste, introduce el grosor medido del material y ajusta la holgura de pestaña. El ancho de pestaña define las lengüetas de sujeción; la holgura de la tapa se ajusta por separado.
 
@@ -534,7 +538,7 @@ En Conexión del plóter, elige fabricante, modelo y conexión; después selecci
 
 El G-code del trabajo FilmCut se aplica solo a FilmCut. La cabecera y el pie guardados siguen disponibles al volver; los demás plotters no los envían.
 
-Elige el tamaño cargado en Preparar → Tapete de corte. Los ajustes de área de trabajo incluyen las anchuras registradas de los plóteres; cambia la longitud con Cambiar tamaño del tapete o guarda uno personalizado. Los tamaños describen el área útil del diseño, no el exterior de un tapete portador.
+Elige el tamaño del material cargado en Preparar → Tapete de corte. Preparar avisa si el tapete supera la anchura de corte conocida del plóter seleccionado. Los ajustes de área de trabajo incluyen las anchuras registradas de los plóteres. Ajusta las dimensiones con Cambiar tamaño del tapete o guarda uno personalizado. Los tamaños describen el área útil del diseño, no el exterior del tapete portador.
 
 En la biblioteca de tapetes, toca un registro para usarlo. Con texto grande o ventanas bajas, los iconos cambian entre materiales, herramientas y tapetes; el signo más añade un registro personalizado. Mantén pulsado un icono para ver su nombre.
 
@@ -558,6 +562,8 @@ Inicio eleva la herramienta y vuelve al origen lógico establecido para esta con
 
 Revisa la secuencia antes de empezar. Instala y confirma la primera herramienta. Tras cada etapa, espera a que termine todo movimiento y confirma la finalización. La siguiente herramienta permanece visible en Cortar: elige Cambiar herramienta, instálala y confirma antes de iniciar la etapa. Enviar datos no confirma el fin del movimiento. Mantén el material en su sitio al cambiar herramientas.
 
+Los cortes de la caja conservan su orden. Las operaciones consecutivas con la misma cuchilla y los mismos ajustes se ejecutan con un solo inicio. Si cambian los ajustes, el trabajo se detiene para que compruebes la siguiente etapa con la cuchilla instalada.
+
 Los modelos VEVOR KH, KI, SK, KW, X, Y y B tienen un perfil DMPL por modelo. Los modelos Smart mantienen su propio protocolo. El USB directo usa por defecto la interfaz de impresora USB con XON/XOFF desactivado; permite el acceso en Android. Todos estos perfiles DMPL usan el mismo control de conexión y movimiento. Vuelve a elegir el modelo si un perfil HPGL antiguo ya no aparece. Comprueba los ejes y prepara el trabajo de nuevo. Define el área real cargada; un ancho sin especificar no es un límite verificado. El control de máquina HPGL/DMPL está disponible en Free. Iniciar un trabajo requiere Basic.
 
 Dibuja un rectángulo con bolígrafo, mide X e Y entre los centros de las líneas e introduce ambas medidas. Mantén la escala del controlador al 100 %. Usa la corrección anterior solo si se utilizó en esta prueba. Nueva corrección = corrección de prueba × medida solicitada / medida obtenida.
@@ -572,9 +578,11 @@ Después de conectar mediante una interfaz de impresora USB, abre Información d
 
 Para el CE LITE-50, elige su perfil Graphtec y la conexión USB. Selecciona HPGL y el origen LOWER LEFT en el plóter. Conserva los ejes del perfil: X adelante, Y derecha. La transferencia USB utiliza el espacio libre del búfer que comunica el plóter. Ajusta fuerza y velocidad en su panel. El área de trabajo de 498 mm cubre la anchura máxima de corte; adapta su longitud al material cargado, hasta 3000 mm.
 
+En CE LITE-50, activa Volver al origen de trazado después del corte en el primer diálogo de inicio. Tras la última etapa, el plóter levanta la herramienta y se desplaza al origen del trabajo. Espera a que termine ese movimiento antes de confirmar el final.
+
 En HPGL/DMPL, el tapete del proyecto define los límites de corte y control de máquina y la anchura para convertir los ejes. Conexión contiene los ajustes de protocolo y transporte. Haz coincidir el área útil cargada con el tapete del proyecto. Los límites del modelo se comprueban antes de mover.
 
-Elige el tamaño cargado en Preparar → Tapete de corte. Los ajustes de área de trabajo incluyen las anchuras registradas de los plóteres; cambia la longitud con Cambiar tamaño del tapete o guarda uno personalizado. Los tamaños describen el área útil del diseño, no el exterior de un tapete portador.
+Elige el tamaño del material cargado en Preparar → Tapete de corte. Preparar avisa si el tapete supera la anchura de corte conocida del plóter seleccionado. Los ajustes de área de trabajo incluyen las anchuras registradas de los plóteres. Ajusta las dimensiones con Cambiar tamaño del tapete o guarda uno personalizado. Los tamaños describen el área útil del diseño, no el exterior del tapete portador.
 
 En la biblioteca de tapetes, toca un registro para usarlo. Con texto grande o ventanas bajas, los iconos cambian entre materiales, herramientas y tapetes; el signo más añade un registro personalizado. Mantén pulsado un icono para ver su nombre.
 
@@ -700,7 +708,7 @@ Abre Más y luego Informar de un problema del plóter o Solicitar un nuevo plót
 
 Describe el problema, el resultado esperado y los pasos para reproducirlo. El informe puede incluir el plóter seleccionado y metadatos recientes de conexión. No ejecuta una prueba del dispositivo.
 
-El diagnóstico abarca esta sesión: modelo, protocolo, ajustes de transferencia, progreso, confirmaciones y categorías de error. Excluye direcciones, comandos sin procesar, respuestas y diseños.
+El diagnóstico de la sesión puede incluir el modelo, el progreso y señales USB–serie como CTS al abrir el puerto. Excluye direcciones de dispositivos, tráfico sin procesar y diseños.
 
 Adjuntar el proyecto completo está desactivado de forma predeterminada. El proyecto completo puede contener nombres, texto, fotos y diseños importados. Adjúntalo solo si quieres enviarlo al soporte.
 

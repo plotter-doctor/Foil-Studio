@@ -1,6 +1,6 @@
 # Foil Studio privacy policy
 
-Effective 28 September 2026. Reviewed 15 November 2026 for Android version 0.1.145 and its Free, Basic and Pro access model. Release status is recorded in the [version guide](docs/release-notes.md). The established publisher/contact and support-retention terms below are unchanged.
+Effective 28 September 2026. Reviewed 22 November 2026 for Android version 0.1.150 and its Free, Basic and Pro access model. Release status is recorded in the [version guide](docs/release-notes.md). The established publisher/contact and support-retention terms below are unchanged.
 
 Publisher: **PAWEŁ RATAŃCZUK INTEGRATEIT**. Support and privacy contact: [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com).
 
@@ -36,7 +36,7 @@ Local settings and recovery/project data remain until replaced or deleted, or un
 
 For support or privacy questions, contact [pratanczuk@gmail.com](mailto:pratanczuk@gmail.com). Use this email rather than a public issue for privacy requests. Do not send passwords or payment-card details.
 
-Optional support reports are prepared locally for review before you choose an email application and send them.
+Optional support reports are prepared locally for review before you choose an email application and send them. The connection diagnostics may include modem inputs, such as CTS, sampled when a supported USB–serial adapter port opened. You can omit connection diagnostics from the report.
 
 Support email correspondence is used to respond to your request and is deleted within 12 months after the request is resolved, unless longer retention is legally required. This includes the email address, message contents, and any attachments you choose to send. To request earlier deletion, contact the privacy address above.
 

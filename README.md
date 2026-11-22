@@ -15,7 +15,7 @@ Create artwork, prepare material jobs and send them to a compatible plotter in t
 
 ## Versions
 
-Reviewed 15 November 2026. The current guides describe **0.1.145 (166)**. Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026. Check the installed version and [versioned release notes](docs/releases/0.1.145.md).
+Reviewed 22 November 2026. The current guides describe **0.1.150 (171)**. Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is prepared for production. Check the installed version and [versioned release notes](docs/releases/0.1.150.md).
 
 ## Artwork, materials and jobs
 
@@ -39,9 +39,11 @@ Machine control offers 0.1, 1, 5, 10, 50 and 100 mm in one row. Project contains
 
 Non-Smart VEVOR profiles use DMPL with improved direct USB and serial handling. GCC profiles add model-specific command framing, manual control, logical origin return and manual Print & Cut; force and speed remain panel-controlled. USB printer connections accept supported one-way interfaces and show optional reported Device ID information. Choose the exact model and language yourself. IEEE 1284.4 remains unavailable.
 
+Puma II profiles offer direct USB output on the supported interface. CE LITE-50 offers an optional raised-tool return to the prepared origin. Cut warns when the mat exceeds the selected profile’s width. The support report can include adapter modem inputs when available.
+
 ## Compatibility and access
 
-Choose the exact plotter profile and supported transport. FilmCut/GRBL, supported Silhouette/VEVOR Smart and named raw-protocol profiles have different capabilities. USB, Bluetooth Classic, BLE and TCP support is model dependent. Simulator results do not establish physical cut quality or qualify every model/firmware. Use a trusted network for TCP and supervise real machines.
+Choose the exact plotter profile and supported transport. FilmCut/GRBL, supported Silhouette/VEVOR Smart and named raw-protocol profiles have different capabilities. USB, Bluetooth Classic, BLE and TCP support is model dependent. Use a trusted network for TCP and supervise real machines.
 
 The app is free to install. Free supports design/editing, previews and active-design recovery; Basic unlocks named saves, export, printing and production. Optional Pro adds Box/Craft wizard creation and regeneration and includes Basic while active. Restore purchases with the same Google Play account. See the [guide](docs/user-manual.md#projects-languages-and-purchases).
 

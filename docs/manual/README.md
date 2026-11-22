@@ -1,6 +1,6 @@
 # Foil Studio manuals
 
-Reviewed 15 November 2026 for **0.1.145 (166)**. Submitted to Google Play for production review on 15 November 2026, with full rollout requested after approval. Play Console shows changes in review. Approval and public availability of 0.1.145 are not yet confirmed. The last confirmed available production version is 0.1.129 (150), available since 9 November 2026. Check your installed version against the [version guide](../release-notes.md).
+Reviewed 22 November 2026 for **0.1.150 (171)**. Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is prepared for production. Check your installed version against the [version guide](../release-notes.md).
 
 ## Complete manuals in four languages
 
@@ -13,7 +13,7 @@ Reviewed 15 November 2026 for **0.1.145 (166)**. Submitted to Google Play for pr
 
 [Download all four languages as ZIP](FoilStudio-Manual-All-Languages.zip).
 
-These complete manuals cover the current shared help and examples. Their language editions are maintained together. They explain layer-only material assignment, production-job review, active-project recovery, the square-grid calibration, reversible plotter preparation, direct Cut start, current licence, one-row manual distances, selection splitting, USB device information, machine calibration and model-specific GCC/VEVOR workflows.
+These complete manuals cover the current shared help and examples. Their language editions are maintained together. They explain layer-only material assignment, production-job review, active-project recovery, the square-grid calibration, reversible plotter preparation, direct Cut start, current licence, one-row manual distances, selection splitting, USB device information, machine calibration and model-specific GCC/VEVOR workflows. The 0.1.150 edition includes the Puma II USB setup, optional CE LITE-50 origin return, and plotter support diagnostics.
 
 ## Concise English workflow guide
 
@@ -22,4 +22,4 @@ These complete manuals cover the current shared help and examples. Their languag
 - [Editable Word guide](FoilStudio-User-Manual.docx)
 - [Four-language quick start](../quick-start.md)
 
-The concise downloads are generated from the web guide. Downloaded pages are rendered and visually checked before publication. Historical downloads retain their original version context.
+The concise downloads are generated from the web guide. Historical downloads retain their original version context.

@@ -1,6 +1,6 @@
 # Android screenshot versions
 
-Reviewed 22 November 2026 for 0.1.150 (171). Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is prepared for production. See the [version guide](../docs/release-notes.md).
+Reviewed 22 November 2026 for 0.1.150 (171). Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is under Google Play review. See the [version guide](../docs/release-notes.md).
 
 ## Retained 0.1.129 samples
 

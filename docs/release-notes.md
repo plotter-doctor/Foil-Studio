@@ -2,14 +2,14 @@
 
 ## 0.1.150
 
-Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is prepared for production.
+Google Play currently offers 0.1.145 (166). Version 0.1.150 (171) is under Google Play review.
 
 [Four-language release details](releases/0.1.150.md) · [Manual downloads](manual/README.md) · [Reviewer guide](reviewer-guide.md)
 
 ## Versioned release records
 
 - [0.1.150](releases/0.1.150.md)
-- [0.1.145](releases/0.1.145.md): prepared for production submission.
+- [0.1.145](releases/0.1.145.md): published 16 November 2026.
 - [0.1.129](releases/0.1.129.md): available since 9 November 2026; original submission record preserved.
 - [0.1.127](releases/0.1.127.md): available in Google Play since 7 November 2026; its versioned notes retain the original submission context.
 - [0.1.116](releases/0.1.116.md): current Google Play production version at the 7 November review; multi-plotter catalogue, connections, preparation, Print & Cut and imports.
